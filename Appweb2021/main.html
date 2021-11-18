@@ -1,16 +1,13 @@
 <html lang="fr">
-  <head>  <script src="client.js"></script></head>
+  <head> 
+    <title>
+      EMT 2021-2022
+    </title>
+    <link rel="stylesheet" href="main.css"></link> 
+  </head>
   <body>
-    Bonjour <span id="prenom"></span>, voici les données de la voiture : <br/>
-    Temps :
-    <p id="temps"></p> <br/>
-    Vitesse :
-    <p id="vitesse"></p> <br/>
-    Conso :
-    <p id="conso"></p> <br/>
-    <div id="adduser">
-			<form action="" method="post" id="signup">
-        <h3>Ajouter un utilisateur</h3>
+    <div id="connexion">
+				<h1>S'identifier</h1>
 				<div class="field">
 					<label for="login">Identifiant :</label>
 					<input type="text" id="login" name="login" placeholder="Identifiant" />
@@ -19,6 +16,28 @@
 				<div class="field">
 					<label for="mdp">Mot de passe :</label>
 					<input type="password" id="mdp" name="mdp" placeholder="Mot de passe" />
+					<small></small>
+				</div>
+				<div class="field">
+					<button type="button" id="loginbutton" name="loginbutton">S'identifier</button>
+				</div>
+      </div>
+    <div id=data>
+      Bonjour <span id="prenom"></span>, voici les données de la voiture : <br/>
+      Temps : <span id="temps"></span> <br/>
+      Vitesse : <span id="vitesse"></span> <br/>
+      Conso : <span id="conso"></span> <br/>
+    </div>
+    <div id="adduser">
+        <h3>Ajouter un utilisateur</h3>
+				<div class="field">
+					<label for="login1">Identifiant :</label>
+					<input type="text" id="login1" name="login1" placeholder="Identifiant" />
+					<small></small>
+				</div>
+				<div class="field">
+					<label for="mdp1">Mot de passe :</label>
+					<input type="password" id="mdp1" name="mdp1" placeholder="Mot de passe" />
 					<small></small>
                 <div class="field">
 					<label for="nom">Nom :</label>
@@ -38,11 +57,12 @@
           </select>
         </div>
 				<div class="field">
-					<button type="submit" class="full">Ajouter l'utilisateur</button>
+					<button type="button" id="adduserbutton" name="adduserbutton">Ajouter l'utilisateur</button>
 				</div>
 				
-			</form>
+			
 		</div>
     
   </body>
+  <footer><script src="client.js"></script> </footer>
 </html>
