@@ -65,7 +65,10 @@ wss.on("connection", function(ws){
         if(obj.event=="adduser"){
             addsqluser(obj);
         }
-
+        if(obj.event=="dataFromCar"){
+            data=JSON.stringify(obj);
+            wss.clients.forEach(client => client.send(data));
+        }
 
     })
 
@@ -74,8 +77,4 @@ wss.on("connection", function(ws){
     })
 
 })
-/*
-for(var Client of tabl){
-    Client.send(JSON.stringify({data}))
-}
-*/
+

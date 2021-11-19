@@ -30,3 +30,6 @@
 #addusermenu{
     display:none;
 }
+#addusererror, #addusersuccess{
+    display:none;
+}

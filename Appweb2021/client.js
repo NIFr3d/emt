@@ -40,6 +40,11 @@ function StartWebSocket(logs){
         document.getElementById("addusermenu").style.display="block";
       }
     }
+    if (data.event=="dataFromCar"){
+      document.getElementById("temps").innerHTML = data.temps;
+      document.getElementById("vitesse").innerHTML = data.vitesse;
+      document.getElementById("conso").innerHTML = data.consommation;
+    }
   };
   
   socket.onclose = function(event) {
@@ -62,6 +67,8 @@ function StartWebSocket(logs){
        addUserMenuShown=true;
        } else {
         document.getElementById("adduser").style.display="none";
+        document.getElementById("addusersuccess").style.display="none";
+        document.getElementById("addusererror").style.display="none";
         addUserMenuShown=false;
        }
   }
@@ -74,8 +81,15 @@ function StartWebSocket(logs){
       mdp:document.getElementById("mdp1").value,
       acces:document.getElementById("acces1").value,
     }
-    
-    socket.send(JSON.stringify(toSend));
+    if(toSend.userid!="" && toSend.nom!="" && toSend.prenom!="" && toSend.mdp!="" && toSend.acces!=""){
+      socket.send(JSON.stringify(toSend));
+      document.getElementById("addusererror").style.display="none";
+      document.getElementById("addusersuccess").style.display="block";
+    }
+    else{
+      document.getElementById("addusererror").style.display="block";
+      document.getElementById("addusersuccess").style.display="none";
+    }
   }
 }
 
