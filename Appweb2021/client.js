@@ -1,6 +1,7 @@
 let socket; 
 var data;
 var loginfos;
+
 if (sessionStorage.length==0){
       document.getElementById("connexion").style.display="block";
       document.getElementById("loginbutton").onclick=function(){
@@ -31,13 +32,14 @@ function StartWebSocket(logs){
     if (data.event=="connexion"){
       document.getElementById("connexion").style.display="none";
       document.getElementById("data").style.display="block";
+      document.getElementById("nav").style.display="inline-block";
       document.getElementById("prenom").innerHTML = data.prenom;
       document.getElementById("temps").innerHTML = data.temps;
       document.getElementById("vitesse").innerHTML = data.vitesse;
       document.getElementById("conso").innerHTML = data.consommation;
       var acces=data.acces;
       if (acces==1) {
-        document.getElementById("addusermenu").style.display="block";
+        document.getElementById("addusermenu").style.display="inline-block";
       }
     }
     if (data.event=="dataFromCar"){
@@ -49,10 +51,15 @@ function StartWebSocket(logs){
   
   socket.onclose = function(event) {
     if (event.wasClean) {
-      if (event.code==4001 || event.code==4002) {
-        alert(event.reason);
+      if (event.code==4001){ 
+        document.getElementById("loginerror").style.display="block";
+        document.getElementById("mdperror").style.display="none";
         sessionStorage.clear();
-        window.location.replace("main.html");
+      }
+      if (event.code==4002) {
+        document.getElementById("mdperror").style.display="block";
+        document.getElementById("loginerror").style.display="none";
+        sessionStorage.clear();
       }
     }
   };
@@ -60,19 +67,19 @@ function StartWebSocket(logs){
   socket.onerror = function(error) {
     console.dir(error)
   };
-  var addUserMenuShown=false;
-  document.getElementById("addusermenu").onclick=function(){
-    if (!addUserMenuShown){
-       document.getElementById("adduser").style.display="block";
-       addUserMenuShown=true;
-       } else {
-        document.getElementById("adduser").style.display="none";
-        document.getElementById("addusersuccess").style.display="none";
-        document.getElementById("addusererror").style.display="none";
-        addUserMenuShown=false;
-       }
+  document.getElementById("addusermenu").onclick=function(){ //bouton menu d'ajout d'utilisateur
+    document.getElementById("adduser").style.display="block";
+    document.getElementById("data").style.display="none";
   }
-  document.getElementById("adduserbutton").onclick=function(){
+  document.getElementById("mainmenu").onclick=function(){ //bouton accueil
+    document.getElementById("adduser").style.display="none";
+    document.getElementById("data").style.display="block";
+  }
+  document.getElementById("logout").onclick=function(){ //bouton déconnexion
+    sessionStorage.clear();
+    window.location.replace("main.html");
+  }
+  document.getElementById("adduserbutton").onclick=function(){ //ajout d'utilisateur
     toSend={
       event:"adduser",
       userid:document.getElementById("login1").value,
@@ -81,12 +88,12 @@ function StartWebSocket(logs){
       mdp:document.getElementById("mdp1").value,
       acces:document.getElementById("acces1").value,
     }
-    if(toSend.userid!="" && toSend.nom!="" && toSend.prenom!="" && toSend.mdp!="" && toSend.acces!=""){
+    if(toSend.userid!="" && toSend.nom!="" && toSend.prenom!="" && toSend.mdp!="" && toSend.acces!=""){ //on vérifie qu'aucun champ n'est vide
       socket.send(JSON.stringify(toSend));
       document.getElementById("addusererror").style.display="none";
       document.getElementById("addusersuccess").style.display="block";
     }
-    else{
+    else{ //on affiche une erreure si les champs ont été mal remplis
       document.getElementById("addusererror").style.display="block";
       document.getElementById("addusersuccess").style.display="none";
     }

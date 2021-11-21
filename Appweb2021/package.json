@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "canvas-gauges": "^2.1.7",
     "mssql": "^7.2.1",
     "mysql": "^2.18.1",
     "node": "^17.0.1",
