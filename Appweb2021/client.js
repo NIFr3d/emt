@@ -1,6 +1,9 @@
 let socket; 
 var data;
 var loginfos;
+var lastuserlistlength=0;
+var userlist;
+var userlistexist=false;
 
 if (sessionStorage.length==0){
       document.getElementById("connexion").style.display="block";
@@ -40,12 +43,48 @@ function StartWebSocket(logs){
       var acces=data.acces;
       if (acces==1) {
         document.getElementById("addusermenu").style.display="inline-block";
+        document.getElementById("removeusermenu").style.display="inline-block";
       }
     }
     if (data.event=="dataFromCar"){
       document.getElementById("temps").innerHTML = data.temps;
       document.getElementById("vitesse").innerHTML = data.vitesse;
       document.getElementById("conso").innerHTML = data.consommation;
+    }
+    if (data.event=="userlist"){
+      tableau=document.getElementById("userlist"); //on vide le tableau avant de le remplir avec la liste actuelle
+      console.log(lastuserlistlength)
+      if(lastuserlistlength!=0){
+        for (var i=0;i<lastuserlistlength+1;i++){
+          tableau.deleteRow(-1);
+        }
+      }
+      userlist=data.list;
+      for(var i=0;i<userlist.length;i++){
+        var nomtemp = userlist[i].nom;
+        var prenomtemp = userlist[i].prenom;
+        var useridtemp = userlist[i].userid;
+        var tableRef = document.getElementById("userlist").getElementsByTagName("tbody")[0];
+        var newRow = tableRef.insertRow(tableRef.rows.length);
+        newRow.innerHTML = "<td>"+nomtemp+"</td>"+"<td>"+prenomtemp+"</td>"+"<td>"+useridtemp+"</td>"+'<button type="button" id="suppuser'+i+'">Supprimer</button>';
+        lastuserlistlength=i
+      }
+      userlistexist=true;
+      function buttonclickdeluser(i){ //obligé de créer une fonction a cause de boucle for
+        return function(){
+          console.log(userlist[i].userid);
+            toSend={
+              event:"deluser",
+              userid:userlist[i].userid
+            }
+            socket.send(JSON.stringify(toSend));
+        }
+      }
+      if(userlistexist){
+        for(var i=0;i<userlist.length;i++){
+          document.getElementById("suppuser"+i).onclick=buttonclickdeluser(i);
+        }
+      }
     }
   };
   
@@ -70,10 +109,21 @@ function StartWebSocket(logs){
   document.getElementById("addusermenu").onclick=function(){ //bouton menu d'ajout d'utilisateur
     document.getElementById("adduser").style.display="block";
     document.getElementById("data").style.display="none";
+    document.getElementById("removeuser").style.display="none";
   }
   document.getElementById("mainmenu").onclick=function(){ //bouton accueil
     document.getElementById("adduser").style.display="none";
     document.getElementById("data").style.display="block";
+    document.getElementById("removeuser").style.display="none";
+  }
+  document.getElementById("removeusermenu").onclick=function(){ //bouton suppression d'utilisateur
+    document.getElementById("adduser").style.display="none";
+    document.getElementById("data").style.display="none";
+    document.getElementById("removeuser").style.display="block";
+    toSend={
+      event:"getuserlist"
+    }
+    socket.send(JSON.stringify(toSend))
   }
   document.getElementById("logout").onclick=function(){ //bouton déconnexion
     sessionStorage.clear();
@@ -100,3 +150,4 @@ function StartWebSocket(logs){
   }
 }
 
+  

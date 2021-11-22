@@ -14,6 +14,10 @@ function getsqlusers(userid){
  function addsqluser(json){
      con.query("INSERT INTO `utilisateur` (`nom`, `prenom`, `mdp`, `acces`, `userid`) VALUES ('"+json.nom+"', '"+json.prenom+"', '"+json.mdp+"', '"+json.acces+"', '"+json.userid+"')");
  }
+ function getuserslist(){
+     result=con.query("SELECT `nom`, `prenom`, `userid` FROM `utilisateur`")
+     return result;
+ }
  function sqlquery(query){
      con.query(query);
  }
@@ -68,6 +72,17 @@ wss.on("connection", function(ws){
         if(obj.event=="dataFromCar"){
             data=JSON.stringify(obj);
             wss.clients.forEach(client => client.send(data));
+        }
+        if(obj.event=="getuserlist"){
+            userlist=getuserslist()
+            toSend={
+                event:"userlist",
+                list:userlist
+            }
+            ws.send(JSON.stringify(toSend))
+        }
+        if(obj.event=="deluser"){
+            
         }
 
     })

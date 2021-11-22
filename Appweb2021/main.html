@@ -29,6 +29,7 @@
 	  <div id="nav">
 		<button type="button" id="mainmenu">Accueil</button> 
 		<button type="button" id="addusermenu">Ajouter un utilisateur</button>
+		<button type="button" id="removeusermenu">Supprimer un utilisateur</button>
 		<button type="button" id="logout">Déconnexion</button>
 	  </div>
     <div id=data>
@@ -39,37 +40,54 @@
     </div>
 	
     <div id="adduser">
-        		<div class="field">
-					<label for="login1">Identifiant :</label>
-					<input type="text" id="login1" name="login1" placeholder="Identifiant" />
-					<small></small>
-				</div>
-				<div class="field">
-					<label for="mdp1">Mot de passe :</label>
-					<input type="password" id="mdp1" name="mdp1" placeholder="Mot de passe" />
-					<small></small>
-                <div class="field">
-					<label for="nom1">Nom :</label>
-					<input type="text" id="nom1" name="nom1" placeholder="Nom" />
-					<small></small>
-                <div class="field">
-					<label for="prenom1">Prénom :</label>
-					<input type="text" id="prenom1" name="prenom1" placeholder="Prénom" />
-					<small></small>
-				</div>
-        <div>
-          <label for="acces1">Type d'accès :</label>
-          <select name="acces"1 id="acces1">
-          <option value="">--Choisissez une option--</option>
-          <option value=0>Normal</option>
-          <option value=1>Superutilisateur</option>
-          </select>
-        </div>
+        	<div class="field">
+				<label for="login1">Identifiant :</label>
+				<input type="text" id="login1" name="login1" placeholder="Identifiant" />
+				<small></small>
+			</div>
+			<div class="field">
+				<label for="mdp1">Mot de passe :</label>
+				<input type="password" id="mdp1" name="mdp1" placeholder="Mot de passe" />
+				<small></small>
+			</div>
+            <div class="field">
+				<label for="nom1">Nom :</label>
+				<input type="text" id="nom1" name="nom1" placeholder="Nom" />
+				<small></small>
+			</div>	
+            <div class="field">
+				<label for="prenom1">Prénom :</label>
+				<input type="text" id="prenom1" name="prenom1" placeholder="Prénom" />
+				<small></small>
+			</div>
+			<div>
+				<label for="acces1">Type d'accès :</label>
+				<select name="acces"1 id="acces1">
+				<option value="">--Choisissez une option--</option>
+				<option value=0>Normal</option>
+				<option value=1>Superutilisateur</option>
+				</select>
+			</div>
 			<div class="field">
 				<button type="button" id="adduserbutton" name="adduserbutton">Ajouter l'utilisateur</button>
 			</div>
 			<div id="addusererror">Veuillez entrer des informations correctes !</div>
 			<div id="addusersuccess">Utilisateur ajouté avec succès !</div>		
+	</div>
+	<div id="removeuser">
+		<table id="userlist">
+			<thead>
+				<tr>
+				  <th>Nom</th>
+				  <th>Prénom</th>
+				  <th>Identifiant</th>
+				  <th>Supprimer ?</th>
+				</tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table>
+		  </table>
 	</div>
     
   </body>

@@ -1,7 +1,4 @@
-#adduser {
-    display:none
-}
-#data{
+#adduser,#data,#removeuser {
     display:none
 }
 #connexion{
@@ -17,8 +14,12 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
+#nav{
+    display:none;
+    width:100%;
+}
 
-#loginbutton,#addusermenu,#adduserbutton,#logout,#mainmenu{
+#loginbutton,#adduserbutton{
     width: 80%;
     background-color: rgb(0, 124, 248);
     color: white;
@@ -28,19 +29,28 @@
     cursor: pointer;
 }
 #logout,#mainmenu{
-    width:50%
+    width:20%;
+    background-color: rgb(0, 124, 248);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
 }
-#addusermenu{
+#addusermenu,#removeusermenu{
     display:none;
-    width:50%;
+    width:20%;
+    background-color: rgb(0, 124, 248);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
 }
 #addusererror, #addusersuccess{
     display:none;
 }
-#nav{
-    margin:none;
-    display:none
-}
+
 #loginerror, #mdperror{
     display:none;
     color:red;
