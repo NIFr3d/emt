@@ -6,16 +6,16 @@ var userlist;
 var userlistexist=false;
 
 if (sessionStorage.length==0){
-      document.getElementById("connexion").style.display="block";
-      document.getElementById("loginbutton").onclick=function(){
-      loginfos={event:"connexionEntrant",
-                userid:document.getElementById("login").value,
-                mdp:document.getElementById("mdp").value
-              };
-      sessionStorage.setItem("userid",loginfos.userid);
-      sessionStorage.setItem("mdp",loginfos.mdp);
-      StartWebSocket(loginfos);
-      }
+		document.getElementById("connexion").style.display="block";
+		document.getElementById("loginbutton").onclick=function(){
+			loginfos={event:"connexionEntrant",
+				userid:document.getElementById("login").value,
+				mdp:document.getElementById("mdp").value
+			};
+			sessionStorage.setItem("userid",loginfos.userid);
+			sessionStorage.setItem("mdp",loginfos.mdp);
+			StartWebSocket(loginfos);
+		}
 } else {
   loginfos={event:"connexionEntrant",
             userid:sessionStorage.getItem("userid"),
@@ -25,7 +25,7 @@ if (sessionStorage.length==0){
 }
     
 
-function StartWebSocket(logs){
+function StartWebSocket(loginfos){
   socket= new WebSocket("ws://localhost:81");
   socket.onopen = function() {
     socket.send(JSON.stringify(loginfos));

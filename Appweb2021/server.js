@@ -42,6 +42,7 @@ wss.on("connection", function(ws){
         console.log(obj);
         if(obj.event=="connexionEntrant"){
             obj.userid=obj.userid.replace("`","") //on empeche les injections sql (piratage) en supprimant les caractères dangereux
+            obj.userid=obj.userid.replace("'","") //on empeche les injections sql (piratage) en supprimant les caractères dangereux
             var result = await getsqlusers(obj.userid); //on fait une requete sql des données associées à l'identifiant entré
             if(result.length==0){ //si le résultat de la requète est vide, l'utilisateur n'existe pas
                 console.log("Utilisateur non trouvé dans la BDD");
@@ -51,7 +52,7 @@ wss.on("connection", function(ws){
             if(obj.mdp!=result[0].mdp){ //si mdp ne correspond pas
                 console.log("Mdp incorrect");
                 ws.close(4002,"Mot de passe incorrect");
-                return
+                return;
             }
             console.log("Utilisateur et mdp correct"); //sinon c'est ok
             var donnees= await getsqldata("SELECT * FROM `data` WHERE `dataid` = 1") //on recup les données depuis mysql
