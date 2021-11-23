@@ -19,7 +19,7 @@
 				<div class="field">
 					<button type="button" id="loginbutton" name="loginbutton">S'identifier</button>
 				</div>
-				<div id="error msg">
+				<div>
 					<span id="loginerror">Identifiant incorrect</span>
 					<span id="mdperror">Mot de passe incorrect</span>
 				</div>
@@ -30,11 +30,16 @@
 		<button type="button" id="removeusermenu">Supprimer un utilisateur</button>
 		<button type="button" id="logout">Déconnexion</button>
 	  </div>
-    <div id=data>
+    <div id="data">
       Bonjour <span id="prenom"></span>, voici les données de la voiture : <br/>
       Temps : <span id="temps"></span> <br/>
       Vitesse : <span id="vitesse"></span> <br/>
       Conso : <span id="conso"></span> <br/>
+	  <button type="button" id="envoitracer">Envoyer le tracé</button>
+	  	<div id="carte">
+			<img src="Cartes/Sans titre.png" width="200" height="200" style="position: absolute;">
+        	<canvas id="canevas" onclick ="carte.js" width="200" height="200" style="position: absolute; border:1px solid #000000 ;"></canvas>
+		</div>
     </div>
 	
     <div id="adduser">
@@ -57,7 +62,7 @@
 			<div>
 				<label for="acces1">Type d'accès :</label>
 				<select name="acces"1 id="acces1">
-				<option value="">--Choisissez une option--</option>
+				<option value=0>--Choisissez une option--</option>
 				<option value=0>Normal</option>
 				<option value=1>Superutilisateur</option>
 				</select>
@@ -83,6 +88,7 @@
 			</table>
 		  </table>
 	</div>
+	
     
   </body>
   <footer><script src="client.js"></script> </footer>

@@ -89,6 +89,10 @@ wss.on("connection", function(ws){
         case "deluser":
             removeusersql(obj.userid);
             break;
+        case "nouveautracer":
+            var base64Data = obj.imageurl.replace("data:image/png;base64,", "");
+            require("fs").writeFile("Cartes/out.png", base64Data, 'base64', function(err) {});
+            break;
         }
 
     })
