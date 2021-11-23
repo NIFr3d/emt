@@ -6,19 +6,19 @@
     <link rel="stylesheet" href="main.css"></link> 
   </head>
   <body>
-	<div id="content">
+	<div class="content">
 		<div id="connexion">
 					<h1>S'identifier</h1>
 					<div class="field">
 						<label for="login">Identifiant :</label> <br/>
-						<input type="text" id="login" name="login" placeholder="Identifiant" />
+						<input type="text" id="login" class="champuser" name="login" placeholder="Identifiant" />
 					</div>
 					<div class="field">
 						<label for="mdp">Mot de passe :</label><br/>
-						<input type="password" id="mdp" name="mdp" placeholder="Mot de passe" />
+						<input type="password" id="mdp" class="champuser" name="mdp" placeholder="Mot de passe" />
 					</div>
 					<div class="field">
-						<button type="button" id="loginbutton" name="loginbutton">S'identifier</button>
+						<button type="button" id="loginbutton" class="bouton" name="loginbutton">S'identifier</button>
 					</div>
 					<div>
 						<span id="loginerror">Identifiant incorrect</span>
@@ -26,17 +26,17 @@
 					</div>
 		</div>
 		<div id="nav">
-			<button type="button" id="mainmenu">Accueil</button> 
-			<button type="button" id="addusermenu">Ajouter un utilisateur</button>
-			<button type="button" id="removeusermenu">Supprimer un utilisateur</button>
-			<button type="button" id="logout">Déconnexion</button>
+			<button type="button" id="mainmenu" class="bouton">Accueil</button> 
+			<button type="button" id="addusermenu" class="bouton">Ajouter un utilisateur</button>
+			<button type="button" id="removeusermenu" class="bouton">Supprimer un utilisateur</button>
+			<button type="button" id="logout" class="bouton">Déconnexion</button>
 		</div>
 		<div id="data">
 		Bonjour <span id="prenom"></span>, voici les données de la voiture : <br/>
 		Temps : <span id="temps"></span> <br/>
 		Vitesse : <span id="vitesse"></span> <br/>
 		Conso : <span id="conso"></span> <br/>
-		<button type="button" id="envoitracer">Envoyer le tracé</button>
+		<button type="button" class="bouton" id="envoitracer">Envoyer le tracé</button>
 			<div id="carte">
 				<img src="Cartes/Sans titre.png" width="200" height="200" style="position: absolute;">
 				<canvas id="canevas" onclick ="carte.js" width="200" height="200" style="position: absolute; border:1px solid #000000 ;"></canvas>
@@ -46,30 +46,30 @@
 		<div id="adduser">
 				<div class="field">
 					<label for="login1">Identifiant :</label>
-					<input type="text" id="login1" name="login1" placeholder="Identifiant" />
+					<input type="text" id="login1" class="champuser" name="login1" placeholder="Identifiant" />
 				</div>
 				<div class="field">
 					<label for="mdp1">Mot de passe :</label>
-					<input type="password" id="mdp1" name="mdp1" placeholder="Mot de passe" />
+					<input type="password" id="mdp1" class="champuser" name="mdp1" placeholder="Mot de passe" />
 				</div>
 				<div class="field">
 					<label for="nom1">Nom :</label>
-					<input type="text" id="nom1" name="nom1" placeholder="Nom" />
+					<input type="text" id="nom1" class="champuser" name="nom1" placeholder="Nom" />
 				</div>	
 				<div class="field">
 					<label for="prenom1">Prénom :</label>
-					<input type="text" id="prenom1" name="prenom1" placeholder="Prénom" />
+					<input type="text" id="prenom1" class="champuser" name="prenom1" placeholder="Prénom" />
 				</div>
 				<div>
 					<label for="acces1">Type d'accès :</label>
-					<select name="acces"1 id="acces1">
+					<select name="acces"1 id="acces1" class="champuser">
 					<option value=0>--Choisissez une option--</option>
 					<option value=0>Normal</option>
 					<option value=1>Superutilisateur</option>
 					</select>
 				</div>
 				<div class="field">
-					<button type="button" id="adduserbutton" name="adduserbutton">Ajouter l'utilisateur</button>
+					<button type="button" id="adduserbutton" class="bouton" name="adduserbutton">Ajouter l'utilisateur</button>
 				</div>
 				<div id="addusererror">Veuillez entrer des informations correctes !</div>
 				<div id="addusersuccess">Utilisateur ajouté avec succès !</div>		
