@@ -5,16 +5,16 @@ var lastuserlistlength=0;
 var userlist;
 
 if (sessionStorage.length==0){
-		document.getElementById("connexion").style.display="block";
-		document.getElementById("loginbutton").onclick=function(){
-			loginfos={event:"connexionEntrant",
-				userid:document.getElementById("login").value,
-				mdp:document.getElementById("mdp").value
-			};
-			sessionStorage.setItem("userid",loginfos.userid);
-			sessionStorage.setItem("mdp",loginfos.mdp);
-			StartWebSocket(loginfos);
-		}
+      document.getElementById("connexion").style.display="block";
+      document.getElementById("loginbutton").onclick=function(){
+      loginfos={event:"connexionEntrant",
+                userid:document.getElementById("login").value,
+                mdp:document.getElementById("mdp").value
+              };
+      sessionStorage.setItem("userid",loginfos.userid);
+      sessionStorage.setItem("mdp",loginfos.mdp);
+      StartWebSocket(loginfos);
+      }
 } else {
   loginfos={event:"connexionEntrant",
             userid:sessionStorage.getItem("userid"),
@@ -24,7 +24,7 @@ if (sessionStorage.length==0){
 }
     
 
-function StartWebSocket(loginfos){
+function StartWebSocket(logs){
   socket= new WebSocket("ws://localhost:81");
   socket.onopen = function() {
     socket.send(JSON.stringify(loginfos));
@@ -45,14 +45,14 @@ function StartWebSocket(loginfos){
         document.getElementById("addusermenu").style.display="inline-block";
         document.getElementById("removeusermenu").style.display="inline-block";
       }
+      break;
     case "dataFromCar":
       document.getElementById("temps").innerHTML = data.temps;
       document.getElementById("vitesse").innerHTML = data.vitesse;
       document.getElementById("conso").innerHTML = data.consommation;
-    
+      break;
     case "userlist":
       tableau=document.getElementById("userlist"); //on vide le tableau avant de le remplir avec la liste actuelle
-      console.log(lastuserlistlength)
       if(lastuserlistlength!=0){
         for (var i=0;i<lastuserlistlength+1;i++){
           tableau.deleteRow(-1);
@@ -70,7 +70,6 @@ function StartWebSocket(loginfos){
       }
       function buttonclickdeluser(i){ //obligé de créer une fonction a cause de boucle for
         return function(){
-          console.log(userlist[i].userid);
             toSend={
               event:"deluser",
               userid:userlist[i].userid
@@ -81,8 +80,9 @@ function StartWebSocket(loginfos){
       for(var i=0;i<userlist.length;i++){
         document.getElementById("suppuser"+i).onclick=buttonclickdeluser(i);
       }
+      break;
     }
-  }
+  };
 
   
   socket.onclose = function(event) {
@@ -92,10 +92,12 @@ function StartWebSocket(loginfos){
         document.getElementById("loginerror").style.display="block";
         document.getElementById("mdperror").style.display="none";
         sessionStorage.clear();
+        break;
       case 4002 :
         document.getElementById("mdperror").style.display="block";
         document.getElementById("loginerror").style.display="none";
         sessionStorage.clear();
+        break;
       }
     }
   };
@@ -140,7 +142,7 @@ function StartWebSocket(loginfos){
       document.getElementById("addusererror").style.display="none";
       document.getElementById("addusersuccess").style.display="block";
     }
-    else{ //on affiche une erreure si les champs ont été mal remplis
+    else{ //on affiche une erreur si les champs ont été mal remplis
       document.getElementById("addusererror").style.display="block";
       document.getElementById("addusersuccess").style.display="none";
     }
