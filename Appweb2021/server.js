@@ -40,8 +40,10 @@ wss.on("connection", function(ws){
             var obj = {err:"not json object"};
         }
         console.log(obj);
-        if(obj.event=="connexionEntrant"){
+        switch (obj.event){
+        case "connexionEntrant":
             obj.userid=obj.userid.replace("`","") //on empeche les injections sql (piratage) en supprimant les caractères dangereux
+            obj.userid=obj.userid.replace("'","")
             var result = await getsqlusers(obj.userid); //on fait une requete sql des données associées à l'identifiant entré
             if(result.length==0){ //si le résultat de la requète est vide, l'utilisateur n'existe pas
                 console.log("Utilisateur non trouvé dans la BDD");
@@ -65,23 +67,19 @@ wss.on("connection", function(ws){
                 consommation:donnees[0].consommation
             }
             ws.send(JSON.stringify(donneesenvoyees));
-        }
-        if(obj.event=="adduser"){
+        case "adduser":
             addsqluser(obj);
-        }
-        if(obj.event=="dataFromCar"){
+        case "dataFromCar":
             data=JSON.stringify(obj);
             wss.clients.forEach(client => client.send(data));
-        }
-        if(obj.event=="getuserlist"){
+        case "getuserlist":
             userlist=getuserslist()
             toSend={
                 event:"userlist",
                 list:userlist
             }
             ws.send(JSON.stringify(toSend))
-        }
-        if(obj.event=="deluser"){
+        case "deluser":
             
         }
 

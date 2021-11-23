@@ -1,9 +1,8 @@
-let socket; 
+var socket; 
 var data;
 var loginfos;
 var lastuserlistlength=0;
 var userlist;
-var userlistexist=false;
 
 if (sessionStorage.length==0){
       document.getElementById("connexion").style.display="block";
@@ -32,7 +31,8 @@ function StartWebSocket(logs){
   };
   socket.onmessage = function(event) {
     data = JSON.parse(event.data);
-    if (data.event=="connexion"){
+    switch (data.event){
+    case "connexion":
       document.getElementById("connexion").style.display="none";
       document.getElementById("data").style.display="block";
       document.getElementById("nav").style.display="inline-block";
@@ -45,13 +45,12 @@ function StartWebSocket(logs){
         document.getElementById("addusermenu").style.display="inline-block";
         document.getElementById("removeusermenu").style.display="inline-block";
       }
-    }
-    if (data.event=="dataFromCar"){
+    case "dataFromCar":
       document.getElementById("temps").innerHTML = data.temps;
       document.getElementById("vitesse").innerHTML = data.vitesse;
       document.getElementById("conso").innerHTML = data.consommation;
-    }
-    if (data.event=="userlist"){
+    
+    case "userlist":
       tableau=document.getElementById("userlist"); //on vide le tableau avant de le remplir avec la liste actuelle
       console.log(lastuserlistlength)
       if(lastuserlistlength!=0){
@@ -69,7 +68,6 @@ function StartWebSocket(logs){
         newRow.innerHTML = "<td>"+nomtemp+"</td>"+"<td>"+prenomtemp+"</td>"+"<td>"+useridtemp+"</td>"+'<button type="button" id="suppuser'+i+'">Supprimer</button>';
         lastuserlistlength=i
       }
-      userlistexist=true;
       function buttonclickdeluser(i){ //obligé de créer une fonction a cause de boucle for
         return function(){
           console.log(userlist[i].userid);
@@ -80,22 +78,21 @@ function StartWebSocket(logs){
             socket.send(JSON.stringify(toSend));
         }
       }
-      if(userlistexist){
-        for(var i=0;i<userlist.length;i++){
-          document.getElementById("suppuser"+i).onclick=buttonclickdeluser(i);
-        }
+      for(var i=0;i<userlist.length;i++){
+        document.getElementById("suppuser"+i).onclick=buttonclickdeluser(i);
       }
     }
-  };
+  }
+
   
   socket.onclose = function(event) {
     if (event.wasClean) {
-      if (event.code==4001){ 
+      switch (event.code){
+      case 4001 :
         document.getElementById("loginerror").style.display="block";
         document.getElementById("mdperror").style.display="none";
         sessionStorage.clear();
-      }
-      if (event.code==4002) {
+      case 4002 :
         document.getElementById("mdperror").style.display="block";
         document.getElementById("loginerror").style.display="none";
         sessionStorage.clear();
@@ -149,5 +146,4 @@ function StartWebSocket(logs){
     }
   }
 }
-
   
