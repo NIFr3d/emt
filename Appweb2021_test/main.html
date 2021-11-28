@@ -1,0 +1,96 @@
+<html lang="fr">
+  <head> 
+    <title>
+      EMT 2021-2022
+    </title>
+    <link rel="stylesheet" href="main.css"></link> 
+  </head>
+  <body>
+	<div class="content">
+		<div id="connexion">
+					<h1>S'identifier</h1>
+					<div class="field">
+						<label for="login">Identifiant :</label> <br/>
+						<input type="text" id="login" class="champuser" name="login" placeholder="Identifiant" />
+					</div>
+					<div class="field">
+						<label for="mdp">Mot de passe :</label><br/>
+						<input type="password" id="mdp" class="champuser" name="mdp" placeholder="Mot de passe" />
+					</div>
+					<div class="field">
+						<button type="button" id="loginbutton" class="bouton" name="loginbutton">S'identifier</button>
+					</div>
+					<div>
+						<span id="loginerror">Identifiant incorrect</span>
+						<span id="mdperror">Mot de passe incorrect</span>
+					</div>
+		</div>
+		<div id="nav">
+			<button type="button" id="mainmenu" class="bouton">Accueil</button> 
+			<button type="button" id="addusermenu" class="bouton">Ajouter un utilisateur</button>
+			<button type="button" id="removeusermenu" class="bouton">Supprimer un utilisateur</button>
+			<button type="button" id="logout" class="bouton">Déconnexion</button>
+		</div>
+		<div id="data">
+		Bonjour <span id="prenom"></span>, voici les données de la voiture : <br/>
+		Temps : <span id="temps"></span> <br/>
+		Vitesse : <span id="vitesse"></span> <br/>
+		Conso : <span id="conso"></span> <br/>
+		<button type="button" class="bouton" id="envoitracer">Envoyer le tracé</button>
+			<div id="carte">
+				<img src="Cartes/Sans titre.png" width="200" height="200" style="position: absolute;">
+				<canvas id="canevas" onclick ="carte.js" width="200" height="200" style="position: absolute; border:1px solid #000000 ;"></canvas>
+			</div>
+		</div>
+		
+		<div id="adduser">
+				<div class="field">
+					<label for="login1">Identifiant :</label>
+					<input type="text" id="login1" class="champuser" name="login1" placeholder="Identifiant" />
+				</div>
+				<div class="field">
+					<label for="mdp1">Mot de passe :</label>
+					<input type="password" id="mdp1" class="champuser" name="mdp1" placeholder="Mot de passe" />
+				</div>
+				<div class="field">
+					<label for="nom1">Nom :</label>
+					<input type="text" id="nom1" class="champuser" name="nom1" placeholder="Nom" />
+				</div>	
+				<div class="field">
+					<label for="prenom1">Prénom :</label>
+					<input type="text" id="prenom1" class="champuser" name="prenom1" placeholder="Prénom" />
+				</div>
+				<div>
+					<label for="acces1">Type d'accès :</label>
+					<select name="acces"1 id="acces1" class="champuser">
+					<option value=0>--Choisissez une option--</option>
+					<option value=0>Normal</option>
+					<option value=1>Superutilisateur</option>
+					</select>
+				</div>
+				<div class="field">
+					<button type="button" id="adduserbutton" class="bouton" name="adduserbutton">Ajouter l'utilisateur</button>
+				</div>
+				<div id="addusererror">Veuillez entrer des informations correctes !</div>
+				<div id="addusersuccess">Utilisateur ajouté avec succès !</div>		
+		</div>
+		<div id="removeuser">
+			<table id="userlist">
+				<thead>
+					<tr>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Identifiant</th>
+					<th>Supprimer ?</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+				</table>
+			</table>
+		</div>
+	</div>
+		
+  </body>
+  <footer><script src="client.js"></script> </footer>
+</html>
