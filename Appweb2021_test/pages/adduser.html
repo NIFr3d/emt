@@ -1,18 +1,52 @@
 <html lang="fr">
-  <head> 
-    <title>
-      EMT 2021-2022
-    </title>
-	<link rel="stylesheet" href="../styles/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <div id="navbar"></div>
-    <script type="text/javascript">
-        $("#navbar").load("../pages/nav.html");
-    </script>
-  </head>
-  <body>
+
+<head>
+  <title>
+    EMT 2021-2022
+  </title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <div id="navbar"></div>
+  <script type="text/javascript">
+    $("#navbar").load("../pages/nav.html");
+  </script>
+</head>
+
+<body>
+  <div id="adduser" class="content">
+    <div class="field">
+      <label for="login1">Identifiant :</label>
+      <input type="text" id="login1" class="champuser" name="login1" placeholder="Identifiant" />
+    </div>
+    <div class="field">
+      <label for="mdp1">Mot de passe :</label>
+      <input type="password" id="mdp1" class="champuser" name="mdp1" placeholder="Mot de passe" />
+    </div>
+    <div class="field">
+      <label for="nom1">Nom :</label>
+      <input type="text" id="nom1" class="champuser" name="nom1" placeholder="Nom" />
+    </div>
+    <div class="field">
+      <label for="prenom1">Prénom :</label>
+      <input type="text" id="prenom1" class="champuser" name="prenom1" placeholder="Prénom" />
+    </div>
+    <div>
+      <label for="acces1">Type d'accès :</label>
+      <select name="acces" 1 id="acces1" class="champuser">
+        <option value="">--Choisissez une option--</option>
+        <option value=0>Normal</option>
+        <option value=1>Superutilisateur</option>
+      </select>
+    </div>
+    <div class="field">
+      <button type="button" id="adduserbutton" class="bouton" name="adduserbutton">Ajouter l'utilisateur</button>
+    </div>
+    <div id="addusererror">Veuillez entrer des informations correctes !</div>
+    <div id="addusersuccess">Requête transmise au serveur !</div>
+  </div>
 </body>
 <footer>
-  <script  src="../scripts/adduser.js"></script>
+  <script src="../scripts/adduser.js"></script>
 </footer>
+
 </html>

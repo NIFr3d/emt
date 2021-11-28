@@ -37,3 +37,6 @@
     border: 0px solid transparent;  
     cursor: pointer; 
 }
+#addusererror,#addusersuccess{
+    display:none;
+}

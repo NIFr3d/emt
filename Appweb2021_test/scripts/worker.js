@@ -1,16 +1,8 @@
 const ws = new WebSocket("ws://localhost:81");
 
-// Create a broadcast channel to notify about state changes
 const broadcastChannel = new BroadcastChannel("WebSocketChannel");
-
-// Mapping to keep track of ports. You can think of ports as
-// mediums through we can communicate to and from tabs.
-// This is a map from a uuid assigned to each context(tab)
-// to its Port. This is needed because Port API does not have
-// any identifier we can use to identify messages coming from it.
 const idToPortMap = {};
 
-// Let all connected contexts(tabs) know about state cahnges
 ws.onopen = () => broadcastChannel.postMessage({ type: "WSState", state: ws.readyState });
 ws.onclose = function (event) {
   broadcastChannel.postMessage({ type: "WSState", state: ws.readyState });
@@ -29,14 +21,14 @@ ws.onmessage = ({ data }) => {
     case "dataFromCar":
       idToPortMap["data"].postMessage({temps:data.temps,consommation:data.consommation,vitesse:data.vitesse, type: "message" });
       break;
+    case "userlist":
+      idToPortMap["deluser"].postMessage({list:data.list,type:"message"});
+      break;
   }
 
 };
 
-// Event handler called when a tab tries to connect to this worker.
 onconnect = e => {
-  // Get the MessagePort from the event. This will be the
-  // communication channel between SharedWorker and the Tab
   const port = e.ports[0];
   port.onmessage = msg => {
     idToPortMap[msg.data.from] = port;

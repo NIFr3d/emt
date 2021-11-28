@@ -12,6 +12,7 @@ worker.port.onmessage = event => {
             document.getElementById("temps").innerHTML = event.data.temps;
             document.getElementById("vitesse").innerHTML = event.data.vitesse;
             document.getElementById("conso").innerHTML = event.data.consommation;
+            break;
     }
 };
 
