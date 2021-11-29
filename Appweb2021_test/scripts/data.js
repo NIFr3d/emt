@@ -1,3 +1,8 @@
+var islogged=sessionStorage.islogged;
+if(islogged!=true){
+    sessionStorage.clear();
+    window.location.replace("../pages/login.html");
+}
 const worker = new SharedWorker("../scripts/worker.js");
 var webSocketState = WebSocket.CONNECTED;
 worker.port.start();

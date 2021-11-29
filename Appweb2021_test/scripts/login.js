@@ -20,6 +20,7 @@ worker.port.onmessage = event => {
       else {
         sessionStorage.setItem("nom", event.data.nom);
         sessionStorage.setItem("prenom", event.data.prenom);
+        sessionStorage.setItem("islogged",true);
         window.location.replace("../pages/data.html");
       }
       break;
