@@ -3,7 +3,8 @@ document.getElementById("logout").onclick = function () { //bouton déconnexion
     window.location.replace("../pages/login.html");
   }
 document.getElementById("mainmenu").onclick = function () { //bouton accueil
-    window.location.replace("../pages/data.html?userid="+sessionStorage.getItem("userid"));
+    userid=sessionStorage.getItem("userid");
+    window.location.replace("../pages/data.html?userid="+userid);
 }
 document.getElementById("addusermenu").onclick = function () { //bouton ajout d'utilisateur
     window.location.replace("../pages/adduser.html");
