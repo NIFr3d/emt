@@ -1,10 +1,13 @@
 {
   "dependencies": {
     "canvas-gauges": "^2.1.7",
+    "mapbox-gl": "^2.6.1",
     "mssql": "^7.2.1",
     "mysql": "^2.18.1",
     "node": "^17.0.1",
+    "node.js": "^0.0.1-security",
     "req": "^0.1.4",
+    "require.js": "^1.0.0",
     "sync-mysql": "^3.0.1",
     "sync-sql": "^1.0.2",
     "ws": "^8.2.3",
