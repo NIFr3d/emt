@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="../styles/main.css"></link> 
   </head>
   <body>
-	<div id="connexion" class="content">
+	<form method="get" action="../php/login.php">
 				<h1>S'identifier</h1>
 				<div class="field">
 					<label for="login">Identifiant :</label> <br/>
@@ -17,12 +17,12 @@
 					<input type="password" id="mdp" class="champuser" name="mdp" placeholder="Mot de passe" />
 				</div>
 				<div class="field">
-					<button type="button" id="loginbutton" class="bouton" name="loginbutton">S'identifier</button>
+					<button type="submit" id="loginbutton" class="bouton" name="loginbutton">S'identifier</button>
 				</div>
                 <div id="error"></div>
-		</div>
+	</form>
   </body>
   <footer>
-    <script  src="../scripts/login.js"></script>
+	<script src="../scripts/login.js"></script>
   </footer>
   </html>

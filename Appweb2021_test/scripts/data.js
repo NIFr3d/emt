@@ -1,53 +1,26 @@
-var islogged=sessionStorage.islogged;
-if(islogged!=true){
-    sessionStorage.clear();
-    window.location.replace("../pages/login.html");
-}
-const worker = new SharedWorker("../scripts/worker.js");
-var webSocketState = WebSocket.CONNECTED;
-worker.port.start();
-postMessageToWSServer("");
-document.getElementById("prenom").innerHTML = sessionStorage.prenom
-worker.port.onmessage = event => {
-    switch (event.data.type) {
-        case "WSState":
-            webSocketState = event.data.state;
-            break;
-        case "message":
-            document.getElementById("temps").innerHTML = event.data.temps;
-            document.getElementById("vitesse").innerHTML = event.data.vitesse;
-            document.getElementById("conso").innerHTML = event.data.consommation;
-            break;
-    }
-};
-
-
-const broadcastChannel = new BroadcastChannel("WebSocketChannel");
-broadcastChannel.addEventListener("message", event => {
-    switch (event.data.type) {
-        case "WSState":
-            webSocketState = event.data.state;
-            break;
-        case "message":
-            break;
-    }
-});
-
-function handleMessageFromPort(data) {
-    console.log(data);
-}
-
-
-function postMessageToWSServer(input) {
-    if (webSocketState === WebSocket.CONNECTING) {
-        console.log("Still connecting to the server, try again later!");
-    } else if (webSocketState === WebSocket.CLOSING || webSocketState === WebSocket.CLOSED) {
-        console.log("Connection Closed!");
-    } else {
-        worker.port.postMessage({
-            from: "data",
-            data: input
-        });
+var socket = new WebSocket("ws://localhost:81");
+var queryString = window.location.search;
+var urlParams = new URLSearchParams(queryString);
+var userid = urlParams.get('userid');
+sessionStorage.setItem("userid",userid);
+socket.onopen = function () {
+    toSend={
+        event:"connexionEntrant",
+        userid:userid
+        }
+    socket.send(JSON.stringify(toSend));
+  };
+  socket.onmessage = function (event) {
+    data = JSON.parse(event.data);
+    switch (data.event) {
+      case "connexion":
+        document.getElementById("prenom").innerHTML = data.prenom;
+        break;
+      case "dataFromCar":
+        document.getElementById("temps").innerHTML = data.temps;
+        document.getElementById("vitesse").innerHTML = data.vitesse;
+        document.getElementById("conso").innerHTML = data.consommation;
+        break;
     }
 }
 var canevas = document.getElementById("canevas");
@@ -85,6 +58,5 @@ envoitracer.addEventListener('click', function (e) {
         event: "nouveautracer",
         imageurl: canevas.toDataURL()
     }
-    postMessageToWSServer(toSend);
+    socket.send(JSON.stringify(toSend));
 });
-
