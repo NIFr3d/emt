@@ -33,6 +33,10 @@ function addUser($userid,$mdp,$nom,$prenom,$acces){
     $sql_query="INSERT INTO `utilisateur` (`nom`, `prenom`, `mdp`, `acces`, `userid`) VALUES ('$nom', '$prenom', '$mdp', '$acces', '$userid');";
     $result_set = mysqli_query($this->id,$sql_query); 
 }
+function delUser($userid){
+    $sql_query="DELETE FROM `utilisateur` WHERE `userid`='$userid'";
+    $result_set = mysqli_query($this->id,$sql_query); 
+}
 }
 $db = new DB();
 $db->connect(); 
