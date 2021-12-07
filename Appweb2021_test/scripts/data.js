@@ -1,8 +1,10 @@
 var socket = new WebSocket("ws://localhost:81");
 var queryString = window.location.search;
 var urlParams = new URLSearchParams(queryString);
-var userid = urlParams.get('userid');
-sessionStorage.setItem("userid",userid);
+var cookies=document.cookie.split(";");
+var userid = cookies[0].split("=")[1];
+var prenom=cookies[3].split("=")[1];
+document.getElementById("prenom").innerHTML = prenom;
 socket.onopen = function () {
     toSend={
         event:"connexionEntrant",
@@ -13,9 +15,6 @@ socket.onopen = function () {
   socket.onmessage = function (event) {
     data = JSON.parse(event.data);
     switch (data.event) {
-      case "connexion":
-        document.getElementById("prenom").innerHTML = data.prenom;
-        break;
       case "dataFromCar":
         document.getElementById("temps").innerHTML = data.temps;
         document.getElementById("vitesse").innerHTML = data.vitesse;
