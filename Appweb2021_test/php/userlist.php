@@ -1,3 +1,12 @@
+<html>
+<head>
+  <title>
+    EMT 2021-2022
+  </title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+</html>
 <?php
 include("../pages/nav.html");
 include("BDD.php");

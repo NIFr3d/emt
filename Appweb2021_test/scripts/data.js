@@ -13,7 +13,12 @@ if(islogged!=1){
     location.replace("../pages/login.html");
 }
 
-prenom=unescape(prenom); //unescape sert a retransformer les accents
+try{
+    prenom=decodeURI(prenom); //sert a retransformer les accents
+}
+catch{
+    prenom=unescape(prenom);
+}
 document.getElementById("prenom").innerHTML = prenom;
 socket.onopen = function () {
   socket.onmessage = function (event) {
