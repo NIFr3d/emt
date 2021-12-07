@@ -29,10 +29,6 @@ wss.on("connection", function (ws) {
         }
         console.log(obj);
         switch (obj.event) {
-            case "connexionEntrant":
-                prenom = sqlquery("SELECT `prenom` FROM `utilisateur` WHERE `userid` = '" + obj.userid + "'")
-                ws.send(JSON.stringify({ event: "connexion", prenom: prenom[0].prenom }));
-                break;
             case "dataFromCar":
                 data = JSON.stringify(obj);
                 wss.clients.forEach(client => client.send(data));

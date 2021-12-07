@@ -1,6 +1,12 @@
 <?php
 include("../pages/nav.html");
 include("BDD.php");
+if(!isset($_COOKIE["islogged"])){
+    header("location: ../pages/login.html");
+}
+else if(!$_COOKIE["islogged"]){
+    header("location: ../pages/login.html");
+}
 $liste=$db->getUserList();
 echo "<TABLE BORDER=1> 
     <TR><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Supprimer</TH></TR>\n";

@@ -1,17 +1,21 @@
 var socket = new WebSocket("ws://localhost:81");
 var queryString = window.location.search;
 var urlParams = new URLSearchParams(queryString);
+if(document.cookie==""){
+    location.replace("../pages/login.html");
+}
+
 var cookies=document.cookie.split(";");
 var userid = cookies[0].split("=")[1];
 var prenom=cookies[3].split("=")[1];
+var islogged=cookies[4].split("=")[1];
+if(islogged!=1){
+    location.replace("../pages/login.html");
+}
+
+prenom=unescape(prenom); //unescape sert a retransformer les accents
 document.getElementById("prenom").innerHTML = prenom;
 socket.onopen = function () {
-    toSend={
-        event:"connexionEntrant",
-        userid:userid
-        }
-    socket.send(JSON.stringify(toSend));
-  };
   socket.onmessage = function (event) {
     data = JSON.parse(event.data);
     switch (data.event) {
@@ -21,6 +25,7 @@ socket.onopen = function () {
         document.getElementById("conso").innerHTML = data.consommation;
         break;
     }
+}
 }
 var canevas = document.getElementById("canevas");
 contexte = canevas.getContext("2d");

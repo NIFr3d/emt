@@ -1,6 +1,7 @@
 var queryString = window.location.search;
 var urlParams = new URLSearchParams(queryString);
 var message = urlParams.get('message');
+
 if (message!=null){
     switch (message){
         case "succes":
