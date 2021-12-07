@@ -1,2 +1,2 @@
-/node_modules
-./php/configbdd.php
+\node_modules
+\php\configbdd.php
