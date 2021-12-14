@@ -1,16 +1,6 @@
 var socket = new WebSocket("ws://localhost:81");
-var queryString = window.location.search;
-var urlParams = new URLSearchParams(queryString);
 
 
-var cookies=document.cookie.split(";");
-var userid = cookies[0].split("=")[1];
-var prenom=cookies[3].split("=")[1];
-var islogged=cookies[4].split("=")[1];
-
-
-prenom=decodeURI(prenom); //unescape sert a retransformer les accents
-document.getElementById("prenom").innerHTML = prenom;
 socket.onopen = function () {
   socket.onmessage = function (event) {
     data = JSON.parse(event.data);
@@ -64,7 +54,7 @@ envoitracer.addEventListener('click', function (e) {
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibHVjYXNwcmludHoiLCJhIjoiY2t3bTRncHowMHp0ODJ3cGR0ZmV0ankzbCJ9.HVm_k6XdwD4lFQBubqLeqg';
 const poscentre=[6.9176, 48.3009];
-const poscanvas;
+const poscanvas=0;
 const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/light-v10', // style URL
