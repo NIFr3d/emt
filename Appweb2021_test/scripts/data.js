@@ -1,25 +1,8 @@
 var socket = new WebSocket("ws://localhost:81");
 var queryString = window.location.search;
-var urlParams = new URLSearchParams(queryString);
-if(document.cookie==""){
-    location.replace("../pages/login.html");
-}
 
-var cookies=document.cookie.split(";");
-var userid = cookies[0].split("=")[1];
-var prenom=cookies[3].split("=")[1];
-var islogged=cookies[4].split("=")[1];
-if(islogged!=1){
-    location.replace("../pages/login.html");
-}
 
-try{
-    prenom=decodeURI(prenom); //sert a retransformer les accents
-}
-catch{
-    prenom=unescape(prenom);
-}
-document.getElementById("prenom").innerHTML = prenom;
+//document.getElementById("prenom").innerHTML = prenom;
 socket.onopen = function () {
   socket.onmessage = function (event) {
     data = JSON.parse(event.data);
