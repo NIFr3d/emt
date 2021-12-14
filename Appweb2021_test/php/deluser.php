@@ -1,6 +1,6 @@
 <?php
 include("BDD.php");
-$userid = $_GET["userid"];
+$userid = $_POST["userid"];
 $db->delUser($userid);
 if (!$db->userExist($userid)){
     header("location: ../php/userlist.php?message=succes"); //si l'utilisateur n'existe plus on informe de la suppression avec succes

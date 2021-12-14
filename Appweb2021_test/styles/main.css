@@ -16,6 +16,7 @@ body{
     box-sizing: border-box;
 }
 #nav{
+    display: inline-block;
     background-color: #019cde;
     height:auto;
     margin: 0px;
