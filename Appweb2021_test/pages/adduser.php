@@ -14,35 +14,26 @@
 </head>
 
 <body>
-  <form method="get" action="../php/adduser.php" id="adduser" class="content">
-    <div class="field">
-      <label for="login">Identifiant :</label>
-      <input type="text" id="login" class="champuser" name="login" placeholder="Identifiant" />
-    </div>
-    <div class="field">
-      <label for="mdp">Mot de passe :</label>
-      <input type="password" id="mdp" class="champuser" name="mdp" placeholder="Mot de passe" />
-    </div>
-    <div class="field">
-      <label for="nom">Nom :</label>
-      <input type="text" id="nom" class="champuser" name="nom" placeholder="Nom" />
-    </div>
-    <div class="field">
-      <label for="prenom">Prénom :</label>
-      <input type="text" id="prenom" class="champuser" name="prenom" placeholder="Prénom" />
-    </div>
-    <div>
-      <label for="acces">Type d'accès :</label>
-      <select name="acces" 1 id="acces" class="champuser">
-        <option>--Choisissez une option--</option>
-        <option value=0>Normal</option>
-        <option value=1>Superutilisateur</option>
-      </select>
-    </div>
-    <div class="field">
-      <button type="submit" class="bouton" name="adduserbutton">Ajouter l'utilisateur</button>
-    </div>
-    <div id="msg"></div>
+<?php
+
+include("../php/BDD.php");
+
+$liste=$db->getPendingUsers();
+echo "<TABLE BORDER=1> 
+    <TR><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Supprimer</TH></TR>\n";
+for($i=0;$i<count($liste);$i++){
+    $nom=$liste[$i][0];
+    $prenom=$liste[$i][1];
+    $userid=$liste[$i][2];
+    echo "<TR><TD>$prenom</TD><TD>$nom</TD><TD>$userid</TD>
+    <TD><form method='post' action='../php/autorize.php'><button type='submit'>Ajouter</button>
+    <input type='hidden' name='userid' value='$userid' /></form></TD></TR>
+    <TD><form method='post' action='../php/refuseuser.php'><button type='submit'>Supprimer</button>
+    <input type='hidden' name='userid' value='$userid' /></form></TD></TR>\n";
+}
+echo "</TABLE>\n";
+?>
+  <div id="msg"></div>
   </div>
 </body>
 <footer>

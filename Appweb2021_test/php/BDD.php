@@ -26,6 +26,12 @@ function getUserList(){
     $result = mysqli_fetch_all($result_set);
     return $result;
 }
+function getPendingUsers(){
+    $sql_query = "SELECT `nom`, `prenom`, `userid` FROM `utilisateurattente`";
+    $result_set = mysqli_query($this->id, $sql_query);
+    $result = mysqli_fetch_all($result_set);
+    return $result;
+}
 function userExist($userid){
     $sql_query = "SELECT COUNT(*) FROM `utilisateur` WHERE `userid`='$userid'";
     $result_set = mysqli_query($this->id,$sql_query);
@@ -66,6 +72,28 @@ function saveToken($userid,$token){
 }
 function delUser($userid){
     $sql_query="DELETE FROM `utilisateur` WHERE `userid`='$userid'";
+    $result_set = mysqli_query($this->id,$sql_query); 
+}
+function refuseUser($userid){
+    $sql_query="DELETE FROM `utilisateurattente` WHERE `userid`='$userid'";
+    $result_set = mysqli_query($this->id,$sql_query); 
+}
+function autorizeUser($userid){
+    $sql_query = "SELECT `nom` FROM `utilisateurattente` WHERE `userid`='$userid'";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $nom = mysqli_fetch_row($result_set)[0];
+    $sql_query = "SELECT `mdp` FROM `utilisateurattente` WHERE `userid`='$userid'";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $mdp = mysqli_fetch_row($result_set)[0]; 
+    $sql_query = "SELECT `prenom` FROM `utilisateurattente` WHERE `userid`='$userid'";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $prenom = mysqli_fetch_row($result_set)[0];
+    $sql_query = "SELECT `acces` FROM `utilisateurattente` WHERE `userid`='$userid'";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $acces = mysqli_fetch_row($result_set)[0];  
+    $sql_query="INSERT INTO `utilisateur` (`nom`, `prenom`, `mdp`, `acces`, `userid`) VALUES ('$nom', '$prenom', '$mdp', '$acces', '$userid');";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $sql_query="DELETE FROM `utilisateurattente` WHERE `userid`='$userid'";
     $result_set = mysqli_query($this->id,$sql_query); 
 }
 }
