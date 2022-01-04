@@ -78,7 +78,7 @@ function refuseUser($userid){
     $sql_query="DELETE FROM `utilisateurattente` WHERE `userid`='$userid'";
     $result_set = mysqli_query($this->id,$sql_query); 
 }
-function autorizeUser($userid){
+function authorizeUser($userid){
     $sql_query = "SELECT `nom` FROM `utilisateurattente` WHERE `userid`='$userid'";
     $result_set = mysqli_query($this->id,$sql_query); 
     $nom = mysqli_fetch_row($result_set)[0];

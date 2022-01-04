@@ -26,7 +26,7 @@ for($i=0;$i<count($liste);$i++){
     $prenom=$liste[$i][1];
     $userid=$liste[$i][2];
     echo("<TR><TD>$prenom</TD><TD>$nom</TD><TD>$userid</TD>
-    <TD><form method='post' action='../php/autorize.php'><button type='submit'>Ajouter</button>
+    <TD><form method='post' action='../php/authorize.php'><button type='submit'>Ajouter</button>
     <input type='hidden' name='userid' value='$userid' /></form></TD>
     <TD><form method='post' action='../php/refuseuser.php'><button type='submit'>Supprimer</button>
     <input type='hidden' name='userid' value='$userid' /></form></TD></TR>\n");

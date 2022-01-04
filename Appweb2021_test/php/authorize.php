@@ -1,6 +1,6 @@
 <?php
 include("BDD.php");
 $userid=$_POST["userid"];
-$db->autorizeUser($userid);
+$db->authorizeUser($userid);
 header("location: ../pages/adduser.php");
 ?>
