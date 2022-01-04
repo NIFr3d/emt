@@ -20,11 +20,10 @@
 				<div class="field">
 					<button type="submit" id="loginbutton" class="bouton" name="loginbutton">S'identifier</button>
 				</div>
-                <div id="error"></div>
+                <?php
+				if(isset($_GET["erreur"])) echo($_GET["erreur"]);
+				?>
 	</form>
 	<form method="post" action="../pages/register.php"><button type="submit" class="bouton">S'enregistrer</button></form>
   </body>
-  <footer>
-	<script src="../scripts/login.js"></script>
-  </footer>
   </html>

@@ -28,7 +28,9 @@
 				<div class="field">
 					<button type="submit" id="loginbutton" class="bouton" name="loginbutton">S'enregistrer</button>
 				</div>
-                <div id="error"></div>
+                <?php
+				if(isset($_GET["erreur"])) echo($_GET["erreur"]);
+				?>
 	</form>
   </body>
   <footer>
