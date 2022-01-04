@@ -8,10 +8,10 @@
 </head>
 </html>
 <?php
-session_start();
-if(!isset($_SESSION["acces"])) header("location: login.php");
+
 include("../pages/nav.php");
 include("../php/BDD.php");
+if(!isset($_SESSION["acces"])) header("location: login.php");
 
 $liste=$db->getUserList();
 echo("<TABLE BORDER=1> 
