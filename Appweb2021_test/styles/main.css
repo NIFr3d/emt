@@ -80,7 +80,10 @@ body{
 
 /* required styles */
 
-.leaflet-pane,
+.leaflet-pane{
+	left: 0;
+	top: 0;
+}
 .leaflet-tile,
 .leaflet-marker-icon,
 .leaflet-marker-shadow,
