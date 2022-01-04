@@ -1,10 +1,10 @@
 <?php
 include("BDD.php");
-$userid = $_POST["login"];
+$userid = stripslashes($_POST["login"]);
 $mdp = stripslashes($_POST['mdp']);
 $mdp = password_hash($mdp,PASSWORD_DEFAULT);
-$nom=$_POST["nom"];
-$prenom=$_POST["prenom"];
+$nom= stripslashes($_POST["nom"]);
+$prenom= stripslashes($_POST["prenom"]);
 $acces=0;
 if(!$db->userExist($userid)){
     $db->register($userid,$mdp,$nom,$prenom,$acces);

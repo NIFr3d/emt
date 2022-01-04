@@ -1,7 +1,7 @@
 <?php
 include("BDD.php");
-$userid = $_POST["login"];
-$mdp = $_POST["mdp"];
+$userid = stripslashes($_POST["login"]);
+$mdp = stripslashes($_POST["mdp"]);
 
     if (!$db->userExist($userid)){
         header("location: ../pages/login.php?erreur=Utilisateur+inconnu"); // retour à la page de connexion si l'utilisateur n'existe pas
