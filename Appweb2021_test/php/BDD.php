@@ -1,9 +1,6 @@
 <?php
 include("configbdd.php");
-$host=$config->host;
-$user=$config->user;
-$pass=$config->pass;
-$base=$config->base;
+
 class DB{
 
 // parametres de connexion à la base de données
@@ -72,7 +69,7 @@ function delUser($userid){
     $result_set = mysqli_query($this->id,$sql_query); 
 }
 }
-$db = new DB($config->host,$config->user,$config->pass,$config->base);
+$db = new DB($host,$user,$pass,$base);
 $db->connect(); 
 
 ?>
