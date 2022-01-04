@@ -1,6 +1,5 @@
 var socket = new WebSocket("ws://localhost:81");
 
-
 socket.onopen = function () {
   socket.onmessage = function (event) {
     data = JSON.parse(event.data);
@@ -52,23 +51,23 @@ envoitracer.addEventListener('click', function (e) {
     socket.send(JSON.stringify(toSend));
 });
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibHVjYXNwcmludHoiLCJhIjoiY2t3bTRncHowMHp0ODJ3cGR0ZmV0ankzbCJ9.HVm_k6XdwD4lFQBubqLeqg';
-const poscentre=[6.9176, 48.3009];
-const poscanvas=0;
-const map = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/light-v10', // style URL
-    center: poscentre, // starting position [lng, lat]
-    zoom: 15.8 // starting zoom
-    });
-for(let i=0; i<100;i++){
-    const marker = new mapboxgl.Marker();
-    setTimeout(function(){
-    marker.setLngLat([poscentre[0]+i*0.00001, poscentre[1]+i*0.00001])
-    .addTo(map);
-    poscanvas=marker.getLngLat();
-    },2000*i);
-    setTimeout(function(){
-    marker.remove();
-    },2000*(i+1))
-    };
+// On initialise la latitude et la longitude de Paris (centre de la carte)
+var lat = 48.852969;
+var lon = 2.349903;
+var macarte = null;
+// Fonction d'initialisation de la carte
+function initMap() {
+    // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
+    macarte = L.map('map').setView([lat, lon], 11);
+    // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+        // Il est toujours bien de laisser le lien vers la source des données
+        attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+        minZoom: 1,
+        maxZoom: 20
+    }).addTo(macarte);
+}
+window.onload = function(){
+// Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+initMap(); 
+};
