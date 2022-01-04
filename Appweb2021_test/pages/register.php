@@ -7,18 +7,18 @@
 	<link rel="stylesheet" href="../styles/main.css"></link> 
   </head>
   <body>
-	<form method="post" action="../php/login.php">
+	<form method="post" action="../php/register.php">
 				<h1>S'enregistrer</h1>
 				<div class="field">
 					<label for="login">Identifiant :</label> <br/>
 					<input type="text" id="login" class="champuser" name="login" placeholder="Identifiant" />
 				</div>
 				<div class="field">
-					<label for="login">Nom :</label> <br/>
+					<label for="nom">Nom :</label> <br/>
 					<input type="text" id="nom" class="champuser" name="nom" placeholder="Identifiant" />
 				</div>
 				<div class="field">
-					<label for="login">Prénom :</label> <br/>
+					<label for="prenom">Prénom :</label> <br/>
 					<input type="text" id="prenom" class="champuser" name="prenom" placeholder="Identifiant" />
 				</div>
 				<div class="field">

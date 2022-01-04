@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 14 Décembre 2021 à 14:33
+-- Généré le :  Mar 04 Janvier 2022 à 13:41
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -60,13 +60,40 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`nom`, `prenom`, `mdp`, `acces`, `userid`, `token`) VALUES
-('Wagner', 'Frédéric', 'test', 1, 'fred1', 'Ú×Vä/»™&Væ0]ö}–Ä"'),
+('Wagner', 'Frédéric', 'test', 1, 'fred1', '(ÛoPÁy)0ÛKRozÂw‡‡N%'),
 ('TestUser', 'TestUser', 'test', 0, 'test', 'ÚÝ˜&p>=ôðòœ¾PÙDÅSlA'),
 ('voiture', 'voiture', 'voiture', 1, 'voiture', NULL),
 ('ceciest', 'untest', 'test', 0, 'test2', NULL),
 ('Printz', 'Lucas', 'test', 0, 'lucas1', NULL),
 ('iuh', 'iuh', 'uih', 0, 'sdv', NULL),
 ('rg', 'rg', 'jb', 0, 'eryghiurgheiuhrgeuihrgieurhguerg', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateurattente`
+--
+
+CREATE TABLE `utilisateurattente` (
+  `userid` text NOT NULL,
+  `nom` text NOT NULL,
+  `prenom` text NOT NULL,
+  `mdp` text NOT NULL,
+  `acces` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `utilisateurattente`
+--
+
+INSERT INTO `utilisateurattente` (`userid`, `nom`, `prenom`, `mdp`, `acces`) VALUES
+('', '', '', '', 0),
+('', '', '', '', 0),
+('fred2', 'Wagner', 'Frederic', 'test', 0),
+('fred2', 'Wagner', 'Frederic', 'test', 0),
+('fred2', 'Wagner', 'Frederic', 'test', 0),
+('fred2', 'Wagner', 'Frederic', 'test', 0),
+('fred2', 'Wagner', 'Frederic', 'test', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

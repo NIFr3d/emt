@@ -56,8 +56,8 @@ function gettokenInfos($token){
     $result = mysqli_fetch_row($result_set); 
     return $result;
 }
-function addUser($userid,$mdp,$nom,$prenom,$acces){
-    $sql_query="INSERT INTO `utilisateur` (`nom`, `prenom`, `mdp`, `acces`, `userid`) VALUES ('$nom', '$prenom', '$mdp', '$acces', '$userid');";
+function register($userid,$mdp,$nom,$prenom,$acces){
+    $sql_query="INSERT INTO `utilisateurattente` (`nom`, `prenom`, `mdp`, `acces`, `userid`) VALUES ('$nom', '$prenom', '$mdp', '$acces', '$userid');";
     $result_set = mysqli_query($this->id,$sql_query); 
 }
 function saveToken($userid,$token){
