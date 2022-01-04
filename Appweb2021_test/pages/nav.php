@@ -13,7 +13,7 @@
       session_start();
       if($_SESSION["acces"]==1){
         echo("<form method=\"post\" action=\"../pages/adduser.php\" class=\"nav\"><button type=\"submit\" class=\"boutonNav\">Ajout d'utilisateur</button></form>
-        <form method=\"post\" action=\"../php/userlist.php\" class=\"nav\"><button type=\"submit\" class=\"boutonNav\">Suppression d'utilisateur</button></form>");
+        <form method=\"post\" action=\"../pages/userlist.php\" class=\"nav\"><button type=\"submit\" class=\"boutonNav\">Suppression d'utilisateur</button></form>");
       }
       ?>
       <form method="post" action="../php/logout.php" class="nav"><button type="submit" class="boutonNav">Deconnexion</button></form>
