@@ -17,6 +17,10 @@
 </head>
 
 <body>
+    <?php
+    session_start();
+    if(!isset($_SESSION["acces"])) header("location: login.php");
+    ?>
     <div id="data" class="content">
         Bonjour <span id="prenom"></span>, voici les données de la voiture : <br />
         Temps : <span id="temps"></span> <br />
