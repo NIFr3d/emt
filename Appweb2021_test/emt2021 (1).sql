@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 04 Janvier 2022 à 13:41
+-- Généré le :  Mar 04 Janvier 2022 à 15:19
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -60,13 +60,9 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`nom`, `prenom`, `mdp`, `acces`, `userid`, `token`) VALUES
-('Wagner', 'Frédéric', 'test', 1, 'fred1', '(ÛoPÁy)0ÛKRozÂw‡‡N%'),
-('TestUser', 'TestUser', 'test', 0, 'test', 'ÚÝ˜&p>=ôðòœ¾PÙDÅSlA'),
-('voiture', 'voiture', 'voiture', 1, 'voiture', NULL),
-('ceciest', 'untest', 'test', 0, 'test2', NULL),
-('Printz', 'Lucas', 'test', 1, 'lucas1', NULL),
-('iuh', 'iuh', 'uih', 0, 'sdv', NULL),
-('rg', 'rg', 'jb', 0, 'eryghiurgheiuhrgeuihrgieurhguerg', NULL);
+('Wagner', 'Frédéric', '$2y$10$cIBMkYNjdq/2PSP6UpbXeusmUCbkXcFqS2LtlSKSBn3nS5216gOg.', 1, 'fred1', 'ŠA8£ ,^t­˜«+’5.ËV#'),
+('TestUser', 'TestUser', '$2y$10$cIBMkYNjdq/2PSP6UpbXeusmUCbkXcFqS2LtlSKSBn3nS5216gOg.', 0, 'test', 'ÚÝ˜&p>=ôðòœ¾PÙDÅSlA'),
+('voiture', 'voiture', '$2y$10$gr.4p784oPrKWN.vZl.G7..Bi/xi6Y04yyHzo2b2HVjHu1QNPVd6a', 1, 'voiture', NULL);
 
 -- --------------------------------------------------------
 
@@ -87,13 +83,8 @@ CREATE TABLE `utilisateurattente` (
 --
 
 INSERT INTO `utilisateurattente` (`userid`, `nom`, `prenom`, `mdp`, `acces`) VALUES
-('', '', '', '', 0),
-('', '', '', '', 0),
-('fred2', 'Wagner', 'Frederic', 'test', 0),
-('fred2', 'Wagner', 'Frederic', 'test', 0),
-('fred2', 'Wagner', 'Frederic', 'test', 0),
-('fred2', 'Wagner', 'Frederic', 'test', 0),
-('fred2', 'Wagner', 'Frederic', 'test', 0);
+('uygr', 'iuhu', 'iuh', '$2y$10$cIBMkYNjdq/2PSP6UpbXeusmUCbkXcFqS2LtlSKSBn3nS5216gOg.', 0),
+('zyegf', 'uhiuh', 'iuhiuh', '$2y$10$gr.4p784oPrKWN.vZl.G7..Bi/xi6Y04yyHzo2b2HVjHu1QNPVd6a', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
