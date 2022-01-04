@@ -1,4 +1,4 @@
 <?php
 setcookie("token", null,-1,'/');
-header("location: ../index.html");
+header("location: ../index.php");
 ?>

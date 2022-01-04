@@ -4,7 +4,7 @@ $userid = $_POST["login"];
 $mdp = $_POST["mdp"];
 
     if (!$db->userExist($userid)){
-        header("location: ../pages/login.html?erreur=Utilisateur+inconnu"); // retour à la page de connexion si l'utilisateur n'existe pas
+        header("location: ../pages/login.php?erreur=Utilisateur+inconnu"); // retour à la page de connexion si l'utilisateur n'existe pas
     } else {
         if ($mdp == $db->getMdp($userid)){
             $infos=$db->getinfos($userid);
@@ -15,9 +15,9 @@ $mdp = $_POST["mdp"];
             $token=random_bytes(20);
             setcookie("token", $token,time()+600000,'/');
             $db->saveToken($userid,$token);
-            header("location:../pages/data.html");
+            header("location:../pages/data.php");
         } else {
-            header("location: ../pages/login.html?erreur=Mot+de+passe+incorrect");
+            header("location: ../pages/login.php?erreur=Mot+de+passe+incorrect");
         }
     }
 
