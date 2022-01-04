@@ -9,7 +9,7 @@
 </html>
 <?php
 include("../pages/nav.php");
-include("BDD.php");
+include("../php/BDD.php");
 
 $liste=$db->getUserList();
 echo("<TABLE BORDER=1> 
