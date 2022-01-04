@@ -32,6 +32,8 @@
 				if(isset($_GET["erreur"])) echo($_GET["erreur"]);
 				?>
 	</form>
+	Vous avez déjà un compte ?
+	<form method="post" action="../pages/login.php"><button type="submit" class="bouton">Se connecter</button></form>
   </body>
   <footer>
 	<script src="../scripts/login.js"></script>
