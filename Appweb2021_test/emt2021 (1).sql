@@ -64,7 +64,7 @@ INSERT INTO `utilisateur` (`nom`, `prenom`, `mdp`, `acces`, `userid`, `token`) V
 ('TestUser', 'TestUser', 'test', 0, 'test', 'ÚÝ˜&p>=ôðòœ¾PÙDÅSlA'),
 ('voiture', 'voiture', 'voiture', 1, 'voiture', NULL),
 ('ceciest', 'untest', 'test', 0, 'test2', NULL),
-('Printz', 'Lucas', 'test', 0, 'lucas1', NULL),
+('Printz', 'Lucas', 'test', 1, 'lucas1', NULL),
 ('iuh', 'iuh', 'uih', 0, 'sdv', NULL),
 ('rg', 'rg', 'jb', 0, 'eryghiurgheiuhrgeuihrgieurhguerg', NULL);
 

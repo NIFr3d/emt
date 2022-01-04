@@ -1,7 +1,8 @@
 <?php
 include("BDD.php");
 $userid = $_POST["login"];
-$mdp=$_POST["mdp"];
+$mdp = stripslashes($_POST['mdp']);
+$mdp = password_hash($mdp,PASSWORD_DEFAULT);
 $nom=$_POST["nom"];
 $prenom=$_POST["prenom"];
 $acces=0;

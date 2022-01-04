@@ -6,7 +6,7 @@ $mdp = $_POST["mdp"];
     if (!$db->userExist($userid)){
         header("location: ../pages/login.php?erreur=Utilisateur+inconnu"); // retour à la page de connexion si l'utilisateur n'existe pas
     } else {
-        if ($mdp == $db->getMdp($userid)){
+        if (password_verify($mdp,$db->getMdp($userid))){
             $infos=$db->getinfos($userid);
             session_start();
             $_SESSION["nom"]=$infos[0];

@@ -61,7 +61,6 @@ const map = new mapboxgl.Map({
     center: poscentre, // starting position [lng, lat]
     zoom: 15.8 // starting zoom
     });
-
 for(let i=0; i<100;i++){
     const marker = new mapboxgl.Marker();
     setTimeout(function(){
