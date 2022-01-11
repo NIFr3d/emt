@@ -20,7 +20,7 @@ if(!isset($_SESSION["acces"])) header("location: login.php");
 include("../php/BDD.php");
 
 $liste=$db->getPendingUsers();
-echo("<TABLE border='1' cellspacing='0'> 
+echo("<br /><br /><TABLE border='1' cellspacing='0'> 
     <TR><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Ajouter</TH><TH>Supprimer</TH></TR>\n");
 for($i=0;$i<count($liste);$i++){
     $nom=$liste[$i][0];

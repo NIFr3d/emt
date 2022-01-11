@@ -14,7 +14,7 @@ include("../php/BDD.php");
 if(!isset($_SESSION["acces"])) header("location: login.php");
 
 $liste=$db->getUserList();
-echo("<TABLE BORDER='1' cellspacing='0'> 
+echo("<br /><br /><br /><TABLE BORDER='1' cellspacing='0'> 
     <TR><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Supprimer</TH></TR>\n");
 for($i=0;$i<count($liste);$i++){
     $nom=$liste[$i][0];
