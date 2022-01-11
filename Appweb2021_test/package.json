@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "sync-mysql": "^3.0.1",
+    "ws": "^8.4.0"
+  }
+}

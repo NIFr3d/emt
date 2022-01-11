@@ -25,10 +25,11 @@
     }
     ?>
     <div id="data" class="content">
+        <br />
         Bonjour <span id="prenom"></span>, voici les données de la voiture : <br />
         Temps : <span id="temps"></span> <br />
         Vitesse : <span id="vitesse"></span> <br />
-        Conso : <span id="conso"></span> <br />
+        Conso : <span id="conso"></span> <br /><br /><br />
         <?php
         if($acces==1) echo("<button type=\"button\" class=\"bouton\" id=\"envoitracer\">Envoyer le tracé</button>");
         ?>

@@ -59,11 +59,15 @@ body{
 
 .carte {
     position: absolute;
-    top:150;
+    top:210;
     bottom:0;
     max-width: 800px;
     max-height: 500px; 
     width: 100%; 
+}
+
+#envoitracer {
+	margin-left:33%;
 }
 
 #map { 
