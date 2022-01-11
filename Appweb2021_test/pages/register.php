@@ -29,7 +29,7 @@
 					<button type="submit" id="loginbutton" class="bouton" name="loginbutton">S'enregistrer</button>
 				</div>
                 <?php
-				if(isset($_GET["erreur"])) echo($_GET["erreur"]);
+				if(isset($_GET["msg"])) echo($_GET["msg"]);
 				?>
 	</form>
 	Vous avez déjà un compte ?
