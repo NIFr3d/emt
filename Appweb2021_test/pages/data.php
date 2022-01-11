@@ -19,15 +19,21 @@
     <?php
     session_start();
     if(!isset($_SESSION["acces"])) header("location: login.php");
+    else {
+        $acces=$_SESSION["acces"];
+        echo("<script> sessionStorage.setItem(\"acces\",$acces );</script>");
+    }
     ?>
     <div id="data" class="content">
         Bonjour <span id="prenom"></span>, voici les données de la voiture : <br />
         Temps : <span id="temps"></span> <br />
         Vitesse : <span id="vitesse"></span> <br />
         Conso : <span id="conso"></span> <br />
-
-        <button type="button" class="bouton" id="envoitracer">Envoyer le tracé</button>
+        <?php
+        if($acces==1) echo("<button type=\"button\" class=\"bouton\" id=\"envoitracer\">Envoyer le tracé</button>");
+        ?>
         <div class="carte">
+
             <div id="map"></div>
             <canvas id="canevas" width=800  height=500></canvas>
         </div>
