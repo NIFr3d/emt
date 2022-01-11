@@ -34,7 +34,7 @@ canevas.addEventListener('mousedown', function (e) {
             }
             else {
                 contexte.lineTo(x, y);
-                contexte.strokeStyle="#FF281F";
+                contexte.strokeStyle="#019cde";
                 contexte.stroke();
             }
             break;
@@ -51,21 +51,34 @@ envoitracer.addEventListener('click', function (e) {
     socket.send(JSON.stringify(toSend));
 });
 
-// On initialise la latitude et la longitude de Paris (centre de la carte)
 var lat = 48.3025;
-var lon = 6.9160;
-var macarte = null;
+var lon = 6.9175;
+var map = null;
+var layer = null;
 // Fonction d'initialisation de la carte
 function initMap() {
     // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
-    macarte = L.map('map').setView([lat, lon], 16);
+    map = L.map('map').setView([lat, lon], 16);
     // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
     L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
         // Il est toujours bien de laisser le lien vers la source des données
         attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
         minZoom: 1,
         maxZoom: 20
-    }).addTo(macarte);
+    }).addTo(map);
+for(let i=0; i<100;i++){
+    var layer = L.marker();
+    setTimeout(function(){
+        layer = L.marker([lat+i*0.00001,lon+i*0.00001]).addTo(map);
+        layer.addTo(map)
+        .bindPopup("voiture ici")
+        .openPopup();;
+    },2000*i)
+    setTimeout(function(){
+        layer.remove();
+    },2000*(i+1));
+
+}
 }
 window.onload = function(){
 // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé

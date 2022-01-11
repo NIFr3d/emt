@@ -2,7 +2,7 @@
 
 $host = "localhost";
 $user = "root";
-$pass = "root";
+$pass = "";
 $base = "emt2021";
 
 ?>
