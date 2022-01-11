@@ -16,7 +16,7 @@
         <form method=\"post\" action=\"../pages/userlist.php\" class=\"nav\"><button type=\"submit\" class=\"boutonNav\">Suppression d'utilisateur</button></form>");
       }
       ?>
-      <form method="post" action="../php/logout.php" class="nav"><button type="submit" class="boutonNav">Deconnexion</button></form>
+      <form method="post" action="../php/logout.php" class="nav"><button type="submit" class="boutonNav">Déconnexion</button></form>
     </div>
 </body>
 </html>
