@@ -1,7 +1,11 @@
 {
   "dependencies": {
+    "cjs": "0.0.11",
     "leaflet": "^1.7.1",
+    "loader": "^2.1.1",
     "mapbox-gl": "^2.6.1",
-    "react-map-gl": "^6.1.18"
+    "react-map-gl": "^6.1.18",
+    "sync-mysql": "^3.0.1",
+    "ws": "^8.4.0"
   }
 }

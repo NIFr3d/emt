@@ -16,40 +16,47 @@ var canevas = document.getElementById("canevas");
 contexte = canevas.getContext("2d");
 var flipflop = true;
 const envoitracer = document.getElementById('envoitracer');
-canevas.addEventListener('mousedown', function (e) {
-    var rect = e.target.getBoundingClientRect();
-    var x = e.clientX - rect.left; //x position within the element.
-    var y = e.clientY - rect.top;  //y position within the element
-    canevas.oncontextmenu = function (e) { e.preventDefault(); e.stopPropagation(); }
-    switch (e.button) {
-        case 2:                //clic droit
-            flipflop = true;
-            break;
-
-        case 0:                //clic gauche
-            if (flipflop) {
-                contexte.beginPath();
-                contexte.moveTo(x, y);
-                flipflop = false;
-            }
-            else {
-                contexte.lineTo(x, y);
-                contexte.strokeStyle="#019cde";
-                contexte.stroke();
-            }
-            break;
-
-        default:
-            console.log('Pas un clic');
-    }
-});
-envoitracer.addEventListener('click', function (e) {
-    toSend = {
-        event: "nouveautracer",
-        imageurl: canevas.toDataURL()
-    }
-    socket.send(JSON.stringify(toSend));
-});
+var acces=sessionStorage.getItem("acces");
+var img = document.createElement("img");
+img.src ="../Cartes/out.png";
+contexte.drawImage(img, 0, 0);
+if(acces==1){
+    canevas.addEventListener('mousedown', function (e) {
+        var rect = e.target.getBoundingClientRect();
+        var x = e.clientX - rect.left; //x position within the element.
+        var y = e.clientY - rect.top;  //y position within the element
+        canevas.oncontextmenu = function (e) { e.preventDefault(); e.stopPropagation(); }
+        switch (e.button) {
+            case 2:                //clic droit
+                flipflop = true;
+                break;
+    
+            case 0:                //clic gauche
+                if (flipflop) {
+                    contexte.beginPath();
+                    contexte.moveTo(x, y);
+                    flipflop = false;
+                }
+                else {
+                    contexte.lineTo(x, y);
+                    contexte.strokeStyle="#019cde";
+                    contexte.stroke();
+                }
+                break;
+    
+            default:
+                console.log('Pas un clic');
+        }
+    });
+    envoitracer.addEventListener('click', function (e) {
+        toSend = {
+            event: "nouveautracer",
+            imageurl: canevas.toDataURL()
+        }
+        socket.send(JSON.stringify(toSend));
+    });
+    
+}
 
 var lat = 48.3025;
 var lon = 6.9175;
