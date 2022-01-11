@@ -76,10 +76,7 @@ function initMap() {
 for(let i=0; i<100;i++){
     var layer = L.marker();
     setTimeout(function(){
-        layer = L.marker([lat+i*0.00001,lon+i*0.00001]).addTo(map);
-        layer.addTo(map)
-        .bindPopup("voiture ici")
-        .openPopup();;
+        layer = L.marker([lat+i*0.00001,lon+i*0.00001]).addTo(map).bindPopup("Voiture ici").openPopup();
     },2000*i)
     setTimeout(function(){
         layer.remove();
