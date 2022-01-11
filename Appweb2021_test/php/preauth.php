@@ -1,6 +1,6 @@
 <?php
 if(!ISSET($_COOKIE["token"])){
-    header("location:../pages/login.php?Pas+d+ancienne+connexion");
+    header("location:../pages/login.php?erreur=Pas+d'ancienne+connexion");
 }else{
 
     include("BDD.php");
