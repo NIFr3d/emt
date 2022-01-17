@@ -63,10 +63,13 @@ if(acces==1){
     
 }
 
+
 var lat = 48.3025;
 var lon = 6.9175;
 var map = null;
 var layer = null;
+
+
 // Fonction d'initialisation de la carte
 function initMap() {
     // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
@@ -82,10 +85,10 @@ for(let i=0; i<100;i++){
     var layer = L.marker();
     setTimeout(function(){
         layer = L.marker([lat+i*0.00001,lon+i*0.00001]).addTo(map).bindPopup("Voiture ici").openPopup();
-    },2000*i)
+    },500*i)
     setTimeout(function(){
         layer.remove();
-    },2000*(i+1));
+    },500*(i+1));
 
 }
 }
