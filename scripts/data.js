@@ -84,7 +84,7 @@ function initMap() {
 for(let i=0; i<100;i++){
     var layer = L.marker();
     setTimeout(function(){
-        layer = L.marker([lat+i*0.00001,lon+i*0.00001]).addTo(map).bindPopup("Voiture ici").openPopup();
+        layer = L.marker([lat+i*0.00001,lon+i*0.00001]).addTo(map);
     },500*i)
     setTimeout(function(){
         layer.remove();
@@ -97,3 +97,4 @@ window.onload = function(){
 // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
 initMap(); 
 };
+
