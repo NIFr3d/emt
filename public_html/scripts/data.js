@@ -1,4 +1,4 @@
-var socket = new WebSocket("ws://localhost:81");
+var socket = new WebSocket("wss://rostro15.fr:21210");
 
 socket.onopen = function () {
   socket.onmessage = function (event) {
@@ -79,7 +79,6 @@ function initMap() {
         minZoom: 1,
         maxZoom: 20
     }).addTo(map);
-<<<<<<< Updated upstream
 for(let i=0; i<100;i++){
     var layer = L.marker();
     setTimeout(function(){
@@ -90,17 +89,6 @@ for(let i=0; i<100;i++){
     },500*(i+1));
 
 }
-=======
-    for(let i=0; i<100;i++){
-        var layer = L.marker();
-        setTimeout(function(){
-            layer = L.marker([lat+i*0.00001,lon+i*0.00001]).addTo(map).bindPopup("Voiture ici").openPopup();
-        },500*i)
-        setTimeout(function(){
-            layer.remove();
-        },500*(i+1));
-    }
->>>>>>> Stashed changes
 }
 window.onload = function(){    
     // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé

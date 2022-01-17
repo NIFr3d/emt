@@ -1,0 +1,24 @@
+{
+  "name": "emt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NIFr3d/emt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NIFr3d/emt/issues"
+  },
+  "homepage": "https://github.com/NIFr3d/emt#readme",
+  "dependencies": {
+    "sync-mysql": "^3.0.1",
+    "ws": "^8.4.2"
+  }
+}

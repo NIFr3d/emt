@@ -1,5 +1,5 @@
 const WebSocketServer = require("ws").Server;
-const wss = new WebSocketServer({ port: 81 });
+const wss = new WebSocketServer({ port: 21210 });
 var tabl = new Set();
 const mysql = require("sync-mysql");
 
@@ -11,9 +11,9 @@ async function sqlquery(query) {
 
 const con = new mysql({ //à changer avec les paramètres du serveur mysql
     host: "localhost",
-    user: "root",
-    password: "root",
-    database: "emt2021"
+    user: "emt",
+    password: "uicosphi",
+    database: "emt"
 });
 
 
@@ -51,7 +51,7 @@ wss.on("connection", function (ws) {
                 break;
             case "nouveautracer":
                 var base64Data = obj.imageurl.replace("data:image/png;base64,", "");
-                require("fs").writeFile("Cartes/out.png", base64Data, 'base64', function (err) { });
+                require("fs").writeFile("public_html/Cartes/out.png", base64Data, 'base64', function (err) { });
                 break;
         }
 
