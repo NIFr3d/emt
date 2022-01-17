@@ -46,9 +46,13 @@ body{
     height:5%;
     background-color: #019cde;
     color: white;
-    border: 0px;
-    padding: 0px;
     cursor: pointer;
+	border: 1px solid;
+	text-align: center;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	behavior: url(/pie/PIE.htc);
 }
 .bouton:hover{
     background-color: #007ade;
@@ -80,6 +84,11 @@ body{
 #canevas {
     position: absolute;
     border:1px solid #000000;
+}
+
+table{
+	margin-left:auto;
+	margin-right:auto;
 }
 
 tbody{
@@ -116,13 +125,24 @@ td{
     height:100%;
     color: black;
 	border-color:#000000;
-	border-collapse: collapse;	
-    padding-right: 25px;
-	padding-left: 25px;
-	padding-top:2px;
-	padding-bottom:2px;
+	border-collapse: collapse;
 }
 
+.boutonTab{
+    color: black;
+    cursor: pointer;
+	border: 1px solid;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	behavior: url(/pie/PIE.htc);
+}
+
+#butTab{
+	vertical-align:middle;
+	line-height:normal;
+	text-align:center;
+}
 /* required styles */
 
 .leaflet-pane{

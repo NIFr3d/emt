@@ -22,7 +22,7 @@ for($i=0;$i<count($liste);$i++){
     $userid=$liste[$i][2];
     echo("<form method='post' action='../php/deluser.php'>
     <TR><TD>$prenom</TD><TD>$nom</TD><TD>$userid</TD>
-    <TD><button type='submit'>Supprimer</button></TD></TR>
+    <TD><div id='butTab'><button class='boutonTab' type='submit'>Supprimer</button></div></TD></TR>
     <input type='hidden' name='userid' value='$userid' /></form>\n");
 }
 echo("</TABLE>\n");	
