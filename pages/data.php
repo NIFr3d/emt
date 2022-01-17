@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <div class="corps">
     <?php
     session_start();
     if(!isset($_SESSION["acces"])) header("location: login.php");
@@ -25,11 +26,19 @@
     }
     ?>
     <div id="data" class="content">
-        <br />
-        Bonjour <span id="prenom"></span>, voici les données de la voiture : <br />
-        Temps : <span id="temps"></span> <br />
-        Vitesse : <span id="vitesse"></span> <br />
-        Conso : <span id="conso"></span> <br /><br /><br />
+        <p id='bjr'>Bonjour<span id="prenom"></span></p> <p id='txtaccueil'>voici les données de la voiture</p><br />
+        <table id='données' border='0' cellspacing='2'>
+        <tr id='intitulés'>
+        <th>Temps</th> 
+        <th>Vitesse</th> 
+        <th>Conso</th>
+        </tr>
+        <tr>
+        <th><span id="temps"></span></th>
+        <th><span id="vitesse"></span></th>
+        <th><span id="conso"></span></th>
+        </tr>
+        </table>
         <?php
         if($acces==1) {
             echo("<button type=\"button\" class=\"bouton\" id=\"cleartracer\">Nouveau tracé</button>");
@@ -39,10 +48,10 @@
         <div class="carte">
 
             <div id="map"></div>
-            <canvas id="canevas" width=800  height=500></canvas>
+            <canvas id="canevas" width=800  height=450></canvas>
         </div>
     </div>
-
+    </div>
 </body>
 <footer>
     <script src="../scripts/data.js"></script>

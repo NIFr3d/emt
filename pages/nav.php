@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="nav" class="content">
-      <form method="post" action="../pages/data.php" class="nav"><button type="submit" class="boutonNav">Accueil</button></form>
+      <form method="post" action="../pages/data.php" class="nav"><button type="submit" class="boutonNav"><img id="accueil" src="../styles/images/accueil.png" alt="accueil"/> Accueil</button></form>
       <?php
       session_start();
       if($_SESSION["acces"]==1){
@@ -16,7 +16,7 @@
         <form method=\"post\" action=\"../pages/userlist.php\" class=\"nav\"><button type=\"submit\" class=\"boutonNav\">Suppression d'utilisateur</button></form>");
       }
       ?>
-      <form method="post" action="../php/logout.php" class="nav"><button type="submit" class="boutonNav">Déconnexion</button></form>
+      <form method="post" action="../php/logout.php" class="nav"><button type="submit" class="boutonNav"><img id="deconnexion" src="../styles/images/deconnexion.png" alt="deconnexion"/></button></form>
     </div>
 </body>
 </html>

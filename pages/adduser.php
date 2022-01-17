@@ -14,6 +14,7 @@
 </head>
 
 <body>
+  <div class="corps">
 <?php
 session_start();
 if(!isset($_SESSION["acces"])) header("location: login.php");

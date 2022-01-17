@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="../styles/main.css"></link> 
   </head>
   <body>
+	<div class="corps">
 	<form method="post" action="../php/register.php">
 				<h1>S'enregistrer</h1>
 				<div class="field">
@@ -34,5 +35,6 @@
 	</form>
 	Vous avez déjà un compte ?
 	<form method="post" action="../pages/login.php"><button type="submit" class="bouton">Se connecter</button></form>
+</div>
   </body>
   </html>

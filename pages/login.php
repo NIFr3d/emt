@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="../styles/main.css"></link> 
   </head>
   <body>
+	<div class="corps">
 	<form method="post" action="../php/login.php">
 				<h1>S'identifier</h1>
 				<div class="field">
@@ -25,5 +26,6 @@
 				?>
 	</form>
 	<form method="post" action="../pages/register.php"><button type="submit" class="bouton">S'enregistrer</button></form>
+	</div>
   </body>
   </html>
