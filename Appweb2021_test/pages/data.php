@@ -31,7 +31,10 @@
         Vitesse : <span id="vitesse"></span> <br />
         Conso : <span id="conso"></span> <br /><br /><br />
         <?php
-        if($acces==1) echo("<button type=\"button\" class=\"bouton\" id=\"envoitracer\">Envoyer le tracé</button>");
+        if($acces==1) {
+            echo("<button type=\"button\" class=\"bouton\" id=\"cleartracer\">Nouveau tracé</button>");
+            echo("<button type=\"button\" class=\"bouton\" id=\"envoitracer\">Envoyer le tracé</button>");
+        }
         ?>
         <div class="carte">
 

@@ -1,23 +1,6 @@
 const WebSocketServer = require("ws").Server;
 const wss = new WebSocketServer({ port: 81 });
 var tabl = new Set();
-const mysql = require("sync-mysql");
-
-
-
-function sqlquery(query) {
-    result = con.query(query);
-    return result;
-}
-
-
-
-const con = new mysql({ //à changer avec les paramètres du serveur mysql
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "emt2021"
-});
 
 wss.on("connection", function (ws) {
     ws.on("message", async function (str) {

@@ -18,8 +18,13 @@ var flipflop = true;
 const envoitracer = document.getElementById('envoitracer');
 var acces=sessionStorage.getItem("acces");
 var img = document.createElement("img");
-img.src ="../Cartes/out.png";
-contexte.drawImage(img, 0, 0);
+img.src ="../Cartes/out.png?" + new Date().getTime();
+img.onload=function(){
+    contexte.drawImage(img, 0, 0);
+};
+document.getElementById('cleartracer').addEventListener('click',function(){
+    contexte.clearRect(0, 0, canevas.width, canevas.height);
+});
 if(acces==1){
     canevas.addEventListener('mousedown', function (e) {
         var rect = e.target.getBoundingClientRect();
@@ -85,6 +90,7 @@ for(let i=0; i<100;i++){
 }
 }
 window.onload = function(){
+    
 // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
 initMap(); 
 };
