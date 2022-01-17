@@ -5,6 +5,7 @@
   </title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="../styles/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <div id="navbar"></div>
   <script type="text/javascript">
     $("#navbar").load("../pages/nav.php");
@@ -13,8 +14,9 @@
 <body>
   <div class="corps">
   <?php
-  include("../php/BDD.php");
+  session_start();
   if(!isset($_SESSION["acces"])) header("location: login.php");
+  include("../php/BDD.php");
 
   $liste=$db->getUserList();
   echo("<br /><br /><br /><TABLE BORDER='1' cellspacing='0'> 
