@@ -14,6 +14,7 @@
   <div class="corps">
   <?php
   include("../php/BDD.php");
+  session_start();
   if(!isset($_SESSION["acces"])) header("location: login.php");
 
   $liste=$db->getUserList();
