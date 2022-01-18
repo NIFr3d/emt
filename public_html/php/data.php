@@ -31,7 +31,7 @@
         <?php
         echo($_SESSION["prenom"])
         ?>
-        ,</p> <p id='txtaccueil'>voici les données de la voiture</p><br />
+        </p> <p id='txtaccueil'>voici les données de la voiture</p><br />
         <table id='données' border='0' cellspacing='2'>
         <tr id='intitulés'>
         <th>Temps</th> 

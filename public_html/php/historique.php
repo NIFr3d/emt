@@ -15,7 +15,7 @@
 </head>
 <body>
     <select name="choixrun" id="choixrun">
-        <option value="">--Choisissez un run--</option>
+        <option value="">--Choisissez une course--</option>
     <?php
     include("functions/BDD.php");
     $listeruns=$db->getRunHistory();

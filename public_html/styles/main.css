@@ -18,12 +18,14 @@
 #nav{
     display: inline-block;
     background-color: #019cde;
-    height:60px;
+    height:70px;
     margin-left: -10px;
 	margin-right: -20px;
 	margin-top:-13px;
     width:105%;
 }
+
+
 .nav{
     display: inline-block;
     background-color: #019cde;
