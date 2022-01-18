@@ -1,5 +1,5 @@
 
-socket = new WebSocket("wss://rostro15.fr:21210");
+socket = new WebSocket("wss://rostro15.fr:8080");
 socket.onopen = function () {
 
 };

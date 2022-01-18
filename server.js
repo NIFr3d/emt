@@ -1,8 +1,9 @@
+const { PORT, DATABASE_LOGIN, DATABASE_PASSWORD, DATABASE } = require('./config.json');
+console.dir(PORT);
 const WebSocketServer = require("ws").Server;
-const wss = new WebSocketServer({ port: 21210 });
+const wss = new WebSocketServer({ port: PORT });
 var tabl = new Set();
 const mysql = require("sync-mysql");
-
 var today;
 async function sqlquery(query) {
     result = con.query(query);
@@ -11,13 +12,14 @@ async function sqlquery(query) {
 
 const con = new mysql({ //à changer avec les paramètres du serveur mysql
     host: "localhost",
-    user: "emt",
-    password: "uicosphi",
-    database: "emt"
+    user: DATABASE,
+    password: DATABASE_PASSWORD,
+    database: DATABASE
 });
 
 
 wss.on("connection", function (ws) {
+    console.log("nouvelle connection");
     ws.on("message", async function (str) {
         try {
             var obj = JSON.parse(str);
@@ -50,6 +52,7 @@ wss.on("connection", function (ws) {
                 sqlquery("INSERT INTO `data` (`dataid`, `temps`, `vitesse`, `consommation`, `lat`, `lon`) VALUES ('"+today+"', '"+obj.temps+"', '"+obj.vitesse+"', '"+obj.consommation+"', '"+obj.latt+"', '"+obj.lon+"');");
                 break;
             case "nouveautracer":
+		console.log("nouveau tracer");
                 var base64Data = obj.imageurl.replace("data:image/png;base64,", "");
                 require("fs").writeFile("public_html/Cartes/out.png", base64Data, 'base64', function (err) { });
                 break;

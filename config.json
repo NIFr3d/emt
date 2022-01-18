@@ -1,0 +1,5 @@
+{
+"PORT":8080,
+"DATABASE_LOGIN":"root",
+"DATABASE_PASSWORD":"",
+"DATABASE":"emt2021"}
