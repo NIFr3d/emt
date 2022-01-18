@@ -5,7 +5,7 @@ $choix=$_GET["choix"];
 $choixstr=$listeruns[$choix][0];
 $runinfos=$db->getRunInfos($choixstr);
 echo("<br /><br /><br /><TABLE BORDER='1' cellspacing='0'> 
-      <TR><TH>Temps</TH><TH>Vitesse</TH><TH>Consommation</TH><TH>Latitude</TH><TH>Longitude</TH></TR>\n");
+      <TR><TH>Temps (s)</TH><TH>Vitesse (km/h)</TH><TH>Consommation (???)</TH><TH>Latitude (DD)</TH><TH>Longitude (DD)</TH></TR>\n");
   for($i=0;$i<count($runinfos);$i++){
       $temps=$runinfos[$i][0];
       $vitesse=$runinfos[$i][1];
