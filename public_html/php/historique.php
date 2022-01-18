@@ -33,7 +33,7 @@
         var liste = document.getElementById("choixrun");
         var choix = liste.options[liste.selectedIndex].value;
         console.log(choix);
-        $("#run").load("run.php/choix=";
+        $("#run").load("run.php?choix="+choix);
     }
 
 </script>
