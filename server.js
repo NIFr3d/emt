@@ -58,7 +58,7 @@ wss.on("connection", function (ws) {
                 {
                     seconds='0'+seconds;
                 }  
-                today = dd+'/'+mm+'/'+yyyy+'-'+hour+'h'+minutes+'m'+seconds;
+                today = dd+'/'+mm+'/'+yyyy+'-'+hour+'h'+minutes+'m'+seconds+'s';
                 break;
             case "dataFromCar":
                 data = JSON.stringify(obj);
