@@ -12,7 +12,7 @@ async function sqlquery(query) {
 
 const con = new mysql({ //à changer avec les paramètres du serveur mysql
     host: "localhost",
-    user: DATABASE,
+    user: DATABASE_LOGIN,
     password: DATABASE_PASSWORD,
     database: DATABASE
 });

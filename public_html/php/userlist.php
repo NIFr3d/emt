@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <div id="navbar"></div>
   <script type="text/javascript">
-    $("#navbar").load("../pages/nav.php");
+    $("#navbar").load("nav.php");
   </script>
 </head>
 <body>
@@ -16,7 +16,7 @@
   <?php
   session_start();
   if(!isset($_SESSION["acces"])) header("location: login.php");
-  include("../php/BDD.php");
+  include("functions/BDD.php");
 
   $liste=$db->getUserList();
   echo("<br /><br /><br /><TABLE BORDER='1' cellspacing='0'> 
@@ -25,7 +25,7 @@
       $nom=$liste[$i][0];
       $prenom=$liste[$i][1];
       $userid=$liste[$i][2];
-      echo("<form method='post' action='../php/deluser.php'>
+      echo("<form method='post' action='functions/deluser.php'>
       <TR><TD>$prenom</TD><TD>$nom</TD><TD>$userid</TD>
       <TD><div id='butTab'><button class='boutonTab' type='submit'>Supprimer</button></div></TD></TR>
       <input type='hidden' name='userid' value='$userid' /></form>\n");
