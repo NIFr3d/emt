@@ -30,9 +30,8 @@
 <footer>
 <script type="text/javascript">
     function afficherRun(){
-    var liste=document.getElementById("choixrun");
-    var choix=liste.value;
-    $("#run").load("run.php/choix="+choix);
+        var choix=$("#choixrun :selected").val();
+        $("#run").load("run.php/choix="+choix);
     }
 
 </script>
