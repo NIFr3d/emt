@@ -24,7 +24,7 @@
         echo("<option value=$i>$run</option>");
     }
     ?>
-</select>
+    </select>
 <button class="boutonTab" onclick="afficherRun()">Afficher</button>
 <div id="run"></div>
 </body>

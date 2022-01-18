@@ -53,7 +53,7 @@
         <div class="carte">
 
             <div id="map"></div>
-            <canvas id="canevas" width=800  height=450></canvas>
+            <canvas id="canevas" width=800  height=500></canvas>
         </div>
     </div>
     </div>

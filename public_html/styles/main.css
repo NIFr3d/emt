@@ -76,7 +76,7 @@
 .carte {
     position: absolute;
     max-width: 800px;
-    max-height: 450px; 
+    max-height: 500px; 
     width: 100%; 
 }
 
@@ -193,8 +193,15 @@ td{
 	font-size:20px;	
 }
 
-.selec{
-	background-color:#0078A8;
+#choixrun,#selec{
+	margin-top:3%;
+	margin-left:40%;
+	width:20%;
+	height:5%;
+	background-color:#019cde;
+	color:white;
+	border: 1px solid;
+	behavior: url(/pie/PIE.htc);
 }
 
 /* required styles */
