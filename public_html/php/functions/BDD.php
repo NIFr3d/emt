@@ -33,7 +33,7 @@ function getRunHistory(){
     return $result;
 }
 function getRunInfos($dataid){
-    $sql_query = "SELECT `temps`, `vitesse`, `consommation`,`lat`,`lon` FROM `utilisateur` WHERE `dataid`='$dataid'";
+    $sql_query = "SELECT `temps`, `vitesse`, `consommation`,`lat`,`lon` FROM `data` WHERE `dataid` LIKE '$dataid'";
     $result_set = mysqli_query($this->id,$sql_query); 
     $result = mysqli_fetch_all($result_set); 
     return $result;
