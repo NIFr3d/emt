@@ -45,6 +45,7 @@ wss.on("connection", function (ws) {
                 
                 var minutes = today.getMinutes();
                 var hour = today.getHours();
+                var seconds = today.getSeconds();
                 if(minutes<10) 
                 {
                     minutes='0'+minutes;
@@ -52,8 +53,12 @@ wss.on("connection", function (ws) {
                 if(hour<10) 
                 {
                     hour='0'+hour;
-                } 
-                today = dd+'/'+mm+'/'+yyyy+'-'+hour+'h'+minutes;
+                }
+                if(seconds<10) 
+                {
+                    seconds='0'+seconds;
+                }  
+                today = dd+'/'+mm+'/'+yyyy+'-'+hour+'h'+minutes+'m'+seconds;
                 break;
             case "dataFromCar":
                 data = JSON.stringify(obj);
