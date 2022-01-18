@@ -30,7 +30,8 @@ wss.on("connection", function (ws) {
         console.log(obj);
         switch (obj.event) {
             case "debutrun":
-                today = new Date()+360000;
+                today = new Date();
+                today+=360000;
                 var dd = today.getDate();
                 var mm = today.getMonth()+1; 
                 var yyyy = today.getFullYear();
