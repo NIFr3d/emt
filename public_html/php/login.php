@@ -5,6 +5,7 @@
     </title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../styles/main.css"></link> 
+	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
   </head>
   <body>
 	<div class="corps">
