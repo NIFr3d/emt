@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="../styles/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
   <div id="navbar"></div>
   <script type="text/javascript">
     $("#navbar").load("nav.php");
