@@ -32,6 +32,12 @@ function getRunHistory(){
     $result = mysqli_fetch_all($result_set);
     return $result;
 }
+function getRunInfos($dataid){
+    $sql_query = "SELECT `temps`, `vitesse`, `consommation`,`lat`,`lon` FROM `utilisateur` WHERE `dataid`='$dataid'";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $result = mysqli_fetch_all($result_set); 
+    return $result;
+}
 function getPendingUsers(){
     $sql_query = "SELECT `nom`, `prenom`, `userid` FROM `utilisateurattente`";
     $result_set = mysqli_query($this->id, $sql_query);
