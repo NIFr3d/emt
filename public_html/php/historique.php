@@ -13,7 +13,7 @@
     </script>
 </head>
 <body>
-    <select name="choixrun">
+    <select name="choixrun" id="choixrun">
         <option value="">--Choisissez un run--</option>
     <?php
     include("functions/BDD.php");
