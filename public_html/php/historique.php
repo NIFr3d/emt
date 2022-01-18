@@ -20,7 +20,7 @@
     $listeruns=$db->getRunHistory();
     for($i=0;$i<count($listeruns);$i++){
         $run=$listeruns[$i][0];
-        echo("<option value=\"$i\">$run</option>");
+        echo("<option value=$i>$run</option>");
     }
     ?>
 </select>
