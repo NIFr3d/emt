@@ -31,6 +31,7 @@
 <script type="text/javascript">
     function afficherRun(){
         var choix=$("#choixrun :selected").val();
+        console.log(choix);
         $("#run").load("run.php/choix="+choix);
     }
 
