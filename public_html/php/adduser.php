@@ -9,7 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <div id="navbar"></div>
   <script type="text/javascript">
-    $("#navbar").load("../pages/nav.php");
+    $("#navbar").load("nav.php");
   </script>
 </head>
 
@@ -18,7 +18,7 @@
 <?php
 session_start();
 if(!isset($_SESSION["acces"])) header("location: login.php");
-include("../php/BDD.php");
+include("functions/BDD.php");
 
 $liste=$db->getPendingUsers();
 echo("<br /><br /><TABLE border='1' cellspacing='0'> 

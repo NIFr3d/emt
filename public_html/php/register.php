@@ -1,15 +1,40 @@
-<?php
-include("BDD.php");
-$userid = stripslashes($_POST["login"]);
-$mdp = stripslashes($_POST['mdp']);
-$mdp = password_hash($mdp,PASSWORD_DEFAULT);
-$nom= stripslashes($_POST["nom"]);
-$prenom= stripslashes($_POST["prenom"]);
-$acces=0;
-if(!$db->userExist($userid)){
-    $db->register($userid,$mdp,$nom,$prenom,$acces);
-        header("location: ../pages/register.php?msg=Demande+envoyée");
-}else{
-    header("location: ../pages/register.php?msg=Identifiant+déjà+utilisé");
-}
-?>
+<html lang="fr">
+  <head> 
+    <title>
+      EMT 2021-2022
+    </title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../styles/main.css"></link> 
+  </head>
+  <body>
+	<div class="corps">
+	<form method="post" action="functions/register.php">
+				<h1>S'enregistrer</h1>
+				<div class="field">
+					<label for="login">Identifiant :</label> <br/>
+					<input type="text" id="login" class="champuser" name="login" placeholder="Identifiant" />
+				</div>
+				<div class="field">
+					<label for="nom">Nom :</label> <br/>
+					<input type="text" id="nom" class="champuser" name="nom" placeholder="Identifiant" />
+				</div>
+				<div class="field">
+					<label for="prenom">Prénom :</label> <br/>
+					<input type="text" id="prenom" class="champuser" name="prenom" placeholder="Identifiant" />
+				</div>
+				<div class="field">
+					<label for="mdp">Mot de passe :</label><br/>
+					<input type="password" id="mdp" class="champuser" name="mdp" placeholder="Mot de passe" />
+				</div>
+				<div class="field">
+					<button type="submit" id="loginbutton" class="bouton" name="loginbutton">S'enregistrer</button>
+				</div>
+                <?php
+				if(isset($_GET["msg"])) echo($_GET["msg"]);
+				?>
+	</form>
+	Vous avez déjà un compte ?
+	<form method="post" action="login.php"><button type="submit" class="bouton">Se connecter</button></form>
+</div>
+  </body>
+  </html>
