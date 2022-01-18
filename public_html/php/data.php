@@ -27,7 +27,11 @@
     }
     ?>
     <div id="data" class="content">
-        <p id='bjr'>Bonjour<span id="prenom"></span></p> <p id='txtaccueil'>voici les données de la voiture</p><br />
+        <p id='bjr'>Bonjour 
+        <?php
+        echo($_SESSION["prenom"])
+        ?>
+        ,</p> <p id='txtaccueil'>voici les données de la voiture</p><br />
         <table id='données' border='0' cellspacing='2'>
         <tr id='intitulés'>
         <th>Temps</th> 
