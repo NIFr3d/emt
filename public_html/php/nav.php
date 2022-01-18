@@ -19,7 +19,7 @@
       }
       else{
         echo('<form method="post" action="data.php" class="nav2"><button type="submit" class="boutonNav"><img id="accueil" src="../styles/images/accueil.png" alt="accueil"/> Accueil</button></form>');
-        echo("<form method=\"post\" action=\"historique.php\" class=\"nav\"><button type=\"submit\" class=\"boutonNav\">Historique des runs</button></form>");
+        echo("<form method=\"post\" action=\"historique.php\" class=\"nav2\"><button type=\"submit\" class=\"boutonNav\">Historique des runs</button></form>");
         echo('<form method="post" action="functions/logout.php" class="nav2"><button type="submit" class="boutonNav"><img id="deconnexion" src="../styles/images/deconnexion.png" alt="deconnexion"/></button></form>');
       }
       ?>
