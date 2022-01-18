@@ -15,7 +15,7 @@
 <body>
 <?php
 include("functions/BDD.php");
-var_dump(getRunHistory());
+var_dump($db->getRunHistory());
 ?>
 </body>
 </html>
