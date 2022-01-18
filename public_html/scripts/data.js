@@ -2,15 +2,19 @@
 
 var socket = new WebSocket("ws://rostro15.fr:8080");
 //var socket = new WebSocket("ws://"+HOST+":"+PORT);
+var layer = L.marker();
+
 
 socket.onopen = function () {
   socket.onmessage = function (event) {
     data = JSON.parse(event.data);
     switch (data.event) {
       case "dataFromCar":
+          layer.remove();
         document.getElementById("temps").innerHTML = data.temps;
         document.getElementById("vitesse").innerHTML = data.vitesse;
         document.getElementById("conso").innerHTML = data.consommation;
+        layer = L.marker([data.latt,data.long]).addTo(map);
         break;
     }
 }
@@ -69,7 +73,6 @@ if(acces==1){
 var lat = 48.3025;
 var lon = 6.9175;
 var map = null;
-var layer = null;
 
 // Fonction d'initialisation de la carte
 function initMap() {
@@ -82,16 +85,6 @@ function initMap() {
         minZoom: 1,
         maxZoom: 20
     }).addTo(map);
-for(let i=0; i<100;i++){
-    var layer = L.marker();
-    setTimeout(function(){
-        layer = L.marker([lat+i*0.00001,lon+i*0.00001]).addTo(map);
-    },500*i)
-    setTimeout(function(){
-        layer.remove();
-    },500*(i+1));
-
-}
 }
 window.onload = function(){    
     // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
