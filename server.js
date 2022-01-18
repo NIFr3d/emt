@@ -45,7 +45,7 @@ wss.on("connection", function (ws) {
                 }
                 
                 var minutes = today.getMinutes();
-                var hour = today.getHours();
+                var hour = today.getHours()+1;
                 var seconds = today.getSeconds();
                 if(minutes<10) 
                 {
