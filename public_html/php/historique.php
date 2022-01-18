@@ -19,7 +19,7 @@
     include("functions/BDD.php");
     $listeruns=$db->getRunHistory();
     for($i=0;$i<count($listeruns);$i++){
-        $run=$listeruns[$i];
+        $run=$listeruns[0][$i];
         echo("<option value=$i>$run</option>");
     }
     ?>
