@@ -29,10 +29,11 @@ img.src ="../Cartes/out.png?" + new Date().getTime();
 img.onload=function(){
     contexte.drawImage(img, 0, 0);
 };
-document.getElementById('cleartracer').addEventListener('click',function(){
-    contexte.clearRect(0, 0, canevas.width, canevas.height);
-});
+
 if(acces==1){
+    document.getElementById('cleartracer').addEventListener('click',function(){
+        contexte.clearRect(0, 0, canevas.width, canevas.height);
+    });
     canevas.addEventListener('mousedown', function (e) {
         var rect = e.target.getBoundingClientRect();
         var x = e.clientX - rect.left; //x position within the element.
