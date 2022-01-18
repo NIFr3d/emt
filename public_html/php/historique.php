@@ -29,9 +29,12 @@
 </body>
 <footer>
 <script type="text/javascript">
+    afficherRun(){
     var liste=document.getElementById("choixrun");
     var choix=liste.value;
     $("#run").load("run.php/choix="+choix);
+    }
+
 </script>
 </footer>
 </html>
