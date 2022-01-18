@@ -1,7 +1,4 @@
-//import {HOST, PORT} from './config.js';
-
 var socket = new WebSocket("ws://rostro15.fr:8080");
-//var socket = new WebSocket("ws://"+HOST+":"+PORT);
 var layer = L.marker();
 
 
