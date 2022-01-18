@@ -26,6 +26,12 @@ function getUserList(){
     $result = mysqli_fetch_all($result_set);
     return $result;
 }
+function getRunHistory(){
+    $sql_query = "SELECT `dataid` FROM `data` GROUP BY `dataid`";
+    $result_set = mysqli_query($this->id, $sql_query);
+    $result = mysqli_fetch_all($result_set);
+    return $result;
+}
 function getPendingUsers(){
     $sql_query = "SELECT `nom`, `prenom`, `userid` FROM `utilisateurattente`";
     $result_set = mysqli_query($this->id, $sql_query);
