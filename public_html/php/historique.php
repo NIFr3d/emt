@@ -13,9 +13,23 @@
     </script>
 </head>
 <body>
-<?php
-include("functions/BDD.php");
-var_dump($db->getRunHistory());
-?>
+    <select name="choixrun">
+        <option value="">--Choisissez un run--</option>
+    <?php
+    include("functions/BDD.php");
+    $listeruns=$db->getRunHistory();
+    for($i=0;$i<count($listeruns);$i++){
+        $run=$listeruns[$i];
+        echo("<option value=$i>$run</option>");
+    }
+    ?>
+</select>
+<button onclick="afficherRun()">Afficher</button>
+<div id="run"></div>
 </body>
+<footer>
+<script type="text/javascript">
+    $("#run").load("run.php/");
+</script>
+</footer>
 </html>
