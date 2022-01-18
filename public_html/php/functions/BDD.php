@@ -38,6 +38,17 @@ function getRunInfos($dataid){
     $result = mysqli_fetch_all($result_set); 
     return $result;
 }
+function adminUser($userid){
+    $sql_query="UPDATE `utilisateur` SET `acces`=1 WHERE `userid`='$userid';";
+    $result_set = mysqli_query($this->id,$sql_query); 
+}
+function isAdmin($userid){
+    $sql_query="SELECT `acces` FROM `utilisateur` WHERE `userid`='$userid';";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $result = mysqli_fetch_row($result_set)[0]; 
+    return ($result > 0);
+}
+
 function getPendingUsers(){
     $sql_query = "SELECT `nom`, `prenom`, `userid` FROM `utilisateurattente`";
     $result_set = mysqli_query($this->id, $sql_query);

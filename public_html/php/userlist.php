@@ -20,15 +20,19 @@
 
   $liste=$db->getUserList();
   echo("<br /><br /><br /><TABLE BORDER='1' cellspacing='0'> 
-      <TR><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Supprimer</TH></TR>\n");
+      <TR><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Ajouter administrateur</TH><TH>Supprimer</TH></TR>\n");
   for($i=0;$i<count($liste);$i++){
       $nom=$liste[$i][0];
       $prenom=$liste[$i][1];
       $userid=$liste[$i][2];
-      echo("<form method='post' action='functions/deluser.php'>
+      echo("
       <TR><TD>$prenom</TD><TD>$nom</TD><TD>$userid</TD>
-      <TD><div id='butTab'><button class='boutonTab' type='submit'>Supprimer</button></div></TD></TR>
-      <input type='hidden' name='userid' value='$userid' /></form>\n");
+      <TD><form method='post' action='functions/usertoadmin.php'><div id='butTab'><button class='boutonTab' type='submit'>Administrateur</button></div>
+      <input type='hidden' name='userid' value='$userid' /></form></TD>
+      <TD><form method='post' action='functions/deluser.php'><div id='butTab'><button class='boutonTab' type='submit'>Supprimer</button></div>
+      <input type='hidden' name='userid' value='$userid' /></form></TD>
+      </TR>
+      \n");
   }
   echo("</TABLE>\n");	
   if(isset($_GET["message"])) echo($_GET["message"]);
