@@ -29,7 +29,7 @@ for($i=0;$i<count($liste);$i++){
     $prenom=$liste[$i][1];
     $userid=$liste[$i][2];
     echo("<TR><TD class='valeurs'>$prenom</TD><TD class='valeurs'>$nom</TD><TD class='valeurs'>$userid</TD>
-    // <TD class='valeurs'><form method='post' action='functions/authorize.php'><div id='butTab'><button class='boutonTab' type='submit'>Ajouter</button></div>
+    <TD class='valeurs'><form method='post' action='functions/authorize.php'><div id='butTab'><button class='boutonTab' type='submit'>Ajouter</button></div>
     <input type='hidden' name='userid' value='$userid' /></form></TD>
     <TD class='valeurs'><form method='post' action='functions/refuseuser.php'><div id='butTab'><button class='boutonTab' type='submit'>Supprimer</button></div>
     <input type='hidden' name='userid' value='$userid' /></form></TD></TR>\n");

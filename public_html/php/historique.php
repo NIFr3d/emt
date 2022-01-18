@@ -25,7 +25,7 @@
     }
     ?>
 </select>
-<button onclick="afficherRun()">Afficher</button>
+<button class="boutonTab" onclick="afficherRun()">Afficher</button>
 <div id="run"></div>
 </body>
 <footer>
