@@ -12,7 +12,7 @@ echo("<br /><br /><br /><TABLE BORDER='1' cellspacing='0'>
       $consommation=$runinfos[$i][2];
       $latitude=$runinfos[$i][3];
       $longitude=$runinfos[$i][4];
-      echo("<TR><TD>$temps</TD><TD>$vitesse</TD><TD>$consommation</TD><TD>$latitude</TD>$longitude<TD></TD></TR>\n");
+      echo("<TR><TD>$temps</TD><TD>$vitesse</TD><TD>$consommation</TD><TD>$latitude</TD><TD>$longitude</TD></TR>\n");
   }
   echo("</TABLE>\n");	
 ?>
