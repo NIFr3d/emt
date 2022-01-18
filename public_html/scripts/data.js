@@ -16,8 +16,8 @@ socket.onopen = function () {
         document.getElementById("conso").innerHTML = data.consommation;
         layer = L.marker([data.latt,data.long]).addTo(map);
         break;
+        }
     }
-}
 }
 var canevas = document.getElementById("canevas");
 contexte = canevas.getContext("2d");
