@@ -21,7 +21,7 @@ public function connect(){
     $this->id = mysqli_connect($this->host, $this->user, $this->pass, $this->base); // connexion
 }
 function getUserList(){
-    $sql_query = "SELECT `nom`, `prenom`, `userid` FROM `utilisateur`";
+    $sql_query = "SELECT `nom`, `prenom`, `userid`,`acces` FROM `utilisateur`";
     $result_set = mysqli_query($this->id, $sql_query);
     $result = mysqli_fetch_all($result_set);
     return $result;
@@ -42,11 +42,22 @@ function adminUser($userid){
     $sql_query="UPDATE `utilisateur` SET `acces`=1 WHERE `userid`='$userid';";
     $result_set = mysqli_query($this->id,$sql_query); 
 }
+function unadminUser($userid){
+    $sql_query="UPDATE `utilisateur` SET `acces`=0 WHERE `userid`='$userid';";
+    $result_set = mysqli_query($this->id,$sql_query); 
+}
 function isAdmin($userid){
     $sql_query="SELECT `acces` FROM `utilisateur` WHERE `userid`='$userid';";
     $result_set = mysqli_query($this->id,$sql_query); 
     $result = mysqli_fetch_row($result_set)[0]; 
     return ($result > 0);
+}
+
+function isNotAdmin($userid){
+    $sql_query="SELECT `acces` FROM `utilisateur` WHERE `userid`='$userid';";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $result = mysqli_fetch_row($result_set)[0]; 
+    return ($result != 1);
 }
 
 function getPendingUsers(){

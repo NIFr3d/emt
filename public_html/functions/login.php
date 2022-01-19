@@ -15,7 +15,7 @@ $mdp = stripslashes($_POST["mdp"]);
             $token=random_bytes(20);
             setcookie("token", $token,time()+600000,'/');
             $db->saveToken($userid,$token);
-            header("location:../data.php");
+            header("location:../index.php");
         } else {
             header("location: ../login.php?erreur=Mot+de+passe+incorrect");
         }
