@@ -78,10 +78,10 @@ wss.on("connection", function (ws) {
                 obj.vitesse=distance(cordsact,lastcords)/(obj.temps-lasttemps);
                 lastcords=cordsact;
                 lasttemps=obj.temps;
-                console.log(obj.vitesse)
+                console.log(obj.temps-lasttemps);
                 data = JSON.stringify(obj);
                 wss.clients.forEach(client => client.send(data));
-                //sqlquery("INSERT INTO `data` (`dataid`, `temps`, `vitesse`, `consommation`, `lat`, `lon`) VALUES ('"+today+"', '"+obj.temps+"', '"+obj.vitesse+"', '"+obj.consommation+"', '"+obj.latt+"', '"+obj.long+"');");
+                sqlquery("INSERT INTO `data` (`dataid`, `temps`, `vitesse`, `consommation`, `lat`, `lon`) VALUES ('"+today+"', '"+obj.temps+"', '"+obj.vitesse+"', '"+obj.consommation+"', '"+obj.latt+"', '"+obj.long+"');");
                 break;
             case "nouveautracer":
 		console.log("nouveau tracer");
