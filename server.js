@@ -5,18 +5,26 @@ const wss = new WebSocketServer({ port: PORT });
 var tabl = new Set();
 const mysql = require("sync-mysql");
 var today;
+var R = 6371000; //rayon de la terre en mètres
 async function sqlquery(query) {
     result = con.query(query);
     return result;
 }
-
+var test={
+    lat : 48.3025,
+    lon : 6.9175,
+};
+var runactuel=[];
 const con = new mysql({ //à changer avec les paramètres du serveur mysql
     host: "localhost",
     user: DATABASE_LOGIN,
     password: DATABASE_PASSWORD,
     database: DATABASE
 });
-
+function distance(point1, point2) {
+    var degToRad = Math.PI / 180;
+    return R * degToRad * Math.sqrt(Math.pow(Math.cos(point1.lat * degToRad ) * (point1.lon - point2.lon) , 2) + Math.pow(point1.lat - point2.lat, 2));
+}
 
 wss.on("connection", function (ws) {
     console.log("nouvelle connexion");
@@ -62,6 +70,11 @@ wss.on("connection", function (ws) {
                 today = dd+'/'+mm+'/'+yyyy+'-'+hour+'h'+minutes+'m'+seconds+'s';
                 break;
             case "dataFromCar":
+                var pointact={
+                    lat:obj.latt,
+                    lon:obj.long,
+                }
+                obj.vitesse=distance(test,pointact);
                 data = JSON.stringify(obj);
                 wss.clients.forEach(client => client.send(data));
                 sqlquery("INSERT INTO `data` (`dataid`, `temps`, `vitesse`, `consommation`, `lat`, `lon`) VALUES ('"+today+"', '"+obj.temps+"', '"+obj.vitesse+"', '"+obj.consommation+"', '"+obj.latt+"', '"+obj.long+"');");

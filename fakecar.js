@@ -20,14 +20,12 @@ document.getElementById("startsending").onclick = function () {
             lon=lon+i*0.00001
             infos = {
                 event: "dataFromCar",
-                vitesse: i * 12,
                 consommation: i / 10,
                 temps: i,
                 latt: lat,
                 long: lon,
             }
             document.getElementById("temps").innerHTML = infos.temps;
-            document.getElementById("vitesse").innerHTML = infos.vitesse;
             document.getElementById("conso").innerHTML = infos.consommation;
             document.getElementById("lat").innerHTML = infos.latt;
             document.getElementById("lon").innerHTML = infos.long;
