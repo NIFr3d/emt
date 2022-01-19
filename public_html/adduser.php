@@ -18,7 +18,7 @@
   <div class="corps">
 <?php
 session_start();
-if(!isset($_SESSION["acces"])) header("location: login.php");
+if(!isset($_SESSION["acces"])) header("location: login");
 include("functions/BDD.php");
 
 $liste=$db->getPendingUsers();

@@ -8,8 +8,8 @@ $prenom= stripslashes($_POST["prenom"]);
 $acces=0;
 if(!$db->userExist($userid)){
     $db->register($userid,$mdp,$nom,$prenom,$acces);
-        header("location: ../register.php?msg=Demande+envoyée");
+        header("location: ../register?msg=Demande+envoyée");
 }else{
-    header("location: ../register.php?msg=Identifiant+déjà+utilisé");
+    header("location: ../register?msg=Identifiant+déjà+utilisé");
 }
 ?>

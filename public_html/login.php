@@ -9,7 +9,7 @@
   </head>
   <body>
 	<div class="corps">
-	<form method="post" action="functions/login.php">
+	<form method="post" action="functions/login">
 				<h1>S'identifier</h1>
 				<div class="field">
 					<label for="login">Identifiant :</label> <br/>
@@ -26,7 +26,7 @@
 				if(isset($_GET["erreur"])) echo($_GET["erreur"]);
 				?>
 	</form>
-	<form method="post" action="register.php"><button type="submit" class="bouton">S'enregistrer</button></form>
+	<form method="post" action="register"><button type="submit" class="bouton">S'enregistrer</button></form>
 	</div>
   </body>
   </html>

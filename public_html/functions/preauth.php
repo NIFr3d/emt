@@ -1,12 +1,12 @@
 <?php
 if(!ISSET($_COOKIE["token"])){
-    header("location:../login.php?erreur=Pas+d'ancienne+connexion");
+    header("location:../login?erreur=Pas+d'ancienne+connexion");
 }else{
 
     include("BDD.php");
     $token=$_COOKIE["token"];
     if (!$db->tokenExist($token)){
-        header("location: ../login.php?erreur=Utilisateur+inconnu");
+        header("location: ../login?erreur=Utilisateur+inconnu");
     }else{
         $infos=$db->gettokenInfos($token);
             session_start();
