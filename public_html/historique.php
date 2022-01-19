@@ -20,6 +20,7 @@
     if(!isset($_SESSION["acces"])) header("location: login");
     include("functions/BDD.php");
     ?>
+    <from method="post" action="functions/removerun.php">
     <select name="choixrun" id="choixrun">
         <option value="">--Choisissez une course--</option>
     <?php
@@ -31,6 +32,12 @@
     ?>
     </select>
 <button class="boutonTab" onclick="afficherRun()">Afficher</button>
+<?php
+if($_SESSION["acces"]==1){
+    echo("<button class=\"boutonTab\" type=\"submit\">Supprimer ce run</button>");
+}
+?>
+</form>
 <div id="run"></div>
 </div>
 </body>
