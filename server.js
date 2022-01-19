@@ -10,11 +10,11 @@ async function sqlquery(query) {
     result = con.query(query);
     return result;
 }
-var test={
-    lat : 48.3025,
-    lon : 6.9175,
+var lastcords={
+    lat:0,
+    lon:0
 };
-var runactuel=[];
+var lasttemps=0;
 const con = new mysql({ //à changer avec les paramètres du serveur mysql
     host: "localhost",
     user: DATABASE_LOGIN,
@@ -70,11 +70,13 @@ wss.on("connection", function (ws) {
                 today = dd+'/'+mm+'/'+yyyy+'-'+hour+'h'+minutes+'m'+seconds+'s';
                 break;
             case "dataFromCar":
-                var pointact={
+                var cordsact={
                     lat:obj.latt,
                     lon:obj.long,
                 }
-                obj.vitesse=distance(test,pointact);
+                obj.vitesse=distance(cordsact,lastcords)/(obj.temps-lasttemps);
+                lastcords=cordsact;
+                lasttemps=obj.temps;
                 data = JSON.stringify(obj);
                 wss.clients.forEach(client => client.send(data));
                 sqlquery("INSERT INTO `data` (`dataid`, `temps`, `vitesse`, `consommation`, `lat`, `lon`) VALUES ('"+today+"', '"+obj.temps+"', '"+obj.vitesse+"', '"+obj.consommation+"', '"+obj.latt+"', '"+obj.long+"');");
