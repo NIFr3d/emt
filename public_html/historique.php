@@ -31,7 +31,7 @@
     }
     ?>
     </select>
-<button class="boutonTab" onclick="afficherRun()">Afficher</button>
+<button class="boutonTab" type="button" onclick="afficherRun()">Afficher</button>
 <?php
 if($_SESSION["acces"]==1){
     echo("<button class=\"boutonTab\" type=\"submit\">Supprimer ce run</button>");
