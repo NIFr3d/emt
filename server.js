@@ -78,7 +78,7 @@ wss.on("connection", function (ws) {
                 obj.vitesse=distance(cordsact,lastcords)*3.6/(obj.temps-lasttemps);
                 lastcords=cordsact;
                 lasttemps=obj.temps;
-                console.log(cordsact.lat-lastcords.lat);
+                console.log(distance(cordsact,lastcords));
                 data = JSON.stringify(obj);
                 wss.clients.forEach(client => client.send(data));
                 sqlquery("INSERT INTO `data` (`dataid`, `temps`, `vitesse`, `consommation`, `lat`, `lon`) VALUES ('"+today+"', '"+obj.temps+"', '"+obj.vitesse+"', '"+obj.consommation+"', '"+obj.latt+"', '"+obj.long+"');");
