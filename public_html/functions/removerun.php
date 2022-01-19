@@ -1,7 +1,7 @@
 <?php
-include("functions/BDD.php");
+include("BDD.php");
 $listeruns=$db->getRunHistory();
 $choix=$_POST["choixrun"];
 $choixstr=$listeruns[$choix][0];
-header("location: ../historique.php");
+header("location: ../historique");
 ?>
