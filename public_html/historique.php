@@ -15,10 +15,14 @@
 </head>
 <body>
     <div class="corps">
+    <?php
+    session_start();
+    if(!isset($_SESSION["acces"])) header("location: login");
+    include("functions/BDD.php");
+    ?>
     <select name="choixrun" id="choixrun">
         <option value="">--Choisissez une course--</option>
     <?php
-    include("functions/BDD.php");
     $listeruns=$db->getRunHistory();
     for($i=0;$i<count($listeruns);$i++){
         $run=$listeruns[$i][0];
