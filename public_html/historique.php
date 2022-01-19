@@ -14,6 +14,7 @@
     </script>
 </head>
 <body>
+    <div class="corps">
     <select name="choixrun" id="choixrun">
         <option value="">--Choisissez une course--</option>
     <?php
@@ -27,6 +28,7 @@
     </select>
 <button class="boutonTab" onclick="afficherRun()">Afficher</button>
 <div id="run"></div>
+</div>
 </body>
 <footer>
 <script type="text/javascript">

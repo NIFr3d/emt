@@ -53,13 +53,6 @@ function isAdmin($userid){
     return ($result > 0);
 }
 
-function isNotAdmin($userid){
-    $sql_query="SELECT `acces` FROM `utilisateur` WHERE `userid`='$userid';";
-    $result_set = mysqli_query($this->id,$sql_query); 
-    $result = mysqli_fetch_row($result_set)[0]; 
-    return ($result != 1);
-}
-
 function getPendingUsers(){
     $sql_query = "SELECT `nom`, `prenom`, `userid` FROM `utilisateurattente`";
     $result_set = mysqli_query($this->id, $sql_query);
@@ -68,8 +61,10 @@ function getPendingUsers(){
 }
 function userExist($userid){
     $sql_query = "SELECT COUNT(*) FROM `utilisateur` WHERE `userid`='$userid'";
+    $sql_query2 = "SELECT COUNT(*) FROM `utilisateurattente` WHERE `userid`='$userid'";
     $result_set = mysqli_query($this->id,$sql_query);
-    $result = mysqli_fetch_row($result_set)[0]; 
+    $result_set2 = mysqli_query($this->id,$sql_query2); 
+    $result = mysqli_fetch_row($result_set)[0] + mysqli_fetch_row($result_set2)[0]; 
     return ($result > 0); //retourne false ou true selon le nombre d'utilisateur correspondant à l'userid donné (0 ou 1)
 }
 function tokenExist($token){
