@@ -20,7 +20,7 @@
     if(!isset($_SESSION["acces"])) header("location: login");
     include("functions/BDD.php");
     ?>
-    <from method="post" action="functions/removerun.php">
+    <form method="post" action="functions/removerun.php">
     <select name="choixrun" id="choixrun">
         <option value="">--Choisissez une course--</option>
     <?php
