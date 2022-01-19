@@ -19,7 +19,7 @@ const con = new mysql({ //à changer avec les paramètres du serveur mysql
 
 
 wss.on("connection", function (ws) {
-    console.log("nouvelle connection");
+    console.log("nouvelle connexion");
     ws.on("message", async function (str) {
         try {
             var obj = JSON.parse(str);
@@ -31,7 +31,7 @@ wss.on("connection", function (ws) {
         switch (obj.event) {
             case "debutrun":
                 today = new Date();
-                today.setTime(today.getTime()+3600000);
+                //today.setTime(today.getTime()+3600000);
                 var dd = today.getDate();
                 var mm = today.getMonth()+1; 
                 var yyyy = today.getFullYear();
