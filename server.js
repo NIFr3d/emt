@@ -33,7 +33,7 @@ wss.on("connection", function (ws) {
             var obj = JSON.parse(str);
         }
         catch (error) {
-            //var obj = { err: "not json object" };
+            var obj = { err: "not json object" };
         }
         console.log(obj);
         switch (obj.event) {
