@@ -26,6 +26,7 @@
 				if(isset($_GET["erreur"])) echo($_GET["erreur"]);
 				?>
 	</form>
+	<h1>Si vous n'avez pas de compte, vous pouvez demander à en créer un ci-dessous :</h1>
 	<form method="post" action="register"><button type="submit" class="bouton">S'enregistrer</button></form>
 	</div>
   </body>
