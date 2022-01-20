@@ -21,7 +21,6 @@ document.getElementById("startsending").onclick = function () {
             infos = {
                 event: "dataFromCar",
                 consommation: i / 10,
-                temps: i,
                 latt: lat,
                 long: lon,
             }

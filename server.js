@@ -14,7 +14,8 @@ var lastcords={
     lat:0,
     lon:0
 };
-var lasttemps=0;
+var tempsdebut;
+var lasttemps=new Date();
 const con = new mysql({ //à changer avec les paramètres du serveur mysql
     host: "localhost",
     user: DATABASE_LOGIN,
@@ -39,6 +40,7 @@ wss.on("connection", function (ws) {
         switch (obj.event) {
             case "debutrun":
                 today = new Date();
+                tempsdebut=today;
                 //today.setTime(today.getTime()+3600000);
                 var dd = today.getDate();
                 var mm = today.getMonth()+1; 
@@ -74,13 +76,15 @@ wss.on("connection", function (ws) {
                     lat:obj.latt,
                     lon:obj.long,
                 }
-                if(obj.temps-lasttemps==0){obj.temps+=1;}
-                obj.vitesse=distance(cordsact,lastcords)*3.6/(obj.temps-lasttemps);
-                lastcords=cordsact;
-                lasttemps=obj.temps;
+                var tempsact=new Date();
+                if(tempsact.getTime()-lasttemps.getTime()==0){tempsact.setTime(tempsact.getTime()+1);}
+                obj.vitesse=distance(cordsact,lastcords)*3.6/(tempsact.getTime()-lasttemps.getTime());
+                obj.temps=(tempsact.getTime()-tempsdebut.getTime())
                 data = JSON.stringify(obj);
                 wss.clients.forEach(client => client.send(data));
                 sqlquery("INSERT INTO `data` (`dataid`, `temps`, `vitesse`, `consommation`, `lat`, `lon`) VALUES ('"+today+"', '"+obj.temps+"', '"+obj.vitesse+"', '"+obj.consommation+"', '"+obj.latt+"', '"+obj.long+"');");
+                lastcords=cordsact;
+                lasttemps=tempsact;
                 break;
             case "nouveautracer":
 		console.log("nouveau tracer");
