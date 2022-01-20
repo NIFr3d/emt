@@ -10,7 +10,7 @@
   <body>
 	<div class="corps">
 	<form method="post" action="functions/login">
-				<h1>S'identifier</h1>
+				<h1>Bienvenue sur le site de suivi de l'EMT<br> Veuillez vous identifier</h1>
 				<div class="field">
 					<label for="login">Identifiant :</label> <br/>
 					<input type="text" id="login" class="champuser" name="login" placeholder="Identifiant" />
