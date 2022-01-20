@@ -30,10 +30,10 @@ function distance(point1, point2) {
 
 wss.on("connection", function (ws) {
     console.log("nouvelle connexion");
-    
+    nbUtilisateurs+=1;
     wss.clients.forEach(client => client.send(JSON.stringify({
         event:"nbUtilisateurs",
-        nbUti:nbUtilisateurs+1
+        nbUti:nbUtilisateurs
     })));
     ws.on("message", async function (str) {
         try {
@@ -105,9 +105,10 @@ wss.on("connection", function (ws) {
 
     ws.on("close", function () {
         tabl.delete(ws);
+        nbUtilisateurs-=1;
         wss.clients.forEach(client => client.send(JSON.stringify({
             event:"nbUtilisateurs",
-            nbUti:nbUtilisateurs-1
+            nbUti:nbUtilisateurs
         })));
     })
 
