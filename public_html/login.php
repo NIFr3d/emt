@@ -28,6 +28,11 @@
 	</form>
 	<h2>Si vous n'avez pas de compte, vous pouvez demander à en créer un ci-dessous :</h2>
 	<form method="post" action="register"><button type="submit" class="bouton">S'enregistrer</button></form>
+	<h3>Nombre d'utilisateurs connectés : <span id="nbUtilisateurs"></span></h3>
 	</div>
   </body>
+  <footer>
+    <script src="../scripts/data.js"></script>
+</footer>
+
   </html>

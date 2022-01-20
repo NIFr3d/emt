@@ -6,15 +6,19 @@ socket.onopen = function () {
   socket.onmessage = function (event) {
     data = JSON.parse(event.data);
     switch (data.event) {
-      case "dataFromCar":
-          layer.remove();
-        document.getElementById("temps").innerHTML = data.temps;
-        document.getElementById("vitesse").innerHTML = data.vitesse;
-        document.getElementById("conso").innerHTML = data.consommation;
-        layer = L.marker([data.latt,data.long]).addTo(map);
-        break;
+        case "dataFromCar":
+            layer.remove();
+            document.getElementById("temps").innerHTML = data.temps;
+            document.getElementById("vitesse").innerHTML = data.vitesse;
+            document.getElementById("conso").innerHTML = data.consommation;
+            layer = L.marker([data.latt,data.long]).addTo(map);
+            break;
+        case "nbUtilisateurs":
+            document.getElementById("nbUtilisateurs").innerHTML = data.nbUti;
+            break;
         }
     }
+    
 }
 var canevas = document.getElementById("canevas");
 contexte = canevas.getContext("2d");

@@ -6,6 +6,7 @@ var tabl = new Set();
 const mysql = require("sync-mysql");
 var today;
 var R = 6371000; //rayon de la terre en mètres
+var nbUtilisateurs=0;
 async function sqlquery(query) {
     result = con.query(query);
     return result;
@@ -29,6 +30,11 @@ function distance(point1, point2) {
 
 wss.on("connection", function (ws) {
     console.log("nouvelle connexion");
+    
+    wss.clients.forEach(client => client.send(JSON.stringify({
+        event:"nbUtilisateurs",
+        nbUti:nbUtilisateurs+1
+    })));
     ws.on("message", async function (str) {
         try {
             var obj = JSON.parse(str);
@@ -99,6 +105,10 @@ wss.on("connection", function (ws) {
 
     ws.on("close", function () {
         tabl.delete(ws);
+        wss.clients.forEach(client => client.send(JSON.stringify({
+            event:"nbUtilisateurs",
+            nbUti:nbUtilisateurs-1
+        })));
     })
 
 })
