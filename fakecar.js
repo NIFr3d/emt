@@ -2,9 +2,8 @@ var socket = new WebSocket("ws://rostro15.fr:8080");
 socket.onopen = function () {
 
 };
-var lat = 48.3025;
-var lon = 6.9175;
-
+var lat = 43.77020;
+var lon = -0.04083;
 document.getElementById("startsending").onclick = function () {
     var i = 0
     socket.send(JSON.stringify({
