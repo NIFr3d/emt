@@ -78,8 +78,8 @@ wss.on("connection", function (ws) {
                 }
                 var tempsact=new Date();
                 if(tempsact.getTime()-lasttemps.getTime()==0){tempsact.setTime(tempsact.getTime()+1);}
-                obj.vitesse=distance(cordsact,lastcords)*3.6/(tempsact.getTime()-lasttemps.getTime());
-                obj.temps=(tempsact.getTime()-tempsdebut.getTime())
+                obj.vitesse=distance(cordsact,lastcords)*3600/(tempsact.getTime()-lasttemps.getTime());
+                obj.temps=(tempsact.getTime()-tempsdebut.getTime())/1000;
                 data = JSON.stringify(obj);
                 wss.clients.forEach(client => client.send(data));
                 sqlquery("INSERT INTO `data` (`dataid`, `temps`, `vitesse`, `consommation`, `lat`, `lon`) VALUES ('"+today+"', '"+obj.temps+"', '"+obj.vitesse+"', '"+obj.consommation+"', '"+obj.latt+"', '"+obj.long+"');");

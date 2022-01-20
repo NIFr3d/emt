@@ -24,7 +24,6 @@ document.getElementById("startsending").onclick = function () {
                 latt: lat,
                 long: lon,
             }
-            document.getElementById("temps").innerHTML = infos.temps;
             document.getElementById("conso").innerHTML = infos.consommation;
             document.getElementById("lat").innerHTML = infos.latt;
             document.getElementById("lon").innerHTML = infos.long;
