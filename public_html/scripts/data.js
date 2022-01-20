@@ -14,6 +14,7 @@ socket.onopen = function () {
             layer = L.marker([data.latt,data.long]).addTo(map);
             break;
         case "nbUtilisateurs":
+            console.log(data.nbUti);
             document.getElementById("nbUtilisateurs").innerHTML = data.nbUti;
             break;
         }
