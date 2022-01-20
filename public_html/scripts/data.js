@@ -15,7 +15,6 @@ socket.onopen = function () {
             layer = L.marker([data.latt,data.long]).addTo(map);
             break;
         case "nbUtilisateurs":
-            console.log(data.nbUti);
             document.getElementById("nbUtilisateurs").innerHTML = data.nbUti;
             break;
         }
@@ -74,8 +73,8 @@ if(acces==1){
     
 };
 
-var lat = 48.3025;
-var lon = 6.9175;
+var lat = 43.77020;
+var lon = -0.04083;
 var map = null;
 
 // Fonction d'initialisation de la carte

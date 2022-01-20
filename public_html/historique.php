@@ -50,5 +50,6 @@ if($_SESSION["acces"]==1){
     }
 
 </script>
+<script src="../scripts/nbuser.js"></script>
 </footer>
 </html>

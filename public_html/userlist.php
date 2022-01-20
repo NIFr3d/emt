@@ -49,6 +49,9 @@
   ?>
 </div>
 </body>
+<footer>
+    <script src="../scripts/nbuser.js"></script>
+</footer>
 </html>
 
 			

@@ -38,4 +38,7 @@
 	<form method="post" action="login"><button type="submit" class="bouton">Se connecter</button></form>
 </div>
   </body>
+  <footer>
+    <script src="../scripts/nbuser.js"></script>
+</footer>
   </html>
