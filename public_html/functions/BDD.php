@@ -26,6 +26,12 @@ function getUserList(){
     $result = mysqli_fetch_all($result_set);
     return $result;
 }
+function getNbUser(){
+    $sql_query = "SELECT COUNT(`nom`) FROM `utilisateur`";
+    $result_set = mysqli_query($this->id, $sql_query);
+    $result = mysqli_fetch_row($result_set)[0];
+    return $result;
+}
 function getRunHistory(){
     $sql_query = "SELECT `dataid` FROM `data` GROUP BY `dataid`";
     $result_set = mysqli_query($this->id, $sql_query);

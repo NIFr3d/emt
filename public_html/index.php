@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
     <div id="navbar"></div>
     <script type="text/javascript">
-        $("#navbar").load("nav.php");
+        $("#navbar").load("nav");
     </script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
