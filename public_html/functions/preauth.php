@@ -14,7 +14,7 @@ if(!ISSET($_COOKIE["token"])){
             $_SESSION["prenom"]=$infos[1];
             $_SESSION["acces"]=$infos[2];
             
-            header("location:../index.php");
+            header("location:../index");
     }
 }
 ?>

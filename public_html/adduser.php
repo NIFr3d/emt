@@ -10,7 +10,7 @@
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
   <div id="navbar"></div>
   <script type="text/javascript">
-    $("#navbar").load("nav.php");
+    $("#navbar").load("nav");
   </script>
 </head>
 
