@@ -182,12 +182,12 @@ li{
 	float:left;
 }
 li a{
-	display:block;
+	display:inline-block;
 	color:white;
 	text-align:center;
 	text-decoration:none;
 }
-li a:hover:not(.active) {
+li a:hover {
     background-color: #007ade;
 }
 .navadmin{

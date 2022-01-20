@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../styles/main.css"></link> 
   </head>
   <body>
+    <nav>
     <ul>
     <?php
       session_start();
@@ -25,5 +26,6 @@
       ?>
       
     </ul>
+    </nav>
 </body>
 </html>
