@@ -32,7 +32,7 @@
 	</div>
   </body>
   <footer>
-    <script src="../scripts/data.js"></script>
+    <script src="../scripts/nbuser.js"></script>
 </footer>
 
   </html>
