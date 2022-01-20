@@ -5,6 +5,7 @@ var layer = L.marker();
 socket.onopen = function () {
   socket.onmessage = function (event) {
     data = JSON.parse(event.data);
+    console.dir(data);
     switch (data.event) {
         case "dataFromCar":
             layer.remove();
