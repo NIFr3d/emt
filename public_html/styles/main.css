@@ -15,46 +15,7 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-#nav{
-    display: inline-block;
-    background-color: #019cde;
-    height:70px;
-    margin-left: -10px;
-	margin-right: -20px;
-	margin-top:-13px;
-    width:105%;
-}
 
-
-.nav{
-    display: inline-block;
-    background-color: #019cde;
-    height:58px;
-    margin: 0px;
-    width:19.4%;
-}
-.nav2{
-    display: inline-block;
-    background-color: #019cde;
-    height:58px;
-    margin: 0px;
-    width:33%;
-}
-.boutonNav{
-	font-family:Serif;
-	font-size:18px;	
-    width:100%;
-    height:100%;
-    background-color: #019cde;
-    color: white;
-    border: 0px;
-    padding: 0px;
-	margin:0;
-    cursor: pointer;
-}
-.boutonNav:hover{
-    background-color: #007ade;
-}
 .bouton{
     width:30%;
     height:5%;
@@ -205,6 +166,39 @@ td{
 	border: 1px solid;
 	behavior: url(/pie/PIE.htc);
 }
+
+ul{
+	list-style-type:none;
+	margin-left:-10;
+	margin-right:-20;
+	margin-top:-13;
+	padding:0;
+	height: 70px;
+	overflow:hidden;
+	background-color:#019cde;
+}
+
+li{
+	float:left;
+}
+li a{
+	display:block;
+	color:white;
+	text-align:center;
+	text-decoration:none;
+}
+li a:hover:not(.active) {
+    background-color: #007ade;
+}
+.navadmin{
+	padding:25px 100px;
+}
+.navuser{
+	padding:25px 208px;
+}
+
+
+
 
 /* required styles */
 
