@@ -9,5 +9,4 @@ socket.onopen = function () {
               break;
           }
       }
-      
   }
