@@ -173,13 +173,12 @@ ul{
 	margin-right:-20;
 	margin-top:-13;
 	padding:0;
-	height: 70px;
-	overflow:hidden;
+	height: auto;
 	background-color:#019cde;
 }
 
 li{
-	float:left;
+	display:inline;
 }
 li a{
 	display:inline-block;
