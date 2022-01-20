@@ -7,23 +7,25 @@
     <link rel="stylesheet" href="../styles/main.css"></link> 
   </head>
   <body>
-    <div id="nav" class="content">
+    <nav>
+    <ul>
     <?php
       session_start();
       if($_SESSION["acces"]==1){
-        echo('<form method="post" action="index" class="nav"><button type="submit" class="boutonNav"><img id="accueil" src="../styles/images/accueil.png" alt="accueil"/> Accueil</button></form>');
-        echo("<form method=\"post\" action=\"historique\" class=\"nav\"><button type=\"submit\" class=\"boutonNav\">Historique des courses</button></form>
-        <form method=\"post\" action=\"adduser\" class=\"nav\"><button type=\"submit\" class=\"boutonNav\">Ajout d'utilisateur</button></form>
-        <form method=\"post\" action=\"userlist\" class=\"nav\"><button type=\"submit\" class=\"boutonNav\">Gestion d'utilisateur</button></form>");
-        echo('<form method="post" action="functions/logout.php" class="nav"><button type="submit" class="boutonNav"><img id="deconnexion" src="../styles/images/deconnexion.png" alt="deconnexion"/></button></form>');
+        echo('<li><a class="navadmin" href="index"><img id="accueil" src="../styles/images/accueil.png" alt="accueil"/> Accueil</a></li>');
+        echo("<li><a class='navadmin' href='historique'>Historique des courses</a></li>
+        <li><a class='navadmin' href='adduser'>Ajout d'utilisateur</a></li>
+        <li><a class='navadmin' href='userlist'>Gestion d'utilisateur</a></li>");
+        echo('<li><a class="navadmin" href="functions/logout.php"><img id="deconnexion" src="../styles/images/deconnexion.png" alt="deconnexion"/></a></li>');
       }
       else{
-        echo('<form method="post" action="index" class="nav2"><button type="submit" class="boutonNav"><img id="accueil" src="../styles/images/accueil.png" alt="accueil"/> Accueil</button></form>');
-        echo("<form method=\"post\" action=\"historique\" class=\"nav2\"><button type=\"submit\" class=\"boutonNav\">Historique des courses</button></form>");
-        echo('<form method="post" action="functions/logout.php" class="nav2"><button type="submit" class="boutonNav"><img id="deconnexion" src="../styles/images/deconnexion.png" alt="deconnexion"/></button></form>');
+        echo('<li><a class="navuser" href="index"><img id="accueil" src="../styles/images/accueil.png" alt="accueil"/> Accueil</a></li>');
+        echo("<li><a class='navuser' href='historique'>Historique des courses</a></li>");
+        echo('<li><a class="navuser" href="functions/logout.php"><img id="deconnexion" src="../styles/images/deconnexion.png" alt="deconnexion"/></a></li>');
       }
       ?>
       
-    </div>
+    </ul>
+    </nav>
 </body>
 </html>
