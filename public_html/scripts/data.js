@@ -11,7 +11,9 @@ socket.onopen = function () {
             layer.remove();
             document.getElementById("temps").innerHTML = data.temps;
             document.getElementById("vitesse").innerHTML = data.vitesse;
-            document.getElementById("conso").innerHTML = data.consommation;
+            document.getElementById("intensite").innerHTML = data.intensite;
+            document.getElementById("tension").innerHTML = data.tension;
+            document.getElementById("energie").innerHTML = data.energie;
             layer = L.marker([data.latt,data.long]).addTo(map);
             break;
         case "nbUtilisateurs":

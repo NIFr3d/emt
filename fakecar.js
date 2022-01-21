@@ -19,11 +19,15 @@ document.getElementById("startsending").onclick = function () {
             lon=lon+i*0.00001
             infos = {
                 event: "dataFromCar",
-                consommation: i / 10,
+                intensite: i / 10,
+                tension: i*10,
+                energie:i*100,
                 latt: lat,
                 long: lon,
             }
-            document.getElementById("conso").innerHTML = infos.consommation;
+            document.getElementById("intensite").innerHTML = infos.intensite;
+            document.getElementById("tension").innerHTML = infos.tension;
+            document.getElementById("energie").innerHTML = infos.energie;
             document.getElementById("lat").innerHTML = infos.latt;
             document.getElementById("lon").innerHTML = infos.long;
             socket.send(JSON.stringify(infos));

@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1
--- http://www.phpmyadmin.net
+-- version 4.9.5deb2
+-- https://www.phpmyadmin.net/
 --
--- Client :  localhost
--- Généré le :  Mar 18 Janvier 2022 à 08:03
--- Version du serveur :  5.7.11
--- Version de PHP :  7.0.3
+-- Hôte : localhost:3306
+-- Généré le : ven. 21 jan. 2022 à 15:02
+-- Version du serveur :  8.0.27-0ubuntu0.20.04.1
+-- Version de PHP : 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `emt2021`
+-- Base de données : `emt`
 --
 
 -- --------------------------------------------------------
@@ -28,13 +30,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `data` (
   `dataid` varchar(20) NOT NULL,
-  `temps` int(11) NOT NULL,
+  `temps` int NOT NULL,
   `vitesse` float NOT NULL,
-  `consommation` float NOT NULL,
+  `intensite` float NOT NULL,
+  `tension` float NOT NULL,
+  `energie` float NOT NULL,
   `lat` double NOT NULL,
   `lon` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
 
 --
 -- Structure de la table `utilisateur`
@@ -44,20 +49,22 @@ CREATE TABLE `utilisateur` (
   `nom` text NOT NULL,
   `prenom` text NOT NULL,
   `mdp` text NOT NULL,
-  `acces` int(11) NOT NULL,
+  `acces` int NOT NULL,
   `userid` text NOT NULL,
   `token` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `utilisateur`
+-- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`nom`, `prenom`, `mdp`, `acces`, `userid`, `token`) VALUES
 ('Wagner', 'Frédéric', '$2y$10$cIBMkYNjdq/2PSP6UpbXeusmUCbkXcFqS2LtlSKSBn3nS5216gOg.', 1, 'fred1', NULL),
 ('Printz', 'Lucas', '$2y$10$cIBMkYNjdq/2PSP6UpbXeusmUCbkXcFqS2LtlSKSBn3nS5216gOg.', 1, 'lucas1', NULL),
 ('TestUser', 'TestUser', '$2y$10$cIBMkYNjdq/2PSP6UpbXeusmUCbkXcFqS2LtlSKSBn3nS5216gOg.', 0, 'test', NULL),
-('voiture', 'voiture', '$2y$10$gr.4p784oPrKWN.vZl.G7..Bi/xi6Y04yyHzo2b2HVjHu1QNPVd6a', 1, 'voiture', NULL);
+('voiture', 'voiture', '$2y$10$gr.4p784oPrKWN.vZl.G7..Bi/xi6Y04yyHzo2b2HVjHu1QNPVd6a', 1, 'voiture', NULL),
+('Admin', 'Admin', '$2y$10$imNMpLyCM5ao.cFZ8Otmc.cZBYfmS52RtrttTbEo9TvjarA0lz9KG', 1, 'testAdmin', NULL),
+('Hurdebourg', 'Arthur', '$2y$10$osbfbnf9JnK38OIUGkVjbeHngi/ibmM6oPIHfZRvPx1Ux1kGW/vJy', 0, 'ArthurH', NULL);
 
 -- --------------------------------------------------------
 
@@ -70,15 +77,17 @@ CREATE TABLE `utilisateurattente` (
   `nom` text NOT NULL,
   `prenom` text NOT NULL,
   `mdp` text NOT NULL,
-  `acces` int(11) NOT NULL
+  `acces` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `utilisateurattente`
+-- Déchargement des données de la table `utilisateurattente`
 --
 
 INSERT INTO `utilisateurattente` (`userid`, `nom`, `prenom`, `mdp`, `acces`) VALUES
-('uhg', 'jhsvhu', 'ohiuhiyg', '$2y$10$Lgyketz16VNhWuQuntptC.8FYZZCR4GosEydClD2/Xop55l3n.1yS', 0);
+('zadoi', 'adoziaj', 'ajdojzz', '$2y$10$7Tvxe0rNfarDrHca3tcSXOzjEhYFh2RVRex5irGSXf4Adrnynfb0y', 0),
+('oajozidjazjdz', 'odij', 'ùdùzadjoia', '$2y$10$NFe26bd65NHidbzrG9KTUOKDvKIaIXyuZ5j67NAQeG35Jkiqk914e', 0);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

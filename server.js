@@ -90,7 +90,7 @@ wss.on("connection", function (ws) {
                 obj.temps=(obj.temps).toFixed();
                 data = JSON.stringify(obj);
                 wss.clients.forEach(client => client.send(data));
-                sqlquery("INSERT INTO `data` (`dataid`, `temps`, `vitesse`, `consommation`, `lat`, `lon`) VALUES ('"+today+"', '"+obj.temps+"', '"+obj.vitesse+"', '"+obj.consommation+"', '"+obj.latt+"', '"+obj.long+"');");
+                sqlquery("INSERT INTO `data` (`dataid`, `temps`, `vitesse`, `intensite`,`tension`,`energie`,`lat`, `lon`) VALUES ('"+today+"', '"+obj.temps+"', '"+obj.vitesse+"', '"+obj.intensite+"', '"+obj.tension+"', '"+obj.energie+"', '"+obj.latt+"', '"+obj.long+"');");
                 lastcords=cordsact;
                 lasttemps=tempsact;
                 break;
