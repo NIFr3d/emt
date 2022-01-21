@@ -20,9 +20,11 @@ echo("<br /><br /><br /><TABLE BORDER='1' cellspacing='0'>
       <TD>$intensite</TD>
       <TD>$tension</TD>
       <TD>$energie</TD>
+      <form method='get' action='functions/afficherpos'>
       <TD>$latitude</TD>
       <TD>$longitude</TD>
-      <TD><div id='aligniconegps'><form method='post' action='functions/afficherpos'><button id='boutongps'type='submit' name='iconegps'><img id='iconegps' src='styles/images/iconegps.png' /></button></form></div></TD>
+      <TD><div id='aligniconegps'><button id='boutongps'type='submit' name='iconegps'><img id='iconegps' src='styles/images/iconegps.png' /></button></div></TD>
+      </form>
       </TR>\n");
   }
   echo("</TABLE>\n");	
