@@ -193,14 +193,14 @@ li a:hover {
 	padding:3vh 6.5vw;
 }
 .navuser{
-	padding:3vh 13vw;
+	padding:3vh 13.5vw;
 }
 @media (max-width: 1000px) {
 	.navadmin{
 		padding:3vh 4vw;
 	}
 	.navuser{
-		padding:3vh 13vw;
+		padding:3vh 11.5vw;
 	}
 }
 
