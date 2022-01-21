@@ -223,6 +223,18 @@ h3{
 	position:absolute;
 	bottom:0;
 }
+#aligniconegps{
+	text-align:center;
+}
+#iconegps{
+	max-width:25px;
+	max-height:25px;
+}
+#boutongps{
+	border:0px;
+	background:transparent;
+}
+
 
 /* required styles */
 
