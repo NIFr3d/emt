@@ -195,6 +195,15 @@ li a:hover {
 .navuser{
 	padding:3vh 13vw;
 }
+@media (max-width: 1000px) {
+	.navadmin{
+		padding:3vh 4vw;
+	}
+	.navuser{
+		padding:3vh 13vw;
+	}
+}
+
 
 h1{
 	text-align:center;
@@ -210,6 +219,10 @@ h3{
 	font-size:22;
 }
 
+#compteur{
+	position:absolute;
+	bottom:0;
+}
 
 /* required styles */
 
