@@ -36,12 +36,16 @@
         <tr id='intitulés'>
         <th>Temps</th> 
         <th>Vitesse</th> 
-        <th>Conso</th>
+        <th>Intensite</th>
+        <th>Tension</th>
+        <th>Energie</th>
         </tr>
         <tr>
         <th><span id="temps"></span></th>
         <th><span id="vitesse"></span></th>
-        <th><span id="conso"></span></th>
+        <th><span id="intensite"></span></th>
+        <th><span id="tension"></span></th>
+        <th><span id="energie"></span></th>
         </tr>
         </table>
         <?php
