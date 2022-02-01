@@ -22,7 +22,7 @@ for($i=0;$i<count($runinfos);$i++){
     $s->setCellValueByColumnAndRow($i, 6,$runinfos[$i][6]);
     
 }
-$writer = new Xlsx($spreadsheet);f
+$writer = new Xlsx($spreadsheet);
 $writer->save('course.xlsx');
 
 ?>
