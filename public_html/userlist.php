@@ -17,6 +17,7 @@
   <?php
   session_start();
   if(!isset($_SESSION["acces"])) header("location: login");
+  else if($_SESSION["acces"]!=1) header("location: index");
   include("functions/BDD.php");
 
   $liste=$db->getUserList();
