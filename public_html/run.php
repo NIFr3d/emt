@@ -31,11 +31,9 @@
         <TD>$intensite</TD>
         <TD>$tension</TD>
         <TD>$energie</TD>
-        <form method='get' action='index'>
-        <TD>$latitude</TD>
-        <TD>$longitude</TD>
-        <TD><input type='hidden' name='latitude' value='$latitude' /><input type='hidden' name='longitude' value='$longitude' /><button type='submit'><img id='iconegps' src='styles/images/iconegps.png' /></button></div></TD>
-        </form>
+        <TD><div>$latitude</div></TD>
+        <TD><div>$longitude</div></TD>
+        <TD><form method='get' action='index'><div id='aligniconegps'><button id='coordonnées' type='submit'><input type='hidden' name='latitude' value=$latitude /><input type='hidden' name='longitude' value=$longitude /><img id='iconegps' src='styles/images/iconegps.png' /></button></div></form></TD>
         </TR>");
     }
     echo("</TABLE>");

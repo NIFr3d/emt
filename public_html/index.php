@@ -76,6 +76,11 @@
 </body>
 <footer>
     <script src="../scripts/data.js"></script>
+    <script>
+    if(typeof latitude !== 'undefined' && typeof longitude !== 'undefined'){
+        L.marker([latitude,longitude]).addTo(map);
+    }
+    </script>
 </footer>
 
 </html>
