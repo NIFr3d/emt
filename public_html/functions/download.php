@@ -22,7 +22,7 @@ for($i=0;$i<count($runinfos);$i++){
     $s->setCellValueByColumnAndRow($i, 6,$runinfos[$i][6]);
     
 }
-$writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, "Xlsx");
-$writer->save("course.xlsx");
+$writer = new Xlsx($spreadsheet);f
+$writer->save('course.xlsx');
 
 ?>
