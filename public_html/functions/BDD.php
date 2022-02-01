@@ -52,11 +52,21 @@ function unadminUser($userid){
     $sql_query="UPDATE `utilisateur` SET `acces`=0 WHERE `userid`='$userid';";
     $result_set = mysqli_query($this->id,$sql_query); 
 }
+function stratUser($userid){
+    $sql_query="UPDATE `utilisateur` SET `acces`=2 WHERE `userid`='$userid'";
+    $result_set = mysqli_query($this->id,$sql_query);
+}
 function isAdmin($userid){
     $sql_query="SELECT `acces` FROM `utilisateur` WHERE `userid`='$userid';";
     $result_set = mysqli_query($this->id,$sql_query); 
     $result = mysqli_fetch_row($result_set)[0]; 
-    return ($result > 0);
+    return ($result == 1);
+}
+function isStrat($userid){
+    $sql_query="SELECT `acces` FROM `utilisateur` WHERE `userid`='$userid';";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $result = mysqli_fetch_row($result_set)[0]; 
+    return ($result == 2);
 }
 
 function getPendingUsers(){

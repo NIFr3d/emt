@@ -30,7 +30,7 @@ img.onload=function(){
     contexte.drawImage(img, 0, 0);
 };
 
-if(acces==1){
+if(acces==1 || acces==2){
     document.getElementById('cleartracer').addEventListener('click',function(){
         contexte.clearRect(0, 0, canevas.width, canevas.height);
     });
