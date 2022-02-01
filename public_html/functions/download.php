@@ -12,14 +12,14 @@ $listeruns=$db->getRunHistory();
 $choix=$_POST["choix"];
 $choixstr=$listeruns[$choix][0];
 $runinfos=$db->getRunInfos($choixstr);
-for($i=0;$i<count($runinfos);$i++){
-    $s->setCellValueByColumnAndRow(0, $i, $runinfos[$i][0]);
-    $s->setCellValueByColumnAndRow(1, $i, $runinfos[$i][1]);
-    $s->setCellValueByColumnAndRow(2, $i, $runinfos[$i][2]);
-    $s->setCellValueByColumnAndRow(3, $i, $runinfos[$i][3]);
-    $s->setCellValueByColumnAndRow(4, $i, $runinfos[$i][4]);
-    $s->setCellValueByColumnAndRow(5, $i, $runinfos[$i][5]);
-    $s->setCellValueByColumnAndRow(6, $i, $runinfos[$i][6]);
+for($i=1;$i<count($runinfos)+1;$i++){
+    $s->setCellValueByColumnAndRow(1, $i, $runinfos[$i-1][0]);
+    $s->setCellValueByColumnAndRow(2, $i, $runinfos[$i-1][1]);
+    $s->setCellValueByColumnAndRow(3, $i, $runinfos[$i-1][2]);
+    $s->setCellValueByColumnAndRow(4, $i, $runinfos[$i-1][3]);
+    $s->setCellValueByColumnAndRow(5, $i, $runinfos[$i-1][4]);
+    $s->setCellValueByColumnAndRow(6, $i, $runinfos[$i-1][5]);
+    $s->setCellValueByColumnAndRow(7, $i, $runinfos[$i-1][6]);
     
 }
 
