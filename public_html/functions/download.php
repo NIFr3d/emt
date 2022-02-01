@@ -1,7 +1,13 @@
 <?php
 include("BDD.php");
-include('../vendor/composer/PHPExcel/Classes/PHPExcel.php');
-$objPHPExcel = new PHPExcel;
+require '../../vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+$spreadsheet = new Spreadsheet();
+$s = $spreadsheet->getActiveSheet();
+
 $listeruns=$db->getRunHistory();
 $choix=$_POST["choix"];
 $choixstr=$listeruns[$choix][0];
@@ -16,8 +22,7 @@ for($i=0;$i<count($runinfos);$i++){
     $s->setCellValueByColumnAndRow($i, 6,$runinfos[$i][6]);
     
 }
-$writer = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
-header('Content-Disposition: attachment;filename="course.xlsx"');
-$writer->save('php://output');
+$writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, "Xlsx");
+$writer->save("course.xlsx");
 
 ?>
