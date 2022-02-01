@@ -4,7 +4,9 @@ socket.onopen = function () {
       data = JSON.parse(event.data);
       switch (data.event) {
           case "nbUtilisateurs":
-              document.getElementById("nbUtilisateurs").innerHTML = data.nbUti;
+              if(document.getElementById("nbUtilisateurs") != null){
+                document.getElementById("nbUtilisateurs").innerHTML = data.nbUti;
+              }
               break;
           }
       }
