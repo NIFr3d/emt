@@ -1,6 +1,6 @@
 <?php
 include("BDD.php");
-include 'PHPExcel/Classes/PHPExcel.php';
+include('../vendor/composer/PHPExcel/Classes/PHPExcel.php');
 $objPHPExcel = new PHPExcel;
 $listeruns=$db->getRunHistory();
 $choix=$_POST["choix"];
