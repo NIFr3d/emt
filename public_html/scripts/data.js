@@ -5,7 +5,6 @@ var layer = L.marker();
 socket.onopen = function () {
   socket.onmessage = function (event) {
     data = JSON.parse(event.data);
-    console.dir(data);
     switch (data.event) {
         case "dataFromCar":
             layer.remove();
@@ -15,9 +14,6 @@ socket.onopen = function () {
             document.getElementById("tension").innerHTML = data.tension;
             document.getElementById("energie").innerHTML = data.energie;
             layer = L.marker([data.latt,data.long]).addTo(map);
-            break;
-        case "nbUtilisateurs":
-            document.getElementById("nbUtilisateurs").innerHTML = data.nbUti;
             break;
         }
     }
