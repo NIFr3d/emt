@@ -2,6 +2,7 @@
 $fileName = "course.xlsx"; 
  
 $data=$_POST['data'];
+echo($data);
 header("Content-Disposition: attachment; filename=\"$fileName\""); 
 header("Content-Type: application/vnd.ms-excel"); 
  
@@ -15,5 +16,5 @@ foreach($data as $row) {
     echo implode("\t", array_values($row)) . "\n"; 
 } 
  
-exit;
+//exit;
 ?>
