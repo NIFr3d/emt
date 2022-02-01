@@ -11,6 +11,7 @@
 	<div class="corps">
     <?php
     include("functions/BDD.php");
+    $data=array();
     $listeruns=$db->getRunHistory();
     $choix=$_GET["choix"];
     $choixstr=$listeruns[$choix][0];
@@ -25,6 +26,8 @@
         $energie=$runinfos[$i][4];
         $latitude=$runinfos[$i][5];
         $longitude=$runinfos[$i][6];
+        array_push($data,array($temps,$vitesse,$intensite,$tension,$energie,$latitude,$longitude));
+        echo("<form method='post' action='functions/download'><input type='hidden' name='data' value='$data'/><button type='submit'>Télécharger en Excel</button></form>");
         echo("<TR>
         <TD>$temps</TD>
         <TD>$vitesse</TD>
