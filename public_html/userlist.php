@@ -32,7 +32,7 @@
       else if(!$liste[$i][3]){
         $acces="utilisateur";
       }
-      else if(!$liste[$i][3]==2){
+      else if($liste[$i][3]==2){
         $acces="stratégie";
       }
       
