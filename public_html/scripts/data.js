@@ -96,3 +96,7 @@ window.onload = function(){
     initMap(); 
 };
 
+if(typeof latitude !== 'undefined' && typeof longitude !== 'undefined'){
+    layer.remove();
+    layer = L.marker([latitude,longitude]).addTo(map);
+}
