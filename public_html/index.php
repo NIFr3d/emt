@@ -26,18 +26,6 @@
         echo("<script> sessionStorage.setItem(\"acces\",$acces );</script>");
     }
     ?>
-    <script>
-        <?php
-        if(isset($_GET["latitude"]) && isset($_GET["longitude"])){
-            $latitude=$_GET["latitude"];
-            $longitude=$_GET["longitude"];
-        ?>
-        var latitude = <?php $latitude ?>;
-        var longitude = <?php $longitude ?>;
-    </script>
-        <?php
-        }
-        ?>
     <div id="data" class="content">
         <p id='bjr'>Bonjour 
         <?php
@@ -76,11 +64,6 @@
 </body>
 <footer>
     <script src="../scripts/data.js"></script>
-    <script>
-    if(typeof latitude !== 'undefined' && typeof longitude !== 'undefined'){
-        L.marker([latitude,longitude]).addTo(map);
-    }
-    </script>
 </footer>
 
 </html>
