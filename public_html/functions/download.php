@@ -1,4 +1,5 @@
 <?php
+include("BDD.php");
 $fileName = "course.xlsx"; 
 $listeruns=$db->getRunHistory();
 $choix=$_POST["choix"];
@@ -15,9 +16,6 @@ for($i=0;$i<count($runinfos);$i++){
     $longitude=$runinfos[$i][6];
     array_push($data,array($temps,$vitesse,$intensite,$tension,$energie,$latitude,$longitude));
 }
-header("Content-Disposition: attachment; filename=\"$fileName\""); 
-header("Content-Type: application/vnd.ms-excel"); 
- 
 function filterData(&$str){ 
     $str = preg_replace("/\t/", "\\t", $str); 
     $str = preg_replace("/\r?\n/", "\\n", $str); 
@@ -28,5 +26,8 @@ foreach($data as $row) {
     echo implode("\t", array_values($row)) . "\n"; 
 } 
  
+header("Content-Disposition: attachment; filename=\"$fileName\""); 
+header("Content-Type: application/vnd.ms-excel"); 
+
 //exit;
 ?>
