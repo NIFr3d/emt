@@ -94,16 +94,15 @@ function initMap() {
 window.onload = function(){    
     // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
     initMap(); 
+    var url = window.location.search.substr(1).split("&");
+    if(url!=''){
+        var coord={};
+        for(var i=0; i < url.length; i++){
+            var temp = url[i].split("=");
+            coord[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+        }
+        layer = L.marker([coord['latitude'],coord['longitude']]).addTo(map);
+    }
+
 };
 
-var url = window.location.search.substr(1).split("&");
-var coord={};
-for(var i=0; i < url.length; i++){
-    var temp = url[i].split("=");
-    coord[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
-}
-console.dir(coord);
-layer.remove();
-console.dir(coord['latitude']);
-console.dir(coord['longitude']);
-layer = L.marker([coord['latitude'],coord['longitude']]).addTo(map);
