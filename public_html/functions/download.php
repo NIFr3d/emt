@@ -1,8 +1,20 @@
 <?php
 $fileName = "course.xlsx"; 
- 
-$data=$_POST['data'];
-echo($data);
+$listeruns=$db->getRunHistory();
+$choix=$_POST["choix"];
+$choixstr=$listeruns[$choix][0];
+$runinfos=$db->getRunInfos($choixstr);
+$data=array();
+for($i=0;$i<count($runinfos);$i++){
+    $temps=$runinfos[$i][0];
+    $vitesse=$runinfos[$i][1];
+    $intensite=$runinfos[$i][2];
+    $tension=$runinfos[$i][3];
+    $energie=$runinfos[$i][4];
+    $latitude=$runinfos[$i][5];
+    $longitude=$runinfos[$i][6];
+    array_push($data,array($temps,$vitesse,$intensite,$tension,$energie,$latitude,$longitude));
+}
 header("Content-Disposition: attachment; filename=\"$fileName\""); 
 header("Content-Type: application/vnd.ms-excel"); 
  

@@ -11,11 +11,11 @@
 	<div class="corps">
     <?php
     include("functions/BDD.php");
-    $data=array();
     $listeruns=$db->getRunHistory();
     $choix=$_GET["choix"];
     $choixstr=$listeruns[$choix][0];
     $runinfos=$db->getRunInfos($choixstr);
+    echo("<form method='post' action='functions/download'><input type='hidden' name='choix' value='$choix'/><button type='submit'>Télécharger en Excel</button></form>");
     echo("<br /><br /><br /><TABLE BORDER='1' cellspacing='0'> 
         <TR><TH>Temps (s)</TH><TH>Vitesse (km/h)</TH><TH>Intensité (A)</TH><TH>Tension (V)</TH><TH>Energie (J)</TH><TH>Latitude (DD)</TH><TH>Longitude (DD)</TH><TH>Aller à</TH></TR>\n");
     for($i=0;$i<count($runinfos);$i++){
@@ -39,7 +39,6 @@
         </TR>");
     }
     echo("</TABLE>");
-    echo("<form method='post' action='functions/download'><input type='hidden' name='data' value='$data'/><button type='submit'>Télécharger en Excel</button></form>");
     ?>
     </div>
 </body>
