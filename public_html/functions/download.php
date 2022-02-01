@@ -1,32 +1,23 @@
 <?php
-$fileName = "course.xlsx"; 
+include("BDD.php");
+include 'PHPExcel/Classes/PHPExcel.php';
+$objPHPExcel = new PHPExcel;
 $listeruns=$db->getRunHistory();
 $choix=$_POST["choix"];
 $choixstr=$listeruns[$choix][0];
 $runinfos=$db->getRunInfos($choixstr);
-$data=array();
 for($i=0;$i<count($runinfos);$i++){
-    $temps=$runinfos[$i][0];
-    $vitesse=$runinfos[$i][1];
-    $intensite=$runinfos[$i][2];
-    $tension=$runinfos[$i][3];
-    $energie=$runinfos[$i][4];
-    $latitude=$runinfos[$i][5];
-    $longitude=$runinfos[$i][6];
-    array_push($data,array($temps,$vitesse,$intensite,$tension,$energie,$latitude,$longitude));
+    $s->setCellValueByColumnAndRow($i, 0,$runinfos[$i][0]);
+    $s->setCellValueByColumnAndRow($i, 1,$runinfos[$i][1]);
+    $s->setCellValueByColumnAndRow($i, 2,$runinfos[$i][2]);
+    $s->setCellValueByColumnAndRow($i, 3,$runinfos[$i][3]);
+    $s->setCellValueByColumnAndRow($i, 4,$runinfos[$i][4]);
+    $s->setCellValueByColumnAndRow($i, 5,$runinfos[$i][5]);
+    $s->setCellValueByColumnAndRow($i, 6,$runinfos[$i][6]);
+    
 }
-header("Content-Disposition: attachment; filename=\"$fileName\""); 
-header("Content-Type: application/vnd.ms-excel"); 
- 
-function filterData(&$str){ 
-    $str = preg_replace("/\t/", "\\t", $str); 
-    $str = preg_replace("/\r?\n/", "\\n", $str); 
-    if(strstr($str, '"')) $str = '"' . str_replace('"', '""', $str) . '"'; 
-}
-foreach($data as $row) { 
-    array_walk($row, 'filterData'); 
-    echo implode("\t", array_values($row)) . "\n"; 
-} 
- 
-//exit;
+$writer = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+header('Content-Disposition: attachment;filename="course.xlsx"');
+$writer->save('php://output');
+
 ?>
