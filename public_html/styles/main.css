@@ -230,9 +230,10 @@ h3{
 	max-width:25px;
 	max-height:25px;
 }
-#boutongps{
+#coordonnées{
 	border:0px;
 	background:transparent;
+	cursor:pointer;
 }
 
 

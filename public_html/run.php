@@ -33,7 +33,7 @@
         <TD>$energie</TD>
         <TD><div>$latitude</div></TD>
         <TD><div>$longitude</div></TD>
-        <TD><form method='get' action='index'><div id='aligniconegps'><button id='coordonnées' type='submit'><input type='hidden' name='latitude' value=$latitude /><input type='hidden' name='longitude' value=$longitude /><img id='iconegps' src='styles/images/iconegps.png' /></button></div></form></TD>
+        <TD><form method='get' action='index'><div id='aligniconegps'><button id='coordonnées'><input type='hidden' name='latitude' value=$latitude /><input type='hidden' name='longitude' value=$longitude /><img id='iconegps' src='styles/images/iconegps.png' /></button></div></form></TD>
         </TR>");
     }
     echo("</TABLE>");
