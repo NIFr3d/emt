@@ -15,7 +15,10 @@
     $choix=$_GET["choix"];
     $choixstr=$listeruns[$choix][0];
     $runinfos=$db->getRunInfos($choixstr);
-    echo("<br /><br /><br /><form method='post' action='functions/download'><input type='hidden' name='choix' value='$choix'/><button class='boutonTab' type='submit'>Télécharger en Excel</button></form>");
+    session_start();
+    if($_SESSION['acces']==1 || $_SESSION['acces']==2){
+      echo("<br /><br /><br /><form method='post' action='functions/download'><input type='hidden' name='choix' value='$choix'/><button class='boutonTab' type='submit'>Télécharger en Excel</button></form>");
+    }
     echo("<TABLE BORDER='1' cellspacing='0'> 
         <TR><TH>Temps (s)</TH><TH>Vitesse (km/h)</TH><TH>Intensité (A)</TH><TH>Tension (V)</TH><TH>Energie (J)</TH><TH>Latitude (DD)</TH><TH>Longitude (DD)</TH><TH>Aller à</TH></TR>\n");
     for($i=0;$i<count($runinfos);$i++){
