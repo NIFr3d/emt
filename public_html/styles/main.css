@@ -173,8 +173,8 @@ td{
 
 ul{
 	list-style-type:none;
-	margin-left:-10;
-	margin-right:-20;
+	margin-left:-0.5vw;
+	margin-right:-0.49vw;
 	margin-top:-13;
 	padding:0;
 	height: auto;
