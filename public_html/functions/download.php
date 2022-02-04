@@ -5,6 +5,10 @@ require('../../vendor/autoload.php');
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
+session_start();
+if(!isset($_SESSION["acces"])) header("location: ../login");
+else if($_SESSION["acces"]==0) header("location: ../index");
+
 $spreadsheet = new Spreadsheet();
 $s = $spreadsheet->getActiveSheet();
 
