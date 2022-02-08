@@ -16,7 +16,7 @@
           <input type="email" id="email" class="champuser" name="email" placeholder="Adresse mail" />
       </div>
       <div class="field">
-    <button type="submit" id="loginbutton" class="bouton" name="loginbutton">S'identifier</button>
+    <button type="submit" id="loginbutton" class="bouton" name="loginbutton">Valider</button>
     </div>
     </form>
     <?php
