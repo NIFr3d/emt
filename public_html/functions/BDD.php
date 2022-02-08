@@ -154,10 +154,16 @@ function temporaryPassword($email){
     for($i=0;$i<6;$i++){
         $tmdp+=$caracs[rand(0,sizeof($caracs))];
     }
-    mail($email,"Votre mot de passe temporaire","Votre mot de passe temporaire pour vous connecter au site de suivi de la voiture de l'EMT est : $tmdp",$headers="noreply@emt.fr");
     $mdp = password_hash($tmdp,PASSWORD_DEFAULT);
-    $sql_query = "UPDATE `utilisateur` SET `mdp`='$mdp' WHERE `email`=$email";
+    $sql_query = "UPDATE `utilisateur` SET `mdp`='$mdp' WHERE `email`='$email'";
     $result_set=mysqli_query($this->id,$sql_query); 
+    return $tmdp;
+}
+function emailExists($email){
+    $sql_query = "SELECT COUNT(*) FROM `utilisateur` WHERE `email`='$email'";
+    $result_set = mysqli_query($this->id,$sql_query);
+    $result = mysqli_fetch_row($result_set)[0]; 
+    return ($result > 0);
 }
 }
 $db = new DB($host,$user,$pass,$base);
