@@ -21,7 +21,10 @@
     <?php
     session_start();
     if(!isset($_SESSION["acces"])) header("location: login");
+    $db->getInfos($_SESSION["userid"])
     ?>
+    <div>
+</div>
     
     </div>
 </body>
@@ -30,4 +33,5 @@
 </footer>
 </html>
 <script>
+   
 </script>
