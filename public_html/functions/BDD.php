@@ -150,10 +150,10 @@ function authorizeUser($userid){
 }
 function temporaryPassword($email){
     $tmdp="";
-    $caracs=[1,2,3,4,5,6];
+    $caracs=["0","1","2","3","4","5","6","7","8","9"];
     for($i=0;$i<6;$i++){
         $j=rand(0,count($caracs)-1);
-        $tmdp+=$caracs[$j];
+        $tmdp.=$caracs[$j];
     }
     $mdp = password_hash($tmdp,PASSWORD_DEFAULT);
     $sql_query = "UPDATE `utilisateur` SET `mdp`='$mdp' WHERE `email`='$email'";
