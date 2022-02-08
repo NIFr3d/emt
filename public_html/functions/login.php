@@ -13,7 +13,7 @@ $mdp = stripslashes($_POST["mdp"]);
             $_SESSION["prenom"]=$infos[1];
             $_SESSION["acces"]=$infos[2];
             $_SESSION["userid"]=$userid;
-            $token=random_bytes(20);
+            $token=base64_encode(random_bytes(20));
             setcookie("token", $token,time()+600000,'/');
             $db->saveToken($userid,$token);
             header("location:../index");
