@@ -35,33 +35,27 @@ if(acces==1 || acces==2){
         contexte.clearRect(0, 0, canevas.width, canevas.height);
         flipflop = true;
     });
-    canevas.addEventListener('mousedown', function (e) {
+    canevas.addEventListener('click', function (e) {
         var rect = e.target.getBoundingClientRect();
         var x = e.clientX - rect.left; //x position within the element.
         var y = e.clientY - rect.top;  //y position within the element
         canevas.oncontextmenu = function (e) { e.preventDefault(); e.stopPropagation(); }
-        switch (e.button) {
-            case 2:                //clic droit
-                flipflop = true;
-                break;
-    
-            case 0:                //clic gauche
-                if (flipflop) {
-                    contexte.beginPath();
-                    contexte.moveTo(x, y);
-                    flipflop = false;
-                }
-                else {
-                    contexte.lineTo(x, y);
-                    contexte.strokeStyle="#019cde";
-                    contexte.stroke();
-                }
-                break;
-    
-            default:
-                console.log('Pas un clic');
+        if (flipflop) {
+            contexte.beginPath();
+            contexte.moveTo(x, y);
+            flipflop = false;
+        }
+        else {
+            contexte.lineTo(x, y);
+            contexte.strokeStyle="#019cde";
+            contexte.stroke();
         }
     });
+    canevas.addEventListener('mousedown', function(e){
+        if(e.button==2){      //clic droit
+            flipflop=true;
+        }
+    })
     envoitracer.addEventListener('click', function (e) {
         toSend = {
             event: "nouveautracer",
