@@ -199,6 +199,22 @@ li a:hover {
 .navuser{
 	padding:3vh 13.5vw;
 }
+@media (max-width: 1408px) {
+	.navadmin{
+		padding:3vh 6vw;
+	}
+	.navuser{
+		padding:3vh 11.5vw;
+	}
+}
+@media (max-width: 1236px) {
+	.navadmin{
+		padding:3vh 5vw;
+	}
+	.navuser{
+		padding:3vh 11.5vw;
+	}
+}
 @media (max-width: 1000px) {
 	.navadmin{
 		padding:3vh 4vw;

@@ -33,6 +33,7 @@ img.onload=function(){
 if(acces==1 || acces==2){
     document.getElementById('cleartracer').addEventListener('click',function(){
         contexte.clearRect(0, 0, canevas.width, canevas.height);
+        flipflop = true;
     });
     canevas.addEventListener('mousedown', function (e) {
         var rect = e.target.getBoundingClientRect();
