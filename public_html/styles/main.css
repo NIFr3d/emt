@@ -204,23 +204,40 @@ li a:hover {
 		padding:3vh 6vw;
 	}
 	.navuser{
-		padding:3vh 11.5vw;
+		padding:3vh 12vw;
 	}
 }
 @media (max-width: 1236px) {
 	.navadmin{
-		padding:3vh 5vw;
+		padding:2vh 5vw;
 	}
 	.navuser{
-		padding:3vh 11.5vw;
+		padding:2vh 11.5vw;
+	}
+	.bouton{
+		height:4.5%;
 	}
 }
 @media (max-width: 1000px) {
 	.navadmin{
-		padding:3vh 4vw;
+		padding:2vh 4vw;
 	}
 	.navuser{
-		padding:3vh 11.5vw;
+		padding:2vh 11.5vw;
+	}
+	.bouton{
+		height:3%;
+	}
+}
+@media (max-width: 500px) {
+	.navadmin{
+		padding:1vh 4vw;
+	}
+	.navuser{
+		padding:1vh 9vw;
+	}
+	.bouton{
+		height:2%;
 	}
 }
 
