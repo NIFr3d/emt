@@ -22,11 +22,13 @@
 
   $liste=$db->getUserList();
   echo("<br /><br /><br /><TABLE BORDER='1' cellspacing='0'> 
-      <TR><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Acces</TH><TH>Ajouter administrateur</TH><TH>Rendre utilisateur</TH><TH>Attribuer \"Stratégie\"</TH><TH>Supprimer</TH></TR>\n");
+      <TR><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Adresse mail</TH><TH>Acces</TH><TH>Ajouter administrateur</TH><TH>Rendre utilisateur</TH><TH>Attribuer \"Stratégie\"</TH><TH>Supprimer</TH></TR>\n");
   for($i=0;$i<count($liste);$i++){
       $nom=$liste[$i][0];
       $prenom=$liste[$i][1];
       $userid=$liste[$i][2];
+      $email=$liste[$i][4];
+
       if($liste[$i][3]==1){ 
         $acces="admin";
       }
@@ -38,7 +40,7 @@
       }
       
       echo("
-      <TR><TD>$prenom</TD><TD>$nom</TD><TD>$userid</TD><TD>$acces</TD>
+      <TR><TD>$prenom</TD><TD>$nom</TD><TD>$userid</TD><TD>$email</TD><TD>$acces</TD>
       <TD><form method='post' action='functions/usertoadmin.php'><div id='butTab'><button class='boutonTab' type='submit'>Admin</button></div>
       <input type='hidden' name='userid' value='$userid' /></form></TD>
       <TD><form method='post' action='functions/admintouser.php'><div id='butTab'><button class='boutonTab' type='submit'>Utilisateur</button></div>

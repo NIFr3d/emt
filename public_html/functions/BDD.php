@@ -21,7 +21,7 @@ public function connect(){
     $this->id = mysqli_connect($this->host, $this->user, $this->pass, $this->base); // connexion
 }
 function getUserList(){
-    $sql_query = "SELECT `nom`, `prenom`, `userid`,`acces` FROM `utilisateur`";
+    $sql_query = "SELECT `nom`, `prenom`, `userid`,`acces`,`email` FROM `utilisateur`";
     $result_set = mysqli_query($this->id, $sql_query);
     $result = mysqli_fetch_all($result_set);
     return $result;
@@ -70,7 +70,7 @@ function isStrat($userid){
 }
 
 function getPendingUsers(){
-    $sql_query = "SELECT `nom`, `prenom`, `userid` FROM `utilisateurattente`";
+    $sql_query = "SELECT `nom`, `prenom`, `userid`, `email` FROM `utilisateurattente`";
     $result_set = mysqli_query($this->id, $sql_query);
     $result = mysqli_fetch_all($result_set);
     return $result;
@@ -107,8 +107,8 @@ function gettokenInfos($token){
     $result = mysqli_fetch_row($result_set); 
     return $result;
 }
-function register($userid,$mdp,$nom,$prenom,$acces){
-    $sql_query="INSERT INTO `utilisateurattente` (`nom`, `prenom`, `mdp`, `acces`, `userid`) VALUES ('$nom', '$prenom', '$mdp', '$acces', '$userid');";
+function register($userid,$mdp,$nom,$prenom,$acces,$email=''){
+    $sql_query="INSERT INTO `utilisateurattente` (`nom`, `prenom`, `mdp`, `acces`, `userid`,`email`) VALUES ('$nom', '$prenom', '$mdp', '$acces', '$userid','$email');";
     $result_set = mysqli_query($this->id,$sql_query); 
 }
 function saveToken($userid,$token){
@@ -139,11 +139,25 @@ function authorizeUser($userid){
     $prenom = mysqli_fetch_row($result_set)[0];
     $sql_query = "SELECT `acces` FROM `utilisateurattente` WHERE `userid`='$userid'";
     $result_set = mysqli_query($this->id,$sql_query); 
-    $acces = mysqli_fetch_row($result_set)[0];  
-    $sql_query="INSERT INTO `utilisateur` (`nom`, `prenom`, `mdp`, `acces`, `userid`) VALUES ('$nom', '$prenom', '$mdp', '$acces', '$userid');";
+    $acces = mysqli_fetch_row($result_set)[0];
+    $sql_query = "SELECT `email` FROM `utilisateurattente` WHERE `userid`='$userid'";
+    $result_set = mysqli_query($this->id,$sql_query);
+    $email = mysqli_fetch_row($result_set)[0]; 
+    $sql_query="INSERT INTO `utilisateur` (`nom`, `prenom`, `mdp`, `acces`, `userid`,`email`) VALUES ('$nom', '$prenom', '$mdp', '$acces', '$userid','$email');";
     $result_set = mysqli_query($this->id,$sql_query); 
     $sql_query="DELETE FROM `utilisateurattente` WHERE `userid`='$userid'";
     $result_set = mysqli_query($this->id,$sql_query); 
+}
+function temporaryPassword($email){
+    $tmdp="";
+    $caracs=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","$","^","ù","%","*","_","(",")","@"];
+    for($i=0;$i<6;$i++){
+        $tmdp+=$caracs[rand(0,sizeof($caracs))];
+    }
+    mail($email,"Votre mot de passe temporaire","Votre mot de passe temporaire pour vous connecter au site de suivi de la voiture de l'EMT est : $tmdp",$headers="noreply@emt.fr");
+    $mdp = password_hash($tmdp,PASSWORD_DEFAULT);
+    $sql_query = "UPDATE `utilisateur` SET `mdp`='$mdp' WHERE `email`=$email";
+    $result_set=mysqli_query($this->id,$sql_query); 
 }
 }
 $db = new DB($host,$user,$pass,$base);

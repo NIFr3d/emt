@@ -24,12 +24,13 @@ include("functions/BDD.php");
 
 $liste=$db->getPendingUsers();
 echo("<br /><br /><TABLE border='1' cellspacing='0'> 
-    <TR class='intit'><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Ajouter</TH><TH>Supprimer</TH></TR>\n");
+    <TR class='intit'><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Adresse mail</TH><TH>Ajouter</TH><TH>Supprimer</TH></TR>\n");
 for($i=0;$i<count($liste);$i++){
     $nom=$liste[$i][0];
     $prenom=$liste[$i][1];
     $userid=$liste[$i][2];
-    echo("<TR><TD class='valeurs'>$prenom</TD><TD class='valeurs'>$nom</TD><TD class='valeurs'>$userid</TD>
+    $email=$liste[$i][3];
+    echo("<TR><TD class='valeurs'>$prenom</TD><TD class='valeurs'>$nom</TD><TD class='valeurs'>$userid</TD><TD class='valeurs'>$email</TD>
     <TD class='valeurs'><form method='post' action='functions/authorize.php'><div id='butTab'><button class='boutonTab' type='submit'>Ajouter</button></div>
     <input type='hidden' name='userid' value='$userid' /></form></TD>
     <TD class='valeurs'><form method='post' action='functions/refuseuser.php'><div id='butTab'><button class='boutonTab' type='submit'>Supprimer</button></div>

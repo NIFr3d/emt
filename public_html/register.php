@@ -28,6 +28,10 @@
 					<input type="password" id="mdp" class="champuser" required  name="mdp" placeholder="Mot de passe" />
 				</div>
 				<div class="field">
+					<label for="email">Adresse mail :</label><br/>
+					<input type="email" id="email" class="champuser" name="email" placeholder="Adresse mail" />
+				</div>
+				<div class="field">
 					<button type="submit" id="loginbutton" class="bouton" name="loginbutton">S'enregistrer</button>
 				</div>
                 <?php
