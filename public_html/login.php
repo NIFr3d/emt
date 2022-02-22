@@ -26,6 +26,7 @@
 				if(isset($_GET["erreur"])) echo($_GET["erreur"]);
 				?>
 	</form>
+	<a href="forgottenpassword">Mot de passe oublié</a>
 	<h2>Si vous n'avez pas de compte, vous pouvez demander à en créer un ci-dessous :</h2>
 	<form method="post" action="register"><button type="submit" class="bouton">S'enregistrer</button></form>
 	<div id="compteur">
