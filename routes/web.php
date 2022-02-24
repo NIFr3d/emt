@@ -34,6 +34,9 @@ Route::get('/Historique', function () {
 Route::get('/ListeUtilisateurs', function () {
     return view('userlist');
 });
+Route::get('/AjoutUtilisateurs', function () {
+    return view('adduser');
+});
 Route::get('/run', function () {
     return view('run');
 });
@@ -42,5 +45,7 @@ Route::post('deleteUser',[UsersController::class,'delete']);
 Route::post('userNormal',[UsersController::class,'toNormal']);
 Route::post('userAdmin',[UsersController::class,'toAdmin']);
 Route::post('userStrategy',[UsersController::class,'toStrategy']);
+Route::post('authorizeUser',[UsersController::class,'authorizeUser']);
+Route::post('refuseUser',[UsersController::class,'refuseUser']);
 Route::post('login',[AuthController::class,'login']);
 Route::post('CourseToExcel',[DataController::class,'excel']);

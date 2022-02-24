@@ -35,4 +35,24 @@ class UsersController extends Controller
         $utilisateur->delete();
         return redirect("ListeUtilisateurs");
     }
+    function authorizeUser(){
+        $userid=$_POST["userid"];
+        $ancienutilisateur=utilisateurattente::where("userid",$userid)->first();
+        $utilisateur=new utilisateur();
+        $utilisateur->nom=$ancienutilisateur->nom;
+        $utilisateur->prenom=$ancienutilisateur->prenom;
+        $utilisateur->mdp=$ancienutilisateur->mdp;
+        $utilisateur->acces=$ancienutilisateur->acces;
+        $utilisateur->userid=$ancienutilisateur->userid;
+        $utilisateur->email=$ancienutilisateur->email;
+        $ancienutilisateur->delete();
+        $utilisateur->save();
+        return redirect("AjoutUtilisateurs");
+    }
+    function refuseUser(){
+        $userid=$_POST["userid"];
+        $utilisateur=utilisateurattente::where("userid",$userid)->first();
+        $utilisateur->delete();
+        return redirect("AjoutUtilisateurs");
+    }
 }

@@ -1,3 +1,6 @@
+<?php
+use App\Models\utilisateur;
+?>
 <html lang="fr">
   <head> 
     <title>
@@ -32,11 +35,7 @@
 	<a href="Enregistrement"><button type="submit" class="bouton">S'enregistrer</button></a>
 	<div id="compteur">
 	<h3>Nombre d'utilisateurs connectés : <span id="nbUtilisateurs"></span></h3>
-	<?php
-	//include("functions/BDD.php");
-	//$nbEnregistres=$db->getNbUser();
-	//echo("<h3>Nombre d'utilisateurs enregistrés : $nbEnregistres</h3>");
-	?>
+	<h3>Nombre d'utilisateurs enregistrés : {{utilisateur::count()}}</h3>
 	</div>
 	</div>
   </body>
