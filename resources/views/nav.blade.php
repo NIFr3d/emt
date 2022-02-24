@@ -14,11 +14,11 @@
         <li><a class='navadmin' href='Historique'>Historique des courses</a></li>
         <li><a class='navadmin' href='AjoutUtilisateurs'>Ajout d'utilisateur</a></li>
         <li><a class='navadmin' href='ListeUtilisateurs'>Gestion d'utilisateur</a></li>
-        <li><a class="navadmin" href="functions/logout.php"><img id="deconnexion" src="img/deconnexion.png" alt="deconnexion"/></a></li>
+        <li><a class="navadmin" href="Deconnexion"><img id="deconnexion" src="img/deconnexion.png" alt="deconnexion"/></a></li>
       @else
       <li><a class="navuser" href="/"><img id="accueil" src="img/accueil.png" alt="accueil"/> Accueil</a></li>
       <li><a class='navuser' href='Historique'>Historique des courses</a></li>
-      <li><a class="navuser" href="functions/logout.php"><img id="deconnexion" src="img/deconnexion.png" alt="deconnexion"/></a></li>
+      <li><a class="navuser" href="Deconnexion"><img id="deconnexion" src="img/deconnexion.png" alt="deconnexion"/></a></li>
       @endif     
     </ul>
     </nav>

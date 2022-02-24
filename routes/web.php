@@ -16,9 +16,7 @@ use App\Http\Controllers\DataController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+
 Route::get('/Connexion', function () {
     return view('login');
 });
@@ -28,19 +26,26 @@ Route::get('/Enregistrement', function () {
 Route::get('/MDPOublie', function () {
     return view('forgottenpassword');
 });
+
+Route::get('/', function () {
+    return view('index');
+})->middleware('auth');
 Route::get('/Historique', function () {
     return view('historique');
-});
-Route::get('/ListeUtilisateurs', function () {
-    return view('userlist');
-});
-Route::get('/AjoutUtilisateurs', function () {
-    return view('adduser');
-});
+})->middleware('auth');
 Route::get('/run', function () {
     return view('run');
-});
+})->middleware('auth');
 
+Route::get('/ListeUtilisateurs', function () {
+    return view('userlist');
+})->middleware('admin');
+Route::get('/AjoutUtilisateurs', function () {
+    return view('adduser');
+})->middleware('admin');
+
+Route::get('cookieAuth',[AuthController::class,'cookieAuth']);
+Route::get('Deconnexion',[AuthController::class,'logout']);
 Route::post('deleteUser',[UsersController::class,'delete']);
 Route::post('userNormal',[UsersController::class,'toNormal']);
 Route::post('userAdmin',[UsersController::class,'toAdmin']);

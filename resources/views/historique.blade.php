@@ -3,7 +3,6 @@ use App\Models\data;
 $datas=data::select("dataid")->groupBy("dataid")->get();
 ?>
 <html lang="fr">
-
 <head>
     <title>
         EMT 2021-2022
