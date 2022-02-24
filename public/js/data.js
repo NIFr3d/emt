@@ -25,7 +25,7 @@ var flipflop = true;
 const envoitracer = document.getElementById('envoitracer');
 var acces=sessionStorage.getItem("acces");
 var img = document.createElement("img");
-img.src ="../Cartes/out.png?" + new Date().getTime();
+img.src ="img/Cartes/out.png?" + new Date().getTime();
 img.onload=function(){
     contexte.drawImage(img, 0, 0);
 };

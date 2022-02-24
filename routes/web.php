@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +34,13 @@ Route::get('/Historique', function () {
 Route::get('/ListeUtilisateurs', function () {
     return view('userlist');
 });
+Route::get('/run', function () {
+    return view('run');
+});
+
 Route::post('deleteUser',[UsersController::class,'delete']);
 Route::post('userNormal',[UsersController::class,'toNormal']);
 Route::post('userAdmin',[UsersController::class,'toAdmin']);
 Route::post('userStrategy',[UsersController::class,'toStrategy']);
 Route::post('login',[AuthController::class,'login']);
+Route::post('CourseToExcel',[DataController::class,'excel']);

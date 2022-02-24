@@ -1,6 +1,6 @@
 <?php
 use App\Models\data;
-$datas=data::groupBy("dataid")->get();
+$datas=data::select("dataid")->groupBy("dataid")->get();
 ?>
 <html lang="fr">
 
@@ -10,7 +10,7 @@ $datas=data::groupBy("dataid")->get();
     </title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     @include("nav")
 </head>
@@ -19,16 +19,13 @@ $datas=data::groupBy("dataid")->get();
     <form method="post" action="removerun">
     <select name="choixrun" id="choixrun">
         <option value="">--Choisissez une course--</option>
-    <?php
-    for($i=0;$i<count($datas);$i++){
-        $data=$datas[$i];
-        echo("<option value=$i>$data->dataid</option>");
-    }
-    ?>
+    @foreach($datas as $data)
+        <option value="{{$data->dataid}}">{{$data->dataid}}</option>
+    @endforeach
     </select>
 <button class="boutonTab" type="button" onclick="afficherRun()">Afficher</button>
 
-@if(session("acces")==1){
+@if(session("acces")==1)
     <button class="boutonTab" type="submit">Supprimer cette course</button>
 @endif
 </form>
@@ -44,6 +41,6 @@ $datas=data::groupBy("dataid")->get();
     }
 
 </script>
-<script src="../scripts/nbuser.js"></script>
+<script src="js/nbuser.js"></script>
 </footer>
 </html>
