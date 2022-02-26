@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\RecupPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +55,4 @@ Route::post('authorizeUser',[UsersController::class,'authorizeUser']);
 Route::post('refuseUser',[UsersController::class,'refuseUser']);
 Route::post('login',[AuthController::class,'login']);
 Route::post('CourseToExcel',[DataController::class,'excel']);
+Route::post('sendPasswordMail',[RecupPasswordController::class,'envoyerMail']);
