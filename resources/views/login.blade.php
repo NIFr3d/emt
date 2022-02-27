@@ -14,7 +14,8 @@ use App\Models\utilisateur;
 	<div class="corps">
 	<form method="post" action="login">
 		@csrf
-				<h1>Bienvenue sur le site de suivi de l'EMT</h1><br> <h3>Veuillez vous identifier</h3>
+				<h1>Bienvenue sur le site de suivi de l'EMT</h1><br> 
+				<h3>Veuillez vous identifier</h3>
 				<div class="field">
 					<label for="login">Identifiant :</label> <br/>
 					<input type="text" id="login" class="champuser" name="login" placeholder="Identifiant" />
@@ -26,9 +27,10 @@ use App\Models\utilisateur;
 				<div class="field">
 					<button type="submit" id="loginbutton" class="bouton" name="loginbutton">S'identifier</button>
 				</div>
-                <?php
-				if(isset($_GET["erreur"])) echo($_GET["erreur"]);
-				?>
+				<h3 style="color:red"><?php
+					if(isset($_GET["erreur"])) echo($_GET["erreur"]);
+					?></h3>
+               
 	</form>
 	<a href="MDPOublie">Mot de passe oublié</a>
 	<h2>Si vous n'avez pas de compte, vous pouvez demander à en créer un ci-dessous :</h2>
