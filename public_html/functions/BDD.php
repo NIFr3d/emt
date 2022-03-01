@@ -166,7 +166,7 @@ function emailExists($email){
     $result = mysqli_fetch_row($result_set)[0]; 
     return ($result > 0);
 }
-function changePassword($userid,$mdp){
+function changemdp($userid,$mdp){
     $sql_query="UPDATE `utilisateur` SET `mdp` ='$mdp' WHERE `userid`='$userid';";
     $result_set = mysqli_query($this->id,$sql_query); 
 }

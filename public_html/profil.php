@@ -37,7 +37,7 @@
                 <button type="submit">Confirmer</button>
             </form>
         </div>
-    
+    <?php if(isset($_GET["e"])) echo($_GET["e"]); ?>
     </div>
 </body>
 <footer>
