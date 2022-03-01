@@ -21,17 +21,36 @@
     <?php
     session_start();
     if(!isset($_SESSION["acces"])) header("location: login");
-    $db->getInfos($_SESSION["userid"])
     ?>
-    <div>
-</div>
+        <div>
+            Nom : <?php echo($_SESSION["nom"]); ?> <br>
+            Prénom : <?php echo($_SESSION["prenom"]); ?> <br>
+        </div>
+        <button type="button" onclick="mdp()">Changer de mot de passe</button>
+        <div id="mdp" style="visibility:hidden">
+            <form action="functions/changepassword" method="post">
+                <input type="hidden" name="userid" value=<?php echo($_SESSION["userid"]); ?>>
+                <label for="mdp">Nouveau mot de passe</label> <br>
+                <input type="text" name="mdp"> <br>
+                <label for="mdp">Confirmez votre mot de passe</label> <br>
+                <input type="text" name="mdpconfirm"> <br>
+                <button type="submit">Confirmer</button>
+            </form>
+        </div>
     
     </div>
 </body>
 <footer>
-    <script src="../scripts/data.js"></script>
+    <script src="../scripts/nbuser.js"></script>
+    <script>
+   function mdp(){
+    var x = document.getElementById('mdp');
+    if (x.style.visibility === 'hidden') {
+        x.style.visibility = 'visible';
+    } else {
+        x.style.visibility = 'hidden';
+    }
+}
+</script>
 </footer>
 </html>
-<script>
-   
-</script>
