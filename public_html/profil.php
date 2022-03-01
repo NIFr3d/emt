@@ -30,9 +30,9 @@
             <form action="functions/changepassword" method="post">
                 <input type="hidden" name="userid" value=<?php echo($_SESSION["userid"]); ?>>
                 <label for="mdp">Nouveau mot de passe</label> <br>
-                <input type="text" name="mdp"> <br>
+                <input type="password" name="mdp"> <br>
                 <label for="mdp">Confirmez votre mot de passe</label> <br>
-                <input type="text" name="mdpconfirm"> <br>
+                <input type="password" name="mdpconfirm"> <br>
                 <button class="boutonTab" type="submit">Confirmer</button>
             </form>
         </div>
