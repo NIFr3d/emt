@@ -23,7 +23,7 @@ else if($_SESSION["acces"]!=1) header("location: index");
 include("functions/BDD.php");
 
 $liste=$db->getPendingUsers();
-echo("<br /><br /><TABLE border='1' cellspacing='0'> 
+echo("<TABLE border='1' cellspacing='0'> 
     <TR class='intit'><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Adresse mail</TH><TH>Ajouter</TH><TH>Supprimer</TH></TR>\n");
 for($i=0;$i<count($liste);$i++){
     $nom=$liste[$i][0];

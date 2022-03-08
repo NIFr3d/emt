@@ -19,18 +19,26 @@
 ?>
 <body>
     <div class="corps">
-        Application Web :<br>
-            Lucas Printz<br>
-            Frédéric Wagner<br>
-        Projet Joulemètre :<br>
-            Bryce Mathieu<br>
-            Nabil Benmira<br>
-        Tableau de bord :<br>
-            Arthur Hurdebourg<br>
-            Christianna Anna<br>
-        Essais et startégie :<br>
-            Estelle Baby<br>
-            Lucie Jeannin<br>
+        <table border='1' cellspacing='0'>
+        <tr>
+            <th>Application Web</th>
+            <th>Projet Joulemètre</th>
+            <th>Tableau de bord</th>
+            <th>Essais et stratégie</th>
+        </tr>
+        <tr>
+            <td>Lucas Printz</td>
+            <td>Bryce Mathieu</td>
+            <td>Arthur Hurdebourg</td>
+            <td>Estelle Baby</td>   
+        </tr>
+        <tr>
+            <td>Frédéric Wagner</td>
+            <td>Nabil Benmira</td>
+            <td>Christianna Anna</td>
+            <td>Lucie Jeannin</td>
+        </tr>
+        </table>
     </div>
 </body>
 <footer>

@@ -13,7 +13,7 @@
   </script>
 </head>
 <body>
-  <div class="corps">
+  <div class="corps userlist">
   <?php
   session_start();
   if(!isset($_SESSION["acces"])) header("location: login");
@@ -21,8 +21,8 @@
   include("functions/BDD.php");
 
   $liste=$db->getUserList();
-  echo("<br /><br /><br /><TABLE BORDER='1' cellspacing='0'> 
-      <TR><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Adresse mail</TH><TH>Acces</TH><TH>Ajouter administrateur</TH><TH>Rendre utilisateur</TH><TH>Attribuer \"Stratégie\"</TH><TH>Supprimer</TH></TR>\n");
+  echo("<TABLE BORDER='1' cellspacing='0'> 
+      <TR><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Adresse mail</TH><TH>Acces</TH><TH>Ajouter administrateur</TH><TH>Rendre utilisateur</TH><TH>Attribuer \"Stratégie\"</TH><TH>Supprimer</TH></TR>");
   for($i=0;$i<count($liste);$i++){
       $nom=$liste[$i][0];
       $prenom=$liste[$i][1];
