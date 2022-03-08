@@ -36,7 +36,7 @@
         <tr id='intitulés'>
         <th>Temps</th> 
         <th>Vitesse</th> 
-        <th>Intensite</th>
+        <th>Intensité</th>
         <th>Tension</th>
         <th>Energie</th>
         </tr>
@@ -53,7 +53,7 @@
         <tr id='intitulés'>
         <th>Temps</th> 
         <th>Vitesse</th> 
-        <th>Intensite</th>
+        <th>Intensité</th>
         <th>Tension</th>
         <th>Energie</th>
         </tr>

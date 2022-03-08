@@ -22,7 +22,7 @@
 
   $liste=$db->getUserList();
   echo("<TABLE BORDER='1' cellspacing='0'> 
-      <TR><TH>Prenom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Adresse mail</TH><TH>Acces</TH><TH>Ajouter administrateur</TH><TH>Rendre utilisateur</TH><TH>Attribuer \"Stratégie\"</TH><TH>Supprimer</TH></TR>");
+      <TR><TH>Prénom</TH><TH>Nom</TH><TH>Identifiant</TH><TH>Adresse mail</TH><TH>Accès</TH><TH>Ajouter administrateur</TH><TH>Rendre utilisateur</TH><TH>Attribuer \"Stratégie\"</TH><TH>Supprimer</TH></TR>");
   for($i=0;$i<count($liste);$i++){
       $nom=$liste[$i][0];
       $prenom=$liste[$i][1];
