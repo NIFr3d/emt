@@ -44,6 +44,10 @@ wss.on("connection", function (ws) {
         }
         console.log(obj);
         switch (obj.event) {
+            case "fromStrategy":
+                data = JSON.stringify(obj);
+                wss.clients.forEach(client => client.send(data));
+                break;
             case "debutrun":
                 today = new Date();
                 tempsdebut=today;

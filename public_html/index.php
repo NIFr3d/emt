@@ -47,6 +47,26 @@
         <th><span id="tension"></span></th>
         <th><span id="energie"></span></th>
         </tr>
+        <?php
+        if($acces==2 || $acces==1){
+        ?>
+        <tr id='intitulés'>
+        <th>Temps</th> 
+        <th>Vitesse</th> 
+        <th>Intensite</th>
+        <th>Tension</th>
+        <th>Energie</th>
+        </tr>
+        <tr>
+        <th><span id="temps"></span></th>
+        <th><span id="vitesse"></span></th>
+        <th><span id="intensite"></span></th>
+        <th><span id="tension"></span></th>
+        <th><span id="energie"></span></th>
+        </tr>
+        <?php
+        }
+        ?>
         </table>
         <?php
         if($acces==1 || $acces==2) {
@@ -55,11 +75,10 @@
         }
         ?>
         <div class="carte">
-
             <div id="map"></div>
-            <canvas id="canevas" width=800  height=600></canvas>
+                <canvas id="canevas" width=800  height=600></canvas>
+            </div>
         </div>
-    </div>
     </div>
 </body>
 <footer>

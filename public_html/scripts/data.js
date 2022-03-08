@@ -1,7 +1,7 @@
 var socket = new WebSocket("ws://rostro15.fr:8080");
 var layer = L.marker();
 
-
+var acces=sessionStorage.getItem("acces");
 socket.onopen = function () {
   socket.onmessage = function (event) {
     data = JSON.parse(event.data);
@@ -15,6 +15,11 @@ socket.onopen = function () {
             document.getElementById("energie").innerHTML = data.energie;
             layer = L.marker([data.latt,data.long]).addTo(map);
             break;
+        case "fromStrategy":
+            if(acces==2 || acces==1){
+                document.getElementById("jsp").innerHTML=data.jsp;
+            }
+            break;
         }
     }
     
@@ -23,7 +28,6 @@ var canevas = document.getElementById("canevas");
 contexte = canevas.getContext("2d");
 var flipflop = true;
 const envoitracer = document.getElementById('envoitracer');
-var acces=sessionStorage.getItem("acces");
 var img = document.createElement("img");
 img.src ="../Cartes/out.png?" + new Date().getTime();
 img.onload=function(){
