@@ -103,6 +103,10 @@ wss.on("connection", function (ws) {
                 var base64Data = obj.imageurl.replace("data:image/png;base64,", "");
                 require("fs").writeFile("public_html/Cartes/out.png", base64Data, 'base64', function (err) { });
                 break;
+            case "requetedonnees":
+                data = JSON.stringify(obj);
+                wss.clients.forEach(client => client.send(data));
+                break;
         }
 
     })
