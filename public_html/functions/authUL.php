@@ -17,6 +17,8 @@ if($isEmt){
     header("location:../index");
 }
 else{
-    header("location: ../choselogin?erreur=Vous+n'+êtes+pas+autorisé+à+utiliser+cette+application");
+    phpCAS::client(CAS_VERSION_2_0,'auth.univ-lorraine.fr',443,'');
+    phpCAS::logoutWithRedirectService("http://pny-vm-emt.ptny.site.univ-lorraine.fr/chooselogin?erreur=Vous+n'+êtes+pas+autorisé+à+utiliser+cette+application");
+
 }
 ?>

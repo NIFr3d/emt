@@ -20,7 +20,7 @@
     <div class="corps">
     <?php
     session_start();
-    if(!isset($_SESSION["acces"])) header("location: choselogin");
+    if(!isset($_SESSION["acces"])) header("location: chooselogin");
     else {
         $acces=$_SESSION["acces"];
         echo("<script> sessionStorage.setItem(\"acces\",$acces );</script>");

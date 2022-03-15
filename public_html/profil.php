@@ -17,7 +17,7 @@
     <div class="corps">
     <?php
     session_start();
-    if(!isset($_SESSION["acces"])) header("location: choselogin");
+    if(!isset($_SESSION["acces"])) header("location: chooselogin");
     ?>
         <div>
             Nom : <?php echo($_SESSION["nom"]); ?> <br>
