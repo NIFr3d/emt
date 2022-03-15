@@ -23,7 +23,9 @@
           <a href="javascript:void(0);" class="icon" onclick="responsive()"><i class="fa fa-bars"></i></a>
           <div id="alignright">
             <div id="navright">
+            <?php if(!isset($_SESSION["isul"])){ ?>
             <a href="profil"><img id="profil" src="../styles/images/profil.png" alt="profil"/> Profil</a>
+            <?php }?>
             <a href="about">A propos</a>
             <a href="functions/logout"><img id="deconnexion" src="../styles/images/deconnexion.png" alt="deconnexion"/></a>
             </div>
@@ -41,7 +43,9 @@
           <a href="javascript:void(0);" class="icon" onclick="responsive()"><i class="fa fa-bars"></i></a>
           <div id="alignright">
             <div id="navright">
+            <?php if(!isset($_SESSION["isul"])){ ?>
             <a href="profil"><img id="profil" src="../styles/images/profil.png" alt="profil"/> Profil</a>
+            <?php }?>
             <a href="about">A propos</a>
             <a href="functions/logout"><img id="deconnexion" src="../styles/images/deconnexion.png" alt="deconnexion"/></a>
             </div>
@@ -59,7 +63,9 @@
           <a href="javascript:void(0);" class="icon" onclick="responsive()"><i class="fa fa-bars"></i></a>
           <div id="alignright">
             <div id="navright">
+              <?php if(!isset($_SESSION["isul"])){ ?>
             <a href="profil"><img id="profil" src="../styles/images/profil.png" alt="profil"/> Profil</a>
+            <?php }?>
             <a href="about">A propos</a>
             <a href="functions/logout"><img id="deconnexion" src="../styles/images/deconnexion.png" alt="deconnexion"/></a>
             </div>

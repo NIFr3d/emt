@@ -14,6 +14,7 @@ if($isEmt){
     $_SESSION["prenom"]=phpCAS::getAttribute("givenname");
     $_SESSION["acces"]=$acces;
     $_SESSION["userid"]=phpCAS::getAttribute("mail");
+    $_SESSION["isul"]=true;
     header("location:../index");
 }
 else{
