@@ -237,7 +237,7 @@ td{
 	display: none;
   }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 967px) {
 	.bordnav #navleft a:not(:first-child) {display: none;}
 	.bordnav #navright a {display:none;}
 	.bordnav a.icon {
@@ -252,7 +252,7 @@ td{
 	}
 }
   
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 967px) {
 	.bordnav.responsive {position: relative;}
 	.bordnav.responsive a.icon {
 		position: absolute;

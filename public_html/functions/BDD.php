@@ -170,6 +170,18 @@ function changemdp($mdp,$userid){
     $sql_query="UPDATE `utilisateur` SET `mdp` ='$mdp' WHERE `userid`='$userid';";
     $result_set = mysqli_query($this->id,$sql_query); 
 }
+function isEmt($uid){
+    $sql_query = "SELECT COUNT(*) FROM `utilisateurul` WHERE `uid`='$uid'";
+    $result_set = mysqli_query($this->id,$sql_query);
+    $result = mysqli_fetch_row($result_set)[0]; 
+    return ($result > 0);
+}
+function accesforUL($uid){
+    $sql_query = "SELECT `acces` FROM `utilisateurul` WHERE `uid`='$uid'";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $result = mysqli_fetch_row($result_set)[0]; 
+    return $result;
+}
 }
 $db = new DB($host,$user,$pass,$base);
 $db->connect(); 
