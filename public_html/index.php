@@ -20,7 +20,7 @@
     <div class="corps">
     <?php
     session_start();
-    if(!isset($_SESSION["acces"])) header("location: login");
+    if(!isset($_SESSION["acces"])) header("location: choselogin");
     else {
         $acces=$_SESSION["acces"];
         echo("<script> sessionStorage.setItem(\"acces\",$acces );</script>");
@@ -47,26 +47,6 @@
         <th><span id="tension"></span></th>
         <th><span id="energie"></span></th>
         </tr>
-        <?php
-        if($acces==2 || $acces==1){
-        ?>
-        <tr id='intitulés'>
-        <th>Temps</th> 
-        <th>Vitesse</th> 
-        <th>Intensité</th>
-        <th>Tension</th>
-        <th>Energie</th>
-        </tr>
-        <tr>
-        <th><span id="temps"></span></th>
-        <th><span id="vitesse"></span></th>
-        <th><span id="intensite"></span></th>
-        <th><span id="tension"></span></th>
-        <th><span id="energie"></span></th>
-        </tr>
-        <?php
-        }
-        ?>
         </table>
         <?php
         if($acces==1 || $acces==2) {

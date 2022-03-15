@@ -17,7 +17,7 @@
     <div class="corps">
     <?php
     session_start();
-    if(!isset($_SESSION["acces"])) header("location: login");
+    if(!isset($_SESSION["acces"])) header("location: choselogin");
     include("functions/BDD.php");
     ?>
     <form method="post" action="functions/removerun.php">

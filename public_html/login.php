@@ -5,7 +5,6 @@
     </title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../styles/main.css"></link> 
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
   </head>
   <body>
@@ -39,26 +38,6 @@
 	?>
 	</div>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
-		<script>
-		window.cookieconsent.initialise({
-		"palette": {
-			"popup": {
-			"background": "#edeff5",
-			"text": "#838391"
-			},
-			"button": {
-			"background": "#4b81e8"
-			}
-		},
-		"content": {
-			"message": "Notre site utilise des cookies pour son bon fonctionnement.",
-			"dismiss": "OK !",
-			"link": "Plus d'infos",
-			"href": "/cookiespolicy"
-		}
-		});
-		</script>
   </body>
   <footer>
     <script src="../scripts/nbuser.js"></script>
