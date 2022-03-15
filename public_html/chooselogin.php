@@ -16,7 +16,10 @@
             </form>
             <a href="login"><button type="button" class="bouton">Utilisateur extérieur</button></a><br>
             <?php
-                if(isset($_GET["erreur"])) echo($_GET["erreur"]);
+                if(isset($_GET["erreur"])) {
+                    if($_GET["erreur"]=="dc") echo("Vous avez été déconnecté");
+                    else if($_GET["erreur"]=="notaut") echo("Vous n'êtes pas autorisé à utiliser cette application");
+                }
             ?>
         </div>
     </div>

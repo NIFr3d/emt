@@ -17,6 +17,6 @@ if($isEmt){
     header("location:../index");
 }
 else{
-    phpCAS::logoutWithRedirectService("http://pny-vm-emt.ptny.site.univ-lorraine.fr/chooselogin?erreur=Vous+n'+êtes+pas+autorisé+à+utiliser+cette+application");
+    phpCAS::logoutWithRedirectService("http://pny-vm-emt.ptny.site.univ-lorraine.fr/chooselogin?erreur=notaut");
 }
 ?>
