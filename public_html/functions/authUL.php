@@ -7,16 +7,16 @@ phpCAS::setNoCasServerValidation();
 if(!phpCAS::checkAuthentication()){
     phpCAS::forceAuthentication();
 }
-$isEmt=$db->isEmt(phpCAS::getAttribute("uid"));
+$isEmt=$db->isEmt(phpCAS::getAttribute("mail"));
 if($isEmt){
-    $acces=$db->accesforUL(phpCAS::getAttribute("uid"));
+    $acces=$db->accesforUL(phpCAS::getAttribute("mail"));
     $_SESSION["nom"]=phpCAS::getAttribute("sn");
     $_SESSION["prenom"]=phpCAS::getAttribute("givenname");
     $_SESSION["acces"]=$acces;
-    $_SESSION["userid"]=phpCAS::getAttribute("uid");
+    $_SESSION["userid"]=phpCAS::getAttribute("mail");
     header("location:../index");
 }
 else{
-    phpCAS::logoutWithRedirectService("http://pny-vm-emt.ptny.site.univ-lorraine.fr/chooselogin?erreur=notaut");
+    phpCAS::logoutWithRedirectService("http://emt.polytech-nancy.univ-lorraine.fr/chooselogin?erreur=notaut");
 }
 ?>

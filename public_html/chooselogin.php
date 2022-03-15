@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
 </head>
 <body>
-    <div class="corps">
+    <div class="corps2">
     <h1>Bienvenue sur le site de suivi de l'EMT</h1>
         <div id="chooselog">
             <form action="functions/authUL.php">

@@ -20,8 +20,18 @@ private $id;
 public function connect(){
     $this->id = mysqli_connect($this->host, $this->user, $this->pass, $this->base); // connexion
 }
+function adduserul($uid,$acces){
+    $sql_query="INSERT INTO `utilisateurul` (`uid`, `acces`) VALUES ('$uid', '$acces');";
+    $result_set = mysqli_query($this->id,$sql_query); 
+}
 function getUserList(){
     $sql_query = "SELECT `nom`, `prenom`, `userid`,`acces`,`email` FROM `utilisateur`";
+    $result_set = mysqli_query($this->id, $sql_query);
+    $result = mysqli_fetch_all($result_set);
+    return $result;
+}
+function getUserListUL(){
+    $sql_query = "SELECT `uid`, `acces` FROM `utilisateurul`";
     $result_set = mysqli_query($this->id, $sql_query);
     $result = mysqli_fetch_all($result_set);
     return $result;
@@ -48,12 +58,24 @@ function adminUser($userid){
     $sql_query="UPDATE `utilisateur` SET `acces`=1 WHERE `userid`='$userid';";
     $result_set = mysqli_query($this->id,$sql_query); 
 }
+function adminUserul($userid){
+    $sql_query="UPDATE `utilisateurul` SET `acces`=1 WHERE `uid`='$userid';";
+    $result_set = mysqli_query($this->id,$sql_query); 
+}
 function unadminUser($userid){
     $sql_query="UPDATE `utilisateur` SET `acces`=0 WHERE `userid`='$userid';";
     $result_set = mysqli_query($this->id,$sql_query); 
 }
+function unadminUserul($userid){
+    $sql_query="UPDATE `utilisateurul` SET `acces`=0 WHERE `uid`='$userid';";
+    $result_set = mysqli_query($this->id,$sql_query); 
+}
 function stratUser($userid){
     $sql_query="UPDATE `utilisateur` SET `acces`=2 WHERE `userid`='$userid'";
+    $result_set = mysqli_query($this->id,$sql_query);
+}
+function stratUserul($userid){
+    $sql_query="UPDATE `utilisateurul` SET `acces`=2 WHERE `uid`='$userid'";
     $result_set = mysqli_query($this->id,$sql_query);
 }
 function isAdmin($userid){
@@ -62,8 +84,20 @@ function isAdmin($userid){
     $result = mysqli_fetch_row($result_set)[0]; 
     return ($result == 1);
 }
+function isAdminul($userid){
+    $sql_query="SELECT `acces` FROM `utilisateurul` WHERE `uid`='$userid';";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $result = mysqli_fetch_row($result_set)[0]; 
+    return ($result == 1);
+}
 function isStrat($userid){
     $sql_query="SELECT `acces` FROM `utilisateur` WHERE `userid`='$userid';";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $result = mysqli_fetch_row($result_set)[0]; 
+    return ($result == 2);
+}
+function isStratul($userid){
+    $sql_query="SELECT `acces` FROM `utilisateurul` WHERE `uid`='$userid';";
     $result_set = mysqli_query($this->id,$sql_query); 
     $result = mysqli_fetch_row($result_set)[0]; 
     return ($result == 2);
@@ -83,11 +117,11 @@ function userExist($userid){
     $result = mysqli_fetch_row($result_set)[0] + mysqli_fetch_row($result_set2)[0]; 
     return ($result > 0); //retourne false ou true selon le nombre d'utilisateur correspondant à l'userid donné (0 ou 1)
 }
-function tokenExist($token){
-    $sql_query = "SELECT COUNT(*) FROM `utilisateur` WHERE `token`='$token'";
+function userExistul($userid){
+    $sql_query = "SELECT COUNT(*) FROM `utilisateurul` WHERE `uid`='$userid'";
     $result_set = mysqli_query($this->id,$sql_query);
     $result = mysqli_fetch_row($result_set)[0]; 
-    return ($result > 0); //retourne false ou true selon le nombre d'utilisateur correspondant au token donné (0 ou 1)
+    return ($result > 0); //retourne false ou true selon le nombre d'utilisateur correspondant à l'userid donné (0 ou 1)
 }
 function getMdp($userid){
     $sql_query = "SELECT `mdp` FROM `utilisateur` WHERE `userid`='$userid'";
@@ -117,6 +151,10 @@ function saveToken($userid,$token){
 }
 function delUser($userid){
     $sql_query="DELETE FROM `utilisateur` WHERE `userid`='$userid'";
+    $result_set = mysqli_query($this->id,$sql_query); 
+}
+function delUserul($userid){
+    $sql_query="DELETE FROM `utilisateurul` WHERE `uid`='$userid'";
     $result_set = mysqli_query($this->id,$sql_query); 
 }
 function refuseUser($userid){

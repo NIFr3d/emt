@@ -17,8 +17,8 @@
           <div id="navleft">
           <a href="index"><img id="accueil" src="../styles/images/accueil.png" alt="accueil"/> Accueil</a>
           <a href="historique">Historique des courses</a>
-          <a href="adduser">Ajout d'utilisateur</a>
-          <a href="userlist">Gestion d'utilisateur</a>
+          <a href="userul">Gérer les utilisateurs UL</a>
+          <a href="userext">Gérer les utilisateurs extérieurs</a>
           </div>
           <a href="javascript:void(0);" class="icon" onclick="responsive()"><i class="fa fa-bars"></i></a>
           <div id="alignright">
