@@ -70,6 +70,7 @@
         </table>
         <?php
         if($acces==1 || $acces==2) {
+            echo("<button type=\"button\" class=\"bouton\" id=\"executerstrat\">Exécuter script</button>");
             echo("<button type=\"button\" class=\"bouton\" id=\"cleartracer\">Nouveau tracé</button>");
             echo("<button type=\"button\" class=\"bouton\" id=\"envoitracer\">Envoyer le tracé</button>");
         }

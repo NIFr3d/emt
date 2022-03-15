@@ -41,11 +41,23 @@
       
       echo("
       <TR><TD>$prenom</TD><TD>$nom</TD><TD>$userid</TD><TD>$email</TD><TD>$acces</TD>
-      <TD><form method='post' action='functions/usertoadmin.php'><div id='butTab'><button class='boutonTab' type='submit'>Admin</button></div>
+      <TD><form method='post' action='functions/usertoadmin.php'><div id='butTab'><button class='boutonTab' type='submit' ");
+      if($liste[$i][3]==1){
+        echo("disabled");
+      }
+      echo(">Admin</button></div>
       <input type='hidden' name='userid' value='$userid' /></form></TD>
-      <TD><form method='post' action='functions/admintouser.php'><div id='butTab'><button class='boutonTab' type='submit'>Utilisateur</button></div>
+      <TD><form method='post' action='functions/admintouser.php'><div id='butTab'><button class='boutonTab' type='submit' ");
+      if($liste[$i][3]==0){
+        echo("disabled");
+      }
+      echo(">Utilisateur</button></div>
       <input type='hidden' name='userid' value='$userid' /></form></TD>
-      <TD><form method='post' action='functions/usertostrategie.php'><div id='butTab'><button class='boutonTab' type='submit'>Stratégie</button></div>
+      <TD><form method='post' action='functions/usertostrategie.php'><div id='butTab'><button class='boutonTab' type='submit' ");
+      if($liste[$i][3]==2){
+        echo("disabled");
+      }
+      echo(">Stratégie</button></div>
       <input type='hidden' name='userid' value='$userid' /></form></TD>
       <TD><form method='post' action='functions/deluser.php'><div id='butTab'><button class='boutonTab' type='submit'>Supprimer</button></div>
       <input type='hidden' name='userid' value='$userid' /></form></TD>

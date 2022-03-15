@@ -125,6 +125,11 @@ td{
 	border-radius: 50px;
 	behavior: url(/pie/PIE.htc);
 }
+.boutonTab:disabled{
+	pointer-events:none;
+	cursor:none;
+	opacity:20%;
+}
 
 #butTab{
 	vertical-align:middle;
@@ -330,7 +335,12 @@ h3{
 #tablTab{
 	margin-top:5vh;
 }
-
+#executerstrat{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	margin:20px auto;
+}
 
 /* required styles */
 

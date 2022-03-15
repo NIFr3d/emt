@@ -33,8 +33,14 @@ img.src ="../Cartes/out.png?" + new Date().getTime();
 img.onload=function(){
     contexte.drawImage(img, 0, 0);
 };
+const executerstrat = document.getElementById("executerstrat");
 
 if(acces==1 || acces==2){
+    executerstrat.addEventListener('click',function(){
+        socket.send(JSON.stringify({
+            event:"requetedonnees"
+        }))
+    });
     document.getElementById('cleartracer').addEventListener('click',function(){
         contexte.clearRect(0, 0, canevas.width, canevas.height);
         flipflop = true;
