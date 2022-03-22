@@ -18,6 +18,10 @@
     <?php
     session_start();
     if(!isset($_SESSION["acces"])) header("location: chooselogin");
+    else {
+        $token=$_SESSION["token"];
+        echo("<script> sessionStorage.setItem(\"token\",'$token' );</script>");
+    }
     include("functions/BDD.php");
     ?>
     <h2>Ajouter un utilisateur UL :</h2>

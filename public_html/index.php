@@ -23,7 +23,9 @@
     if(!isset($_SESSION["acces"])) header("location: chooselogin");
     else {
         $acces=$_SESSION["acces"];
+        $token=$_SESSION["token"];
         echo("<script> sessionStorage.setItem(\"acces\",$acces );</script>");
+        echo("<script> sessionStorage.setItem(\"token\",'$token' );</script>");
     }
     ?>
     <div id="data" class="content">

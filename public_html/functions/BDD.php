@@ -30,6 +30,12 @@ function getUserList(){
     $result = mysqli_fetch_all($result_set);
     return $result;
 }
+function getWSToken(){
+    $sql_query = "SELECT `token` FROM `tokenws`";
+    $result_set = mysqli_query($this->id, $sql_query);
+    $result = mysqli_fetch_row($result_set)[0];
+    return $result;
+}
 function getUserListUL(){
     $sql_query = "SELECT `uid`, `acces` FROM `utilisateurul`";
     $result_set = mysqli_query($this->id, $sql_query);
@@ -138,18 +144,8 @@ function getInfos($userid){
     $result = mysqli_fetch_row($result_set); 
     return $result;
 }
-function gettokenInfos($token){
-    $sql_query = "SELECT `nom`, `prenom`, `acces` FROM `utilisateur` WHERE `token`='$token'";
-    $result_set = mysqli_query($this->id,$sql_query); 
-    $result = mysqli_fetch_row($result_set); 
-    return $result;
-}
 function register($userid,$mdp,$nom,$prenom,$acces,$email=''){
     $sql_query="INSERT INTO `utilisateurattente` (`nom`, `prenom`, `mdp`, `acces`, `userid`,`email`) VALUES ('$nom', '$prenom', '$mdp', '$acces', '$userid','$email');";
-    $result_set = mysqli_query($this->id,$sql_query); 
-}
-function saveToken($userid,$token){
-    $sql_query="UPDATE `utilisateur` SET `token` ='$token' WHERE `userid`='$userid';";
     $result_set = mysqli_query($this->id,$sql_query); 
 }
 function delUser($userid){

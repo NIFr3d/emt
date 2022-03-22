@@ -15,6 +15,7 @@ if($isEmt){
     $_SESSION["acces"]=$acces;
     $_SESSION["userid"]=phpCAS::getAttribute("mail");
     $_SESSION["isul"]=true;
+    $_SESSION["token"]=$db->getWSToken();
     header("location:../index");
 }
 else{

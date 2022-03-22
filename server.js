@@ -1,7 +1,21 @@
+const validtoken="L2eEzMs7ZMpNJYCQaECg";
 const { PORT, DATABASE_LOGIN, DATABASE_PASSWORD, DATABASE } = require('./config.json');
 console.dir(PORT);
 const WebSocketServer = require("ws").Server;
-const wss = new WebSocketServer({ port: PORT });
+const wss = new WebSocketServer({ 
+    port: PORT, 
+    verifyClient: (info, callback) => {
+        const token = info.req.url.split('token=')[1];
+        var isValidToken = false;
+        if(token==validtoken) isValidToken=true;
+        if (!isValidToken) {
+            console.log("Error: token not valid");
+            callback(false, 401, 'Unauthorized');
+        } else {
+          callback(true);
+        }
+    }
+});
 var tabl = new Set();
 const mysql = require("sync-mysql");
 var today;

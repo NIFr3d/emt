@@ -13,9 +13,7 @@ $mdp = stripslashes($_POST["mdp"]);
             $_SESSION["prenom"]=$infos[1];
             $_SESSION["acces"]=$infos[2];
             $_SESSION["userid"]=$userid;
-            $token=base64_encode(random_bytes(20));
-            setcookie("token", $token,time()+600000,'/');
-            $db->saveToken($userid,$token);
+            $_SESSION["token"]=$db->getWSToken();
             header("location:../index");
         } else {
             header("location: ../login?erreur=Mot+de+passe+incorrect");

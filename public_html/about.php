@@ -15,7 +15,11 @@
 </head>
 <?php
     session_start();
-    if(!isset($_SESSION["acces"])) header("location: login");
+    if(!isset($_SESSION["acces"])) header("location: chooselogin");
+    else {
+        $token=$_SESSION["token"];
+        echo("<script> sessionStorage.setItem(\"token\",'$token' );</script>");
+    }
 ?>
 <body>
     <div class="corps">
@@ -39,6 +43,15 @@
             <td>Lucie Jeannin</td>
         </tr>
         </table>
+        <div id="compteur">
+	        <h3>Nombre d'utilisateurs connectés : <span id="nbUtilisateurs"></span></h3>
+        <?php
+		include("functions/BDD.php");
+		$nbEnregistres=$db->getNbUser();
+		echo("<h3>Nombre d'utilisateurs enregistrés : $nbEnregistres</h3>");
+		?>
+        </div>
+        
     </div>
 </body>
 <footer>

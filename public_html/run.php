@@ -16,6 +16,11 @@
     $choixstr=$listeruns[$choix][0];
     $runinfos=$db->getRunInfos($choixstr);
     session_start();
+    if(!isset($_SESSION["acces"])) header("location: chooselogin");
+    else {
+      $token=$_SESSION["token"];
+      echo("<script> sessionStorage.setItem(\"token\",'$token' );</script>");
+    }
     if($_SESSION['acces']==1 || $_SESSION['acces']==2){
       echo("<div id='tablTab'><form method='post' action='functions/download'><input type='hidden' name='choix' value='$choix'/><button class='boutonTab' type='submit'>Télécharger en Excel</button></form></div>");
     }
