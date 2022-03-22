@@ -113,9 +113,10 @@ wss.on("connection", function (ws) {
                 lasttemps=tempsact;
                 break;
             case "nouveautracer":
-		console.log("nouveau tracer");
+		        console.log("nouveau tracer");
                 var base64Data = obj.imageurl.replace("data:image/png;base64,", "");
-                require("fs").writeFile("public_html/Cartes/out.png", base64Data, 'base64', function (err) { });
+                circuit=await sqlquery("SELECT `nom` FROM `circuits` WHERE `actif`=1");
+                require("fs").writeFile("/var/www/emt/public_html/Cartes/"+circuit[0].nom+"/out.png", base64Data, 'base64', function (err) { });
                 break;
             case "requetedonnees":
                 data = JSON.stringify(obj);

@@ -22,10 +22,18 @@
     session_start();
     if(!isset($_SESSION["acces"])) header("location: chooselogin");
     else {
+        include("functions/BDD.php");
+        $latloncir=$db->getCurrentCircuit();
+        $lat=$latloncir[0];
+        $lon=$latloncir[1];
+        $cir=$latloncir[2];
         $acces=$_SESSION["acces"];
         $token=$_SESSION["token"];
         echo("<script> sessionStorage.setItem(\"acces\",$acces );</script>");
         echo("<script> sessionStorage.setItem(\"token\",'$token' );</script>");
+        echo("<script> sessionStorage.setItem(\"lat\",$lat );</script>");
+        echo("<script> sessionStorage.setItem(\"lon\",'$lon' );</script>");
+        echo("<script> sessionStorage.setItem(\"cir\",'$cir' );</script>");
     }
     ?>
     <div id="data" class="content">
@@ -51,6 +59,23 @@
         </tr>
         </table>
         <?php
+        if($acces==1 || $acces==2){ ?>
+        <form action="/functions/changerCircuit" method="post">
+            <h2>Changer le circuit affiché</h2>
+            <select name="nom" id="nom">
+            <option value="">--Choisissez un circuit--</option>
+            <?php
+            $listecircuits=$db->getCircuits();
+            foreach($listecircuits as $circuit){
+                $map=$circuit[0];
+                echo("<option value=$map>$map</option>");
+            }
+            ?>
+            </select>
+            <button type="submit">Changer</button>
+        </form>
+        <?php
+        }
         if($acces==1 || $acces==2) {
             echo("<button type=\"button\" class=\"bouton\" id=\"executerstrat\">Exécuter script</button>");
             echo("<button type=\"button\" class=\"bouton\" id=\"cleartracer\">Nouveau tracé</button>");

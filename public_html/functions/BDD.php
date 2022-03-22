@@ -42,6 +42,26 @@ function getUserListUL(){
     $result = mysqli_fetch_all($result_set);
     return $result;
 }
+function getCircuits(){
+    $sql_query = "SELECT `nom` FROM `circuits`";
+    $result_set = mysqli_query($this->id, $sql_query);
+    $result = mysqli_fetch_all($result_set);
+    return $result;
+}
+function changeCircuit($nom){
+    $sql_query="UPDATE `circuits` SET `actif`=0";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $sql_query="UPDATE `circuits` SET `actif`=1 WHERE `nom` LIKE '$nom'";
+    $result_set = mysqli_query($this->id,$sql_query); 
+    $result = mysqli_fetch_row($result_set)[0];
+    return $result;
+}
+function getCurrentCircuit(){
+    $sql_query = "SELECT `lat`, `lon`, `nom` FROM `circuits` WHERE `actif`=1";
+    $result_set = mysqli_query($this->id, $sql_query);
+    $result = mysqli_fetch_all($result_set)[0];
+    return $result;
+}
 function getNbUser(){
     $sql_query = "SELECT COUNT(`nom`) FROM `utilisateur`";
     $result_set = mysqli_query($this->id, $sql_query);

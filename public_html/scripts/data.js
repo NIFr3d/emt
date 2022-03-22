@@ -31,7 +31,8 @@ contexte = canevas.getContext("2d");
 var flipflop = true;
 const envoitracer = document.getElementById('envoitracer');
 var img = document.createElement("img");
-img.src ="../Cartes/out.png?" + new Date().getTime();
+var cir = sessionStorage.getItem("cir");
+img.src ="../Cartes/"+cir+"/out.png?" + new Date().getTime();
 img.onload=function(){
     contexte.drawImage(img, 0, 0);
 };
@@ -78,8 +79,8 @@ if(acces==1 || acces==2){
     
 };
 
-var lat = 43.77020;
-var lon = -0.04083;
+var lat = sessionStorage.getItem("lat");
+var lon = sessionStorage.getItem("lon");
 var map = null;
 
 // Fonction d'initialisation de la carte
