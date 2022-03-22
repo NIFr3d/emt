@@ -59,25 +59,28 @@
         </tr>
         </table>
         <?php
-        if($acces==1 || $acces==2){ ?>
-        <form action="/functions/changerCircuit" method="post">
-            <h2>Changer le circuit affiché</h2>
-            <select name="nom" id="nom">
-            <option value="">--Choisissez un circuit--</option>
-            <?php
-            $listecircuits=$db->getCircuits();
-            foreach($listecircuits as $circuit){
-                $map=$circuit[0];
-                echo("<option value=$map>$map</option>");
-            }
-            ?>
-            </select>
-            <button type="submit">Changer</button>
-        </form>
-        <?php
-        }
         if($acces==1 || $acces==2) {
             echo("<button type=\"button\" class=\"bouton\" id=\"executerstrat\">Exécuter script</button>");
+            ?>
+            <div id="afficheCircuit">
+            <a><button class="bouton" type="button" onclick="afficherListe()">Changer le circuit affiché</button></a>
+            <a>
+                <form action="/functions/changerCircuit" method="post">
+                    <select name="choixcircuit" id="choixcircuit">
+                    <option value="">--Choisissez un circuit--</option>
+                    <?php
+                    $listecircuits=$db->getCircuits();
+                    foreach($listecircuits as $circuit){
+                        $map=$circuit[0];
+                        echo("<option value=$map>$map</option>");
+                    }
+                    ?>
+                    </select>
+                    <button type="submit" class="boutonTab">Changer</button>
+                </form>
+            </a>
+            </div>
+            <?php
             echo("<button type=\"button\" class=\"bouton\" id=\"cleartracer\">Nouveau tracé</button>");
             echo("<button type=\"button\" class=\"bouton\" id=\"envoitracer\">Envoyer le tracé</button>");
         }
@@ -88,6 +91,12 @@
             </div>
         </div>
     </div>
+    <script>
+        function afficherListe(){
+            var x = document.getElementById("afficheCircuit");
+            x.classList.toggle("afficheCircuit");
+        }
+    </script>
 </body>
 <footer>
     <script src="../scripts/data.js"></script>

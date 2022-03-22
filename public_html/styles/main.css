@@ -354,6 +354,28 @@ h3{
 
 }
 
+#afficheCircuit a{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	margin:20px auto;
+}
+
+#afficheCircuit a:not(:first-child) {
+	display: none;
+}
+
+#afficheCircuit.afficheCircuit a{
+	display: flex;
+}
+
+#choixcircuit{
+	width:70%;
+	height:50%;
+	background-color:#019cde;
+	color:white;
+	border: 1px solid;
+}
 
 /* required styles */
 

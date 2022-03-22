@@ -19,7 +19,7 @@ socket.onopen = function () {
             break;
         case "fromStrategy":
             if(acces==2 || acces==1){
-                document.getElementById("jsp").innerHTML=data.jsp;
+                document.getElementById("jsp").innerHTML = data.jsp;
             }
             break;
         }
