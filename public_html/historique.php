@@ -8,10 +8,7 @@
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <div id="navbar"></div>
-    <script type="text/javascript">
-        $("#navbar").load("nav");
-    </script>
+    <?php include("nav.php"); ?>
 </head>
 <body>
     <div class="corps">

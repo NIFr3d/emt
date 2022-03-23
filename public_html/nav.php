@@ -4,7 +4,6 @@
       EMT 2021-2022
     </title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../styles/main.css "></link>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
   </head>
   <body>

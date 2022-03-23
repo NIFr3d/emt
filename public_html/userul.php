@@ -18,6 +18,7 @@
     <?php
     session_start();
     if(!isset($_SESSION["acces"])) header("location: chooselogin");
+    else if($_SESSION["acces"]!=1) header("location: index");
     else {
         $token=$_SESSION["token"];
         echo("<script> sessionStorage.setItem(\"token\",'$token' );</script>");
