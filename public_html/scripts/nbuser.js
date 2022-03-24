@@ -1,5 +1,5 @@
 var token=sessionStorage.getItem("token");
-var socket = new WebSocket("ws://193.55.243.241:8080/wsapi/?token="+token);
+var socket = new WebSocket("ws://emt.polytech-nancy.univ-lorraine.fr:8080/wsapi/?token="+token);
 socket.onopen = function () {
     socket.onmessage = function (event) {
       data = JSON.parse(event.data);
