@@ -23,7 +23,7 @@
             Nom : <?php echo($_SESSION["nom"]); ?> <br>
             Prénom : <?php echo($_SESSION["prenom"]); ?> <br>
         </div>
-        <button class="boutonTab" type="button" onclick="mdp()">Changer de mot de passe</button>
+        <button class="boutonConfirm dispmdp" type="button" onclick="mdp()">Changer de mot de passe</button>
         <div id="mdp" style="visibility:hidden">
             <form action="functions/changepassword" method="post">
                 <input type="hidden" name="userid" value=<?php echo($_SESSION["userid"]); ?>>
@@ -31,7 +31,7 @@
                 <input type="password" name="mdp"> <br>
                 <label for="mdp">Confirmez votre mot de passe</label> <br>
                 <input type="password" name="mdpconfirm"> <br>
-                <button class="boutonTab" type="submit">Confirmer</button>
+                <button class="boutonConfirm" type="submit">Confirmer</button>
             </form>
         </div>
     <?php if(isset($_GET["e"])) echo($_GET["e"]); ?>

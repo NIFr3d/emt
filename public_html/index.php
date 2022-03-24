@@ -72,7 +72,7 @@
                     }
                     ?>
                     </select>
-                    <button type="submit" class="boutonTab">Changer</button>
+                    <button type="submit" class="boutonConfirm">Changer</button>
                 </form>
             </a>
             </div>

@@ -28,10 +28,10 @@
     }
     ?>
     </select>
-<button class="boutonTab" type="button" onclick="afficherRun()">Afficher</button>
+<button class="boutonConfirm" type="button" onclick="afficherRun()">Afficher</button>
 <?php
 if($_SESSION["acces"]==1){
-    echo("<button class=\"boutonTab\" type=\"submit\">Supprimer cette course</button>");
+    echo("<button class=\"boutonConfirm\" type=\"submit\">Supprimer cette course</button>");
 }
 ?>
 </form>

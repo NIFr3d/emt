@@ -22,7 +22,7 @@
       echo("<script> sessionStorage.setItem(\"token\",'$token' );</script>");
     }
     if($_SESSION['acces']==1 || $_SESSION['acces']==2){
-      echo("<div id='tablTab'><form method='post' action='functions/download'><input type='hidden' name='choix' value='$choix'/><button class='boutonTab' type='submit'>Télécharger en Excel</button></form></div>");
+      echo("<div id='tablTab'><form method='post' action='functions/download'><input type='hidden' name='choix' value='$choix'/><button class='boutonConfirm' type='submit'>Télécharger en Excel</button></form></div>");
     }
     echo("<TABLE BORDER='1' cellspacing='0'> 
         <TR><TH>Temps (s)</TH><TH>Vitesse (km/h)</TH><TH>Intensité (A)</TH><TH>Tension (V)</TH><TH>Energie (J)</TH><TH>Latitude (DD)</TH><TH>Longitude (DD)</TH><TH>Aller à</TH></TR>\n");

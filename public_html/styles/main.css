@@ -377,6 +377,24 @@ h3{
 	border: 1px solid;
 }
 
+.boutonConfirm{
+    color: white;
+	background-color:#019cde;
+    cursor: pointer;
+	border: 1px solid;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: px;
+	behavior: url(/pie/PIE.htc);
+}
+.dispmdp{
+	width:500px;
+}
+
+.boutonConfirm:hover{
+	background-color:#007ade;
+}
+
 /* required styles */
 
 .leaflet-control-zoom{
