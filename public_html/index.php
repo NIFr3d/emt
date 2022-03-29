@@ -41,17 +41,21 @@
         <table id='données' border='0' cellspacing='2'>
         <tr id='intitulés'>
         <th>Temps</th> 
-        <th>Vitesse</th> 
+        <th>Vitesse</th>
+        <th>Vitesse moyenne</th>
         <th>Intensité</th>
         <th>Tension</th>
         <th>Energie</th>
+        <th>Tours</th>
         </tr>
         <tr>
         <th><span id="temps"></span></th>
         <th><span id="vitesse"></span></th>
+        <th><span id="avgspeed"></span></th>
         <th><span id="intensite"></span></th>
         <th><span id="tension"></span></th>
         <th><span id="energie"></span></th>
+        <th><span id="laps"></span></th>
         </tr>
         </table>
         <?php

@@ -19,28 +19,42 @@ const wss = new WebSocketServer({
 var tabl = new Set();
 const mysql = require("sync-mysql");
 var today;
-var R = 6371000; //rayon de la terre en mètres
+//var R = 6371000; //rayon de la terre en mètres
 var nbUtilisateurs=0;
 async function sqlquery(query) {
     result = con.query(query);
     return result;
-}
+}/*
 var lastcords={
     lat:0,
     lon:0
 };
+var laplat;
+var laplon;
+var sumspeed;
+var nbdonnees;
+var laps;
+var lastlaptime;
 var tempsdebut;
-var lasttemps=new Date();
+var lasttemps=new Date();*/
 const con = new mysql({ //à changer avec les paramètres du serveur mysql
     host: "localhost",
     user: DATABASE_LOGIN,
     password: DATABASE_PASSWORD,
     database: DATABASE
-});
+});/*
 function distance(point1, point2) {
     var degToRad = Math.PI / 180;
     return R * degToRad * Math.sqrt(Math.pow(Math.cos(point1.lat * degToRad ) * (point1.lon - point2.lon) , 2) + Math.pow(point1.lat - point2.lat, 2));
 }
+function newlapcheck(temps,latnow,lonnow){
+    if(temps>lastlaptime+10000){
+        if(Math.abs(latnow-laplat)<0.0005 && Math.abs(lonnow-laplon)<0.0005){
+            lastlaptime=temps;
+            laps+=1;
+        }
+    }
+}*/
 
 wss.on("connection", function (ws) {
     console.log("nouvelle connexion");
@@ -65,7 +79,6 @@ wss.on("connection", function (ws) {
             case "debutrun":
                 today = new Date();
                 tempsdebut=today;
-                //today.setTime(today.getTime()+3600000);
                 var dd = today.getDate();
                 var mm = today.getMonth()+1; 
                 var yyyy = today.getFullYear();
@@ -94,23 +107,36 @@ wss.on("connection", function (ws) {
                     seconds='0'+seconds;
                 }  
                 today = dd+'/'+mm+'/'+yyyy+'-'+hour+'h'+minutes+'m'+seconds+'s';
+                /*
+                laplat=obj.lat;
+                laplon=obj.lon;
+                laps=0;
+                var tempsact=new Date();
+                lastlaptime=tempsact.getTime();
+                sumspeed=0;
+                nbdonnees=0; */
                 break;
             case "dataFromCar":
-                var cordsact={
+                /*var cordsact={
                     lat:obj.latt,
                     lon:obj.long,
                 }
                 var tempsact=new Date();
                 if(tempsact.getTime()-lasttemps.getTime()==0){tempsact.setTime(tempsact.getTime()+1);}
                 obj.vitesse=distance(cordsact,lastcords)*3600/(tempsact.getTime()-lasttemps.getTime());
-                obj.vitesse=(obj.vitesse).toFixed(3);
-                obj.temps=(tempsact.getTime()-tempsdebut.getTime())/1000;
-                obj.temps=(obj.temps).toFixed();
+                obj.vitesse=(obj.vitesse).toFixed(3);*/
+                sumspeed+=obj.vitesse;
+                nbdonnees+=1;
+                obj.avgspeed=sumspeed/nbdonnees;
+                /* obj.temps=(tempsact.getTime()-tempsdebut.getTime())/1000;
+                /obj.temps=(obj.temps).toFixed();
+                newlapcheck(tempsact.getTime(),obj.latt,obj.long);
+                obj.laps=laps;*/
                 data = JSON.stringify(obj);
                 wss.clients.forEach(client => client.send(data));
-                sqlquery("INSERT INTO `data` (`dataid`, `temps`, `vitesse`, `intensite`,`tension`,`energie`,`lat`, `lon`) VALUES ('"+today+"', '"+obj.temps+"', '"+obj.vitesse+"', '"+obj.intensite+"', '"+obj.tension+"', '"+obj.energie+"', '"+obj.latt+"', '"+obj.long+"');");
-                lastcords=cordsact;
-                lasttemps=tempsact;
+                sqlquery("INSERT INTO `data` (`dataid`, `temps`, `vitesse`,`avgspeed`, `intensite`,`tension`,`energie`,`lat`, `lon`, `alt`, `lap`) VALUES ('"+today+"', '"+obj.temps+"', '"+obj.vitesse+"', '"+obj.avgspeed+"', '"+obj.intensite+"', '"+obj.tension+"', '"+obj.energie+"', '"+obj.lati+"', '"+obj.long+"', '"+obj.alti+"', '"+obj.laps+"');");
+                /*lastcords=cordsact;
+                lasttemps=tempsact;*/
                 break;
             case "nouveautracer":
 		        console.log("nouveau tracer");

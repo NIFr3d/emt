@@ -12,9 +12,11 @@ socket.onopen = function () {
             layer.remove();
             document.getElementById("temps").innerHTML = data.temps;
             document.getElementById("vitesse").innerHTML = data.vitesse;
+            document.getElementById("avgspeed").innerHTML = data.avgspeed;
             document.getElementById("intensite").innerHTML = data.intensite;
             document.getElementById("tension").innerHTML = data.tension;
             document.getElementById("energie").innerHTML = data.energie;
+            document.getElementById("laps").innerHTML = data.laps;
             layer = L.marker([data.latt,data.long]).addTo(map);
             break;
         case "fromStrategy":
