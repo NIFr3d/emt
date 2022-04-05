@@ -11,7 +11,6 @@
     <?php include("nav.php"); ?>
 </head>
 <body>
-    <div class="corps">
     <?php
     session_start();
     if(!isset($_SESSION["acces"])) header("location: chooselogin");
@@ -36,7 +35,6 @@ if($_SESSION["acces"]==1){
 ?>
 </form>
 <div id="run"></div>
-</div>
 </body>
 <footer>
 <script type="text/javascript">

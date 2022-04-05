@@ -31,12 +31,12 @@ var lastcords={
 };
 var laplat;
 var laplon;
-var sumspeed;
-var nbdonnees;
 var laps;
 var lastlaptime;
 var tempsdebut;
 var lasttemps=new Date();*/
+var sumspeed;
+var nbdonnees;
 const con = new mysql({ //à changer avec les paramètres du serveur mysql
     host: "localhost",
     user: DATABASE_LOGIN,
@@ -113,8 +113,9 @@ wss.on("connection", function (ws) {
                 laps=0;
                 var tempsact=new Date();
                 lastlaptime=tempsact.getTime();
+                 */
                 sumspeed=0;
-                nbdonnees=0; */
+                nbdonnees=0;
                 break;
             case "dataFromCar":
                 /*var cordsact={
@@ -128,6 +129,7 @@ wss.on("connection", function (ws) {
                 sumspeed+=obj.vitesse;
                 nbdonnees+=1;
                 obj.avgspeed=sumspeed/nbdonnees;
+                obj.avgspeed=(obj.avgspeed).toFixed(3);
                 /* obj.temps=(tempsact.getTime()-tempsdebut.getTime())/1000;
                 /obj.temps=(obj.temps).toFixed();
                 newlapcheck(tempsact.getTime(),obj.latt,obj.long);

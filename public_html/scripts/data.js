@@ -17,7 +17,7 @@ socket.onopen = function () {
             document.getElementById("tension").innerHTML = data.tension;
             document.getElementById("energie").innerHTML = data.energie;
             document.getElementById("laps").innerHTML = data.laps;
-            layer = L.marker([data.latt,data.long]).addTo(map);
+            layer = L.marker([data.lati,data.long]).addTo(map);
             break;
         case "fromStrategy":
             if(acces==2 || acces==1){
