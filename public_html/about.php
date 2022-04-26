@@ -39,6 +39,7 @@
             <td>Lucie Jeannin</td>
         </tr>
         </table>
+        <!--<button type="button" class="bouton" id="theme" onclick="changertheme()">Changer de thème</button>-->
         <div id="compteur">
 	        <h3>Nombre d'utilisateurs connectés : <span id="nbUtilisateurs"></span></h3>
         <?php
@@ -49,6 +50,26 @@
         </div>
         
     </div>
+    <script>
+        var r = document.querySelector(':root');
+        function changertheme(){
+            var rs = getComputedStyle(r);
+            if(rs.getPropertyValue('--bgcolor')=="white"){
+                r.style.setProperty('--bgcolor', 'black');
+                r.style.setProperty('--menucolor', 'steelblue');
+                r.style.setProperty('--menucolorhover', 'darkblue');
+                r.style.setProperty('--colorblack', 'white');
+                r.style.setProperty('--colorwhite', 'black');
+            }
+            else{
+                r.style.setProperty('--bgcolor', 'white');
+                r.style.setProperty('--menucolor', '#019cde');
+                r.style.setProperty('--menucolorhover', '#007ade');
+                r.style.setProperty('--colorblack', 'black');
+                r.style.setProperty('--colorwhite', 'white');
+            }
+        }
+    </script>
 </body>
 <footer>
     <script src="../scripts/nbuser.js"></script>

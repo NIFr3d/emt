@@ -2,6 +2,18 @@ html, body {
     height: 100%;
 }
 
+:root{
+	--bgcolor:white;
+	--menucolor:#019cde;
+	--menucolorhover:#007ade;
+	--colorblack:black;
+	--colorwhite:white;
+}
+
+body{
+	background-color:var(--bgcolor);
+}
+
 .container {
     height: 100%;
     min-height: -moz-available;
@@ -10,10 +22,11 @@ html, body {
 }
 
 .corps{
-		max-width: 850px;
-		margin: auto;
-		margin-top:25px;
+	max-width: 850px;
+	margin: auto;
+	margin-top:25px;
 }
+
 .corps2{
 	width: 100%;
 	text-align: center;
@@ -28,6 +41,7 @@ html, body {
     margin-left:10%;
     width:90%;
 }
+
 .champuser{
     width: 80%;
     padding: 12px 20px;
@@ -40,8 +54,8 @@ html, body {
 .bouton{
     width:30%;
 	aspect-ratio:6;
-    background-color: #019cde;
-    color: white;
+    background-color: var(--menucolor);
+    color: var(--colorwhite);
     cursor: pointer;
 	border: 1px solid;
 	text-align: center;
@@ -50,9 +64,11 @@ html, body {
 	border-radius: 50px;
 	behavior: url(/pie/PIE.htc);
 }
+
 .bouton:hover{
-    background-color: #007ade;
+    background-color: var(--menucolorhover);
 }
+
 #addusererror,#addusersuccess{
     display:none;
 }
@@ -68,6 +84,10 @@ html, body {
 	margin-left: 34.5%;
 }
 
+#theme {
+	margin-top: 5%;
+}
+
 #map { 
     position: absolute;
     top:0;
@@ -77,7 +97,7 @@ html, body {
 
 #canevas {
     position: relative;
-    border:1px solid #000000;
+    border:1px solid var(--colorblack);
 }
 
 table{
@@ -96,32 +116,34 @@ tbody{
 }
 
 tr{
-    color: black;
+    color: var(--colorblack);
     border: 1px;
-	border-color:#000000;
+	border-color:var(--colorblack);
     padding-right: 25px;
 	padding-left: 25px;
 	padding-top:10px;
 	padding-bottom:10px;
 }
+
 th{
-    color: black;
-	border-color:#000000;
+    color: var(--colorblack);
+	border-color:var(--colorblack);
 	border-collapse: collapse;	
     padding-right: 25px;
 	padding-left: 25px;
 	padding-top:10px;
 	padding-bottom:10px;
 }
+
 td{
-    color: black;
-	border-color:#000000;
+    color: var(--colorblack);
+	border-color:var(--colorblack);
 	border-collapse: collapse;
 	text-align:center;
 }
 
 .boutonTab{
-    color: black;
+    color: var(--colorblack);
     cursor: pointer;
 	border: 1px solid;
 	-webkit-border-radius: 50px;
@@ -129,6 +151,7 @@ td{
 	border-radius: 50px;
 	behavior: url(/pie/PIE.htc);
 }
+
 .boutonTab:disabled{
 	pointer-events:none;
 	cursor:none;
@@ -148,6 +171,7 @@ td{
 	vertical-align:middle;	
 	margin:0;
 }
+
 #profil{
 	height:20px;
 	width:23px;
@@ -173,6 +197,7 @@ td{
 	padding:0;
 	margin:0;
 }
+
 #données{
 	padding:0;
 	text-align:center;
@@ -180,6 +205,7 @@ td{
 	margin-bottom:15px;
 	border:1px solid;
 }
+
 #intitulés{
 	font-family:Serif;
 	font-size:20px;	
@@ -190,8 +216,8 @@ td{
 	margin-left:40%;
 	width:20%;
 	height:5%;
-	background-color:#019cde;
-	color:white;
+	background-color:var(--menucolor);
+	color:var(--colorwhite);
 	border: 1px solid;
 	behavior: url(/pie/PIE.htc);
 }
@@ -200,46 +226,51 @@ td{
 	margin-left:-0.6vw;
 	margin-right:-0.5vw;
 	margin-top:-13px;
-	background-color: #019cde;
+	background-color: var(--menucolor);
 	overflow: hidden;
-  }
+}
+
 .bordnav a {
-	color: white;
+	color: var(--colorwhite);
 	text-align: center;
 	padding: 18px 21px;
 	text-decoration: none;
 	font-size: 16px;
-  }
+}
+
 .bordnav > #navleft > a {
 	float:left;
 	display: block;
-	color: white;
+	color: var(--colorwhite);
 	text-align: center;
 	padding: 18px 21px;
 	text-decoration: none;
 	font-size: 16px;
-  }
+}
+
 .bordnav > #alignright {
 	float:right;
 	display:block;
 	padding:18px 21px;
 }
+
 .bordnav > #navright > a {
 	float:left;
 	display: block;
-	color: white;
+	color: var(--colorwhite);
 	text-align: center;
 	padding: 18px 21px;
 	text-decoration: none;
 	font-size: 16px;
 }
+
 .bordnav a:hover {
-	background-color: #007ade;
-  }
+	background-color: var(--menucolorhover);
+}
   
 .bordnav .icon {
 	display: none;
-  }
+}
 
 @media screen and (max-width: 1080px) {
 	.bordnav #navleft a:not(:first-child) {display: none;}
@@ -325,27 +356,33 @@ h3{
 	position:absolute;
 	bottom:0;
 }
+
 #aligniconegps{
 	text-align:center;
 }
+
 #iconegps{
 	max-width:25px;
 	max-height:25px;
 }
+
 #coordonnées{
 	border:0px;
 	background:transparent;
 	cursor:pointer;
 }
+
 #tablTab{
 	margin-top:5vh;
 }
+
 #executerstrat{
 	display:flex;
 	align-items:center;
 	justify-content:center;
 	margin:20px auto;
 }
+
 #chooselog{
 	display: inline-block;
 	width:100%;
@@ -373,18 +410,19 @@ h3{
 	width:70%;
 	height:50%;
 	padding:0.5em;
-	background-color:#019cde;
-	color:white;
+	background-color:var(--menucolor);
+	color:var(--colorwhite);
 	border: 1px solid;
 	border-radius:100px;
 }
+
 #choixcircuit select{
 	border-radius:100px;
 }
 
 .boutonConfirm{
-    color: white;
-	background-color:#019cde;
+    color: var(--colorwhite);
+	background-color:var(--menucolor);
     cursor: pointer;
 	border: 1px solid;
 	-webkit-border-radius: 50px;
@@ -392,12 +430,13 @@ h3{
 	border-radius: px;
 	behavior: url(/pie/PIE.htc);
 }
+
 .dispmdp{
 	width:500px;
 }
 
 .boutonConfirm:hover{
-	background-color:#007ade;
+	background-color:var(--menucolorhover);
 }
 
 /* required styles */
