@@ -2,8 +2,18 @@ const validtoken="L2eEzMs7ZMpNJYCQaECg";
 const { PORT, DATABASE_LOGIN, DATABASE_PASSWORD, DATABASE } = require('./config.json');
 console.dir(PORT);
 const WebSocketServer = require("ws").Server;
+
+const https = require('https');
+const fs = require('fs');
+
+const options = {
+  key: fs.readFileSync('/home/emt/star.polytech-nancy.univ-lorraine.fr.key'),
+  cert: fs.readFileSync('/home/emt/__polytech-nancy_univ-lorraine_fr_cert.cer')
+};
+
+var serv_https = https.createServer(options).listen(PORT);
+
 const wss = new WebSocketServer({ 
-    port: PORT, 
     verifyClient: (info, callback) => {
         const token = info.req.url.split('token=')[1];
         var isValidToken = false;
@@ -14,7 +24,8 @@ const wss = new WebSocketServer({
         } else {
           callback(true);
         }
-    }
+    },
+    server:serv_https
 });
 var tabl = new Set();
 const mysql = require("sync-mysql");

@@ -372,9 +372,14 @@ h3{
 #choixcircuit{
 	width:70%;
 	height:50%;
+	padding:0.5em;
 	background-color:#019cde;
 	color:white;
 	border: 1px solid;
+	border-radius:100px;
+}
+#choixcircuit select{
+	border-radius:100px;
 }
 
 .boutonConfirm{

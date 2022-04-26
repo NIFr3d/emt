@@ -49,10 +49,14 @@ function getCircuits(){
     return $result;
 }
 function changeCircuit($nom){
-    $sql_query="UPDATE `circuits` SET `actif`=0";
-    $result_set = mysqli_query($this->id,$sql_query); 
-    $sql_query="UPDATE `circuits` SET `actif`=1 WHERE `nom` LIKE '$nom'";
-    $result_set = mysqli_query($this->id,$sql_query); 
+    $sql_query = "SELECT `nom` FROM `circuits` WHERE `nom` LIKE '$nom'";
+    $result_set = mysqli_query($this->id,$sql_query);
+    if($result_set->num_rows != 0){
+        $sql_query="UPDATE `circuits` SET `actif`=0";
+        $result_set = mysqli_query($this->id,$sql_query); 
+        $sql_query="UPDATE `circuits` SET `actif`=1 WHERE `nom` LIKE '$nom'";
+        $result_set = mysqli_query($this->id,$sql_query); 
+    }
     $result = mysqli_fetch_row($result_set)[0];
     return $result;
 }

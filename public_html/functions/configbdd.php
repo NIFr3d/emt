@@ -2,7 +2,7 @@
 
 $host = "localhost";
 $user = "emt";
-$pass = "uicosphi";
+$pass = 't2J$Azn4!5k';
 $base = "emt";
 
 ?>

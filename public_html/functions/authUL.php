@@ -19,6 +19,6 @@ if($isEmt){
     header("location:../index");
 }
 else{
-    phpCAS::logoutWithRedirectService("http://emt.polytech-nancy.univ-lorraine.fr/chooselogin?erreur=notaut");
+    phpCAS::logoutWithRedirectService("https://emt.polytech-nancy.univ-lorraine.fr/chooselogin?erreur=notaut");
 }
 ?>
