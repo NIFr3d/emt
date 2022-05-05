@@ -10,9 +10,9 @@
   <body>
 	<div class="corps">
 		<form method="post" action="functions/login">
-					<h1>Bienvenue sur le site de suivi de l'EMT</h1><br> <h3>Veuillez vous identifier</h3>
+					<h1>Bienvenue sur le site de suivi de l'EMT</h1> <h3 style="padding-top:50px;padding-bottom:10px;margin-left:-15px;">Veuillez vous identifier</h3>
 					<div class="field">
-						<label for="login">Identifiant :</label> <br/>
+						<label for="login">Identifiant :</label><br/>
 						<input type="text" id="login" class="champuser" name="login" placeholder="Identifiant" />
 					</div>
 					<div class="field">

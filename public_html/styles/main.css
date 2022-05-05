@@ -166,7 +166,7 @@ td{
 
 #deconnexion,#accueil,#profil{
 	aspect-ratio:1;
-	height:20px;
+	max-height: 20px;
 	position:relative;
 	vertical-align:middle;	
 	margin:0;
@@ -341,15 +341,18 @@ h1{
 	text-align:center;
 	font-weight:100;
 	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	color:var(--colorblack);
 }
 
 h2{
 	font-weight:bolder;
 	font-size:20;
+	color:var(--colorblack);
 }
 
 h3{
 	font-size:22;
+	color:var(--colorblack);
 }
 
 #compteur{
