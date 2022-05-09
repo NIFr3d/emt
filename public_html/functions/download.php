@@ -1,4 +1,5 @@
 <?php
+// Téléchargement d'un fichier excel contenant les données d'une course
 include("BDD.php");
 require('../../vendor/autoload.php');
 

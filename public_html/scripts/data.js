@@ -1,23 +1,22 @@
-
-var token=sessionStorage.getItem("token");
-var socket = new WebSocket("wss://emt.polytech-nancy.univ-lorraine.fr:8080/wsapi/?token="+token);
+var token=sessionStorage.getItem("token"); //On récupère le token de sécurité pour fiabiliser les requêtes
+var socket = new WebSocket("wss://emt.polytech-nancy.univ-lorraine.fr:8080/wsapi/?token="+token); //On établie la connexion au serveur
 var layer = L.marker();
 
 var acces=sessionStorage.getItem("acces");
 socket.onopen = function () {
-  socket.onmessage = function (event) {
+  socket.onmessage = function (event) { 
     data = JSON.parse(event.data);
-    switch (data.event) {
+    switch (data.event) { //On regarde quel événement est envoyé
         case "dataFromCar":
-            layer.remove();
-            document.getElementById("temps").innerHTML = data.temps;
+            layer.remove(); //On supprime le marker précédent
+            document.getElementById("temps").innerHTML = data.temps; //On actualise les données
             document.getElementById("vitesse").innerHTML = data.vitesse;
             document.getElementById("avgspeed").innerHTML = data.avgspeed;
             document.getElementById("intensite").innerHTML = data.intensite;
             document.getElementById("tension").innerHTML = data.tension;
             document.getElementById("energie").innerHTML = data.energie;
             document.getElementById("laps").innerHTML = data.laps;
-            layer = L.marker([data.lati,data.long]).addTo(map);
+            layer = L.marker([data.lati,data.long]).addTo(map); //On ajoute le nouveau marker
             break;
         case "fromStrategy":
             if(acces==2 || acces==1){
@@ -28,21 +27,21 @@ socket.onopen = function () {
     }
     
 }
-var canevas = document.getElementById("canevas");
-contexte = canevas.getContext("2d");
+var canevas = document.getElementById("canevas"); //On récupère le canvas qui sert à dessiner le tracé du circuit
+contexte = canevas.getContext("2d"); 
 var flipflop = true;
-const envoitracer = document.getElementById('envoitracer');
+const envoitracer = document.getElementById('envoitracer'); //On récupère le bouton d'envoi de tracé
 var img = document.createElement("img");
 var cir = sessionStorage.getItem("cir");
-img.src ="../Cartes/"+cir+"/out.png?" + new Date().getTime();
+img.src ="../Cartes/"+cir+"/out.png?" + new Date().getTime(); //On récupère le dernier tracé
 img.onload=function(){
-    contexte.drawImage(img, 0, 0);
+    contexte.drawImage(img, 0, 0); //On affiche le dernier tracé lorsque l'image est chargée
 };
 const executerstrat = document.getElementById("executerstrat");
 
 if(acces==1 || acces==2){
-    executerstrat.addEventListener('click',function(){
-        socket.send(JSON.stringify({
+    executerstrat.addEventListener('click',function(){ //On envoie un message au serveur lorsque l'utilisateur clique sur le bouton
+        socket.send(JSON.stringify({ 
             event:"requetedonnees"
         }))
     });
@@ -50,7 +49,7 @@ if(acces==1 || acces==2){
         contexte.clearRect(0, 0, canevas.width, canevas.height);
         flipflop = true;
     });
-    canevas.addEventListener('click', function (e) {
+    canevas.addEventListener('click', function (e) { // Fonction de dessin du tracé
         var rect = e.target.getBoundingClientRect();
         var x = e.clientX - rect.left; //x position within the element.
         var y = e.clientY - rect.top;  //y position within the element

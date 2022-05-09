@@ -1,4 +1,5 @@
 <html lang="fr">
+	<!-- Ceci est la page d'enregistrement pour les utilisateurs extérieurs. -->
   <head> 
     <title>
       EMT 2021-2022

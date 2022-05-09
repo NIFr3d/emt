@@ -1,4 +1,5 @@
 <html lang="fr">
+    <!-- Ceci est la page de profil utilisateur. Elle n'est affichée que pour les utilisateurs extérieurs et sert à changer de mot de passe. -->
 <head>
     <title>
         EMT 2021-2022

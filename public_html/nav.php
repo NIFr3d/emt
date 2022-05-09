@@ -1,4 +1,5 @@
 <html lang="fr">
+  <!-- Ceci est la navigation de l'application. -->
   <head> 
     <title>
       EMT 2021-2022
@@ -10,7 +11,7 @@
     <nav>
     <?php
       session_start();
-      if($_SESSION["acces"]==1){
+      if($_SESSION["acces"]==1){ // La navigation est différente selon l'accès de l'utilisateur.
         ?>
         <div id="topnav" class="bordnav">
           <div id="navleft">

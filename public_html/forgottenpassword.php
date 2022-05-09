@@ -1,4 +1,5 @@
 <html lang="fr">
+  <!-- Cette page servait à récupérer son compte lorsqu'on perdait son mot de passe. Elle est devenue inutilisée lorsqu'on nous sommes passés à la connexion via l'UL. -->
   <head> 
     <title>
       EMT 2021-2022

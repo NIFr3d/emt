@@ -1,5 +1,5 @@
 <html lang="fr">
-
+<!-- Page about réalisée sur demande de M. Sarteaux, contient des informations sur les élèves réalisants le projet EMT et certaines fonctionnalités peu utiles -->
 <head>
     <title>
         EMT 2021-2022
@@ -51,6 +51,7 @@
         
     </div>
     <script>
+        // Fonction qui permet de changer de thème (mode nocturne ou jour)
         var r = document.querySelector(':root');
         function changertheme(){
             var rs = getComputedStyle(r);
@@ -72,6 +73,7 @@
     </script>
 </body>
 <footer>
+    <!-- Contient le script de compteur de connexions -->
     <script src="../scripts/nbuser.js"></script>
 </footer>
 </html>

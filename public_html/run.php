@@ -1,4 +1,5 @@
 <html lang="fr">
+  <!-- Cette page affiche le détail d'un run. -->
   <head> 
     <title>
       EMT 2021-2022
@@ -11,7 +12,7 @@
     <?php
     include("functions/BDD.php");
     $listeruns=$db->getRunHistory();
-    $choix=$_GET["choix"];
+    $choix=$_GET["choix"]; // On récupère le numéro du run à afficher depuis l'url.
     $choixstr=$listeruns[$choix][0];
     $runinfos=$db->getRunInfos($choixstr);
     session_start();

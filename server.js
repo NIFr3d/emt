@@ -1,20 +1,19 @@
-const validtoken="L2eEzMs7ZMpNJYCQaECg";
-const { PORT, DATABASE_LOGIN, DATABASE_PASSWORD, DATABASE } = require('./config.json');
+const validtoken="L2eEzMs7ZMpNJYCQaECg"; //token de vérification
+const { PORT, DATABASE_LOGIN, DATABASE_PASSWORD, DATABASE } = require('./config.json'); //on récupère les données de connection à la BDD
 console.dir(PORT);
-const WebSocketServer = require("ws").Server;
-
+const WebSocketServer = require("ws").Server; //on importe les modules requis
 const https = require('https');
 const fs = require('fs');
 
 const options = {
-  key: fs.readFileSync('/home/emt/star.polytech-nancy.univ-lorraine.fr.key'),
+  key: fs.readFileSync('/home/emt/star.polytech-nancy.univ-lorraine.fr.key'), //on récupère les certificats pour la connexion sécurisée
   cert: fs.readFileSync('/home/emt/__polytech-nancy_univ-lorraine_fr_cert.cer')
 };
 
-var serv_https = https.createServer(options).listen(PORT);
+var serv_https = https.createServer(options).listen(PORT); //on crée le serveur https
 
-const wss = new WebSocketServer({ 
-    verifyClient: (info, callback) => {
+const wss = new WebSocketServer({ //on crée le serveur websocket
+    verifyClient: (info, callback) => { //on vérifie que le client est autorisé à se connecter
         const token = info.req.url.split('token=')[1];
         var isValidToken = false;
         if(token==validtoken) isValidToken=true;

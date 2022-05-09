@@ -1,5 +1,5 @@
 <html lang="fr">
-
+<!-- Cette page permet d'accéder à l'historique des courses. -->
 <head>
     <title>
         EMT 2021-2022
@@ -13,8 +13,8 @@
 <body>
     <?php
     session_start();
-    if(!isset($_SESSION["acces"])) header("location: chooselogin");
-    include("functions/BDD.php");
+    if(!isset($_SESSION["acces"])) header("location: chooselogin"); // Si l'utilisateur n'est pas connecté, il est redirigé vers la page de connexion.
+    include("functions/BDD.php");                                   // On inclut la page de connexion à la base de données.
     ?>
     <form method="post" action="functions/removerun.php">
     <select name="choixrun" id="choixrun">
@@ -38,6 +38,7 @@ if($_SESSION["acces"]==1){
 </body>
 <footer>
 <script type="text/javascript">
+    // Cette fonction permet d'afficher le détail d'une course en chargeant la page de détail de course run.php. Elle utilise JQuery.
     function afficherRun(){
         var liste = document.getElementById("choixrun");
         var choix = liste.options[liste.selectedIndex].value;

@@ -1,5 +1,5 @@
 <html lang="fr">
-
+<!-- Cette page sert à ajouter/modifier/supprimer un compte utilisateur UL. -->
 <head>
     <title>
         EMT 2021-2022

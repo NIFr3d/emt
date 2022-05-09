@@ -1,5 +1,6 @@
 <?php
 include("BDD.php");
+// Enlève les guillemets
 $userid = stripslashes($_POST["login"]);
 $mdp = stripslashes($_POST["mdp"]);
 
@@ -8,6 +9,7 @@ $mdp = stripslashes($_POST["mdp"]);
     } else {
         if (password_verify($mdp,$db->getMdp($userid))){
             $infos=$db->getinfos($userid);
+            // On lance la session et on stocke les informations nécessaires
             session_start();
             $_SESSION["nom"]=$infos[0];
             $_SESSION["prenom"]=$infos[1];

@@ -7,8 +7,8 @@ phpCAS::setNoCasServerValidation();
 if(!phpCAS::checkAuthentication()){
     phpCAS::forceAuthentication();
 }
-$isEmt=$db->isEmt(phpCAS::getAttribute("mail"));
-if($isEmt){
+$userExistul=$db->userExistul(phpCAS::getAttribute("mail"));
+if($userExistul){
     $acces=$db->accesforUL(phpCAS::getAttribute("mail"));
     $_SESSION["nom"]=phpCAS::getAttribute("sn");
     $_SESSION["prenom"]=phpCAS::getAttribute("givenname");

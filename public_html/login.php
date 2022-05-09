@@ -1,4 +1,5 @@
 <html lang="fr">
+	<!-- Cette page permet de se connecter pour les utilisateurs extérieurs à l'UL. -->
   <head> 
     <title>
       EMT 2021-2022
@@ -26,7 +27,7 @@
 					if(isset($_GET["erreur"])) echo($_GET["erreur"]);
 					?>
 		</form>
-		<a href="forgottenpassword" style="display:none;">Mot de passe oublié</a>
+		<a href="forgottenpassword" style="display:none;">Mot de passe oublié</a> <!-- La page de récupération de mot de passe a été désactivée car il n'y a pas d'utilisateur extérieur cette année. -->
 		<h2>Si vous n'avez pas de compte, vous pouvez demander à en créer un ci-dessous :</h2>
 		<form method="post" action="register"><button type="submit" class="bouton">S'enregistrer</button></form>
 		<div class="field">
