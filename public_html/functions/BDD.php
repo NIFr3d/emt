@@ -54,20 +54,20 @@ function getUserListUL(){
 
 // Récupérer liste des circuits
 function getCircuits(){
-    $sql_query = "SELECT `nom` FROM `circuits`";
+    $sql_query = "SELECT `nom`, `id` FROM `circuits`";
     $result_set = mysqli_query($this->id, $sql_query);
     $result = mysqli_fetch_all($result_set);
     return $result;
 }
 
 // Changer le circuit actif
-function changeCircuit($nom){
-    $sql_query = "SELECT `nom` FROM `circuits` WHERE `nom` LIKE '$nom'";
+function changeCircuit($id){
+    $sql_query = "SELECT `nom` FROM `circuits` WHERE `id` LIKE '$id'";
     $result_set = mysqli_query($this->id,$sql_query);
     if($result_set->num_rows != 0){
         $sql_query="UPDATE `circuits` SET `actif`=0";
         $result_set = mysqli_query($this->id,$sql_query); 
-        $sql_query="UPDATE `circuits` SET `actif`=1 WHERE `nom` LIKE '$nom'";
+        $sql_query="UPDATE `circuits` SET `actif`=1 WHERE `id` LIKE '$id'";
         $result_set = mysqli_query($this->id,$sql_query); 
     }
     $result = mysqli_fetch_row($result_set)[0];
@@ -76,10 +76,29 @@ function changeCircuit($nom){
 
 // Afficher le circuit actuel
 function getCurrentCircuit(){
-    $sql_query = "SELECT `lat`, `lon`, `nom` FROM `circuits` WHERE `actif`=1";
+    $sql_query = "SELECT `lat`, `lon`, `nom`, `zoom` FROM `circuits` WHERE `actif`=1";
     $result_set = mysqli_query($this->id, $sql_query);
     $result = mysqli_fetch_all($result_set)[0];
     return $result;
+}
+
+// Supprimer un circuit
+function removeCircuit($id){
+    $sql_query = "DELETE FROM `circuits` WHERE `id`='$id'";
+    $result_set = mysqli_query($this->id,$sql_query);
+    $sql_query="SELECT SUM(`actif`) FROM `circuits`";
+    $result_set = mysqli_query($this->id,$sql_query);
+    $result = mysqli_fetch_all($result_set)[0];
+    if($result[0]=="0"){
+        $sql_query = "UPDATE `circuits` SET `actif`=1 WHERE `nom`='Nogaro'";
+        $result_set = mysqli_query($this->id,$sql_query);
+    }
+}
+
+// Ajouter un circuit
+function addCircuit($lat,$lon,$zoom,$cir){
+    $sql_query = "INSERT INTO `circuits` (`lat`, `lon`, `zoom`, `nom`, `actif`) VALUES ('$lat', '$lon', '$zoom', '$cir', '0');";
+    $result_set = mysqli_query($this->id,$sql_query);
 }
 
 // Récupérer le nombre d'utilisateurs
@@ -103,7 +122,7 @@ function getRunHistory(){
 
 // Récupérer informations courses
 function getRunInfos($dataid){
-    $sql_query = "SELECT `temps`, `vitesse`,`avgspeed`,`intensite`,`tension`,`energie`,`lat`,`lon`,`alt`,`lap` FROM `data` WHERE `dataid` LIKE '$dataid'";
+    $sql_query = "SELECT `temps`, `vitesse`,`avgspeed`,`intensite`,`tension`,`energie`,`lat`,`lon`,`alt`,`lap`,`distance` FROM `data` WHERE `dataid` LIKE '$dataid'";
     $result_set = mysqli_query($this->id,$sql_query); 
     $result = mysqli_fetch_all($result_set); 
     return $result;

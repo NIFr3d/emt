@@ -27,13 +27,13 @@
             <th>Essais et stratégie</th>
         </tr>
         <tr>
-            <td>Lucas Printz</td>
+            <td>Frédéric Wagner</td>
             <td>Bryce Mathieu</td>
             <td>Arthur Hurdebourg</td>
             <td>Estelle Baby</td>   
         </tr>
         <tr>
-            <td>Frédéric Wagner</td>
+            <td>Lucas Printz</td>
             <td>Nabil Benmira</td>
             <td>Christianna Anna</td>
             <td>Lucie Jeannin</td>

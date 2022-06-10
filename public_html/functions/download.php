@@ -19,11 +19,15 @@ $choixstr=$listeruns[$choix][0];
 $runinfos=$db->getRunInfos($choixstr);
 $s->setCellValueByColumnAndRow(1, 1, "temps");
 $s->setCellValueByColumnAndRow(2, 1, "vitesse");
-$s->setCellValueByColumnAndRow(3, 1, "intensité");
-$s->setCellValueByColumnAndRow(4, 1, "tension");
-$s->setCellValueByColumnAndRow(5, 1, "énergie");
-$s->setCellValueByColumnAndRow(6, 1, "latitude");
-$s->setCellValueByColumnAndRow(7, 1, "longitude");
+$s->setCellValueByColumnAndRow(3, 1, "vitesse moyenne");
+$s->setCellValueByColumnAndRow(4, 1, "intensité");
+$s->setCellValueByColumnAndRow(5, 1, "tension");
+$s->setCellValueByColumnAndRow(6, 1, "énergie");
+$s->setCellValueByColumnAndRow(7, 1, "latitude");
+$s->setCellValueByColumnAndRow(8, 1, "longitude");
+$s->setCellValueByColumnAndRow(9, 1, "altitude");
+$s->setCellValueByColumnAndRow(10, 1, "distance");
+$s->setCellValueByColumnAndRow(11, 1, "tour");
 for($i=1;$i<count($runinfos)+1;$i++){
     $s->setCellValueByColumnAndRow(1, $i+1, $runinfos[$i-1][0]);
     $s->setCellValueByColumnAndRow(2, $i+1, $runinfos[$i-1][1]);
@@ -32,7 +36,10 @@ for($i=1;$i<count($runinfos)+1;$i++){
     $s->setCellValueByColumnAndRow(5, $i+1, $runinfos[$i-1][4]);
     $s->setCellValueByColumnAndRow(6, $i+1, $runinfos[$i-1][5]);
     $s->setCellValueByColumnAndRow(7, $i+1, $runinfos[$i-1][6]);
-    
+    $s->setCellValueByColumnAndRow(8, $i+1, $runinfos[$i-1][7]);
+    $s->setCellValueByColumnAndRow(9, $i+1, $runinfos[$i-1][8]);
+    $s->setCellValueByColumnAndRow(10, $i+1, $runinfos[$i-1][10]);
+    $s->setCellValueByColumnAndRow(11, $i+1, $runinfos[$i-1][9]);
 }
 
 $writer = new Xlsx($spreadsheet);

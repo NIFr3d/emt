@@ -17,6 +17,7 @@
           <div id="navleft">
           <a href="index"><img id="accueil" src="../styles/images/accueil.png" alt="accueil"/> Accueil</a>
           <a href="historique">Historique des courses</a>
+          <a href="choixcircuit">Ajouter un circuit</a>
           <a href="userul">Gérer les utilisateurs UL</a>
           <a href="userext">Gérer les utilisateurs extérieurs</a>
           </div>
@@ -59,6 +60,7 @@
           <div id="navleft">
           <a href="index"><img id="accueil" src="../styles/images/accueil.png" alt="accueil"/> Accueil</a>
           <a href="historique">Historique des courses</a>
+          <a href="choixcircuit">Ajouter un circuit</a>
           </div>
           <a href="javascript:void(0);" class="icon" onclick="responsive()"><i class="fa fa-bars"></i></a>
           <div id="alignright">

@@ -1,5 +1,5 @@
 <html lang="fr">
-  <!-- Cette page servait à récupérer son compte lorsqu'on perdait son mot de passe. Elle est devenue inutilisée lorsqu'on nous sommes passés à la connexion via l'UL. -->
+  <!-- Cette page servait à récupérer son compte lorsqu'on perdait son mot de passe. Elle est devenue inutilisée lorsque nous sommes passés à la connexion via l'UL. -->
   <head> 
     <title>
       EMT 2021-2022
@@ -23,7 +23,7 @@
     <?php
       if(isset($_GET["erreur"])) echo($_GET["erreur"]);
     ?>
-      </br><a href="login.php">Retour à la page de connexion</a>
+      </br><a href="login">Retour à la page de connexion</a>
     </div>
   </body>
 <footer>
