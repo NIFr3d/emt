@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `data` (
   `dataid` varchar(20) NOT NULL,
-  `temps` int NOT NULL,
+  `temps` varchar(20) NOT NULL,
   `vitesse` float NOT NULL,
   `intensite` float NOT NULL,
   `tension` float NOT NULL,

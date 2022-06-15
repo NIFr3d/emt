@@ -1,5 +1,5 @@
 var token=sessionStorage.getItem("token"); //On récupère le token de sécurité pour fiabiliser les requêtes
-var socket = new WebSocket("ws://emt.polytech-nancy.univ-lorraine.fr:8080/wsapi/?token="+token); //On établie la connexion au serveur
+var socket = new WebSocket("ws://emt.polytech-nancy.univ-lorraine.fr:8080/wsapi/?token="+token); //On établit la connexion au serveur
 var layer = L.marker();
 
 var acces=sessionStorage.getItem("acces");
@@ -119,17 +119,33 @@ function initMap() {
         maxZoom: 20
     }).addTo(map);
 }
-window.onload = function(){    
+window.onload = async function(){    
     // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
     initMap(); 
     var url = window.location.search.substr(1).split("&");
     if(url!=''){
-        var coord={};
+        var run;
         for(var i=0; i < url.length; i++){
             var temp = url[i].split("=");
-            coord[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
+            if(temp[0]=='replayrun') run = decodeURIComponent(temp[1]);
         }
-        layer = L.marker([coord['latitude'],coord['longitude']]).addTo(map);
+        if(run!=undefined){
+            const response = await fetch("http://emt.polytech-nancy.univ-lorraine.fr/functions/replayrun?choix="+run);
+            const data = await response.json();
+            for(var i=0; i<data.length-1; i++){
+                await new Promise(resolve => setTimeout(resolve, 200));
+                layer.remove();
+                document.getElementById("temps").innerHTML = data[i].temps;
+                document.getElementById("vitesse").innerHTML = data[i].vitesse;
+                document.getElementById("avgspeed").innerHTML = data[i].avgspeed;
+                document.getElementById("intensite").innerHTML = data[i].intensite;
+                document.getElementById("tension").innerHTML = data[i].tension;
+                document.getElementById("energie").innerHTML = data[i].energie;
+                document.getElementById("laps").innerHTML = data[i].tour;
+                document.getElementById("distance").innerHTML = data[i].distance;
+                layer = L.marker([data[i].lati,data[i].long]).addTo(map);
+            }
+        }
     }
 
 };
