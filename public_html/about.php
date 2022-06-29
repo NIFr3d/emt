@@ -1,5 +1,5 @@
 <html lang="fr">
-<!-- Page about réalisée sur demande de M. Sarteaux, contient des informations sur les élèves réalisants le projet EMT et certaines fonctionnalités peu utiles -->
+<!-- Page about réalisée sur demande de M. Sarteaux, contient des informations sur les élèves réalisants le projet EMT et certaines fonctionnalités moins fondamentales -->
 <head>
     <title>
         EMT 2021-2022
